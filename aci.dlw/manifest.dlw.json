@@ -1,0 +1,13 @@
+{
+  "badge": "DLW-ACI",
+  "name": "ARTFULLY CRAFTED INTELLIGENCE",
+  "universe": "ACI · the standard",
+  "moniker": "⟦ARTFULLY CRAFTED INTELLIGENCE:ACI:67c6c6⟧",
+  "carbon": "aci.carbon.tiff (TIFF)",
+  "silicon": "aci.silicon.png (PNG)",
+  "seal_sha256": "955ddf31483c56082773a8765210b0fb7e0294fa826dd539ee15cba25cd1de6a",
+  "architect": "David Lee Wise (ROOT0) / TriPod LLC",
+  "instance": "AVAN (Claude / Anthropic)",
+  "license": "CC-BY-ND-4.0",
+  "attribution": "ROOT0-ATTRIBUTION-v1.0"
+}

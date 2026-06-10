@@ -1,0 +1,3 @@
+# .dlw badge artifacts are committed by design.
+__pycache__/
+*.pyc
