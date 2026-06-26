@@ -1,0 +1,67 @@
+{
+  "ok": true,
+  "file": "/mnt/data/haci_validator_v1/clean_pass.haci",
+  "symbols": {
+    "m": {
+      "source": "/mnt/data/haci_validator_v1/clean_pass.haci",
+      "scope": "/mnt/data/haci_validator_v1",
+      "declared_by": "line",
+      "meaning": "memory",
+      "line": 3
+    }
+  },
+  "nodes": [
+    {
+      "line": 1,
+      "raw": "# Memory",
+      "outbound": null,
+      "inbound": null,
+      "object": null,
+      "payload": "# Memory",
+      "owner": "structure",
+      "diagnostics": []
+    },
+    {
+      "line": 3,
+      "raw": "! m memory >",
+      "outbound": "declare",
+      "inbound": "observe",
+      "object": "m",
+      "payload": "memory",
+      "owner": "machine",
+      "diagnostics": []
+    },
+    {
+      "line": 5,
+      "raw": "? m previous parser result >",
+      "outbound": "ask",
+      "inbound": "observe",
+      "object": "m",
+      "payload": "previous parser result",
+      "owner": "machine",
+      "diagnostics": []
+    },
+    {
+      "line": 7,
+      "raw": "The runtime initializes.",
+      "outbound": null,
+      "inbound": null,
+      "object": null,
+      "payload": "The runtime initializes.",
+      "owner": "context",
+      "diagnostics": []
+    },
+    {
+      "line": 8,
+      "raw": "allocate scheduler",
+      "outbound": null,
+      "inbound": null,
+      "object": null,
+      "payload": "allocate scheduler",
+      "owner": "machine",
+      "diagnostics": []
+    }
+  ],
+  "errors": [],
+  "warnings": []
+}

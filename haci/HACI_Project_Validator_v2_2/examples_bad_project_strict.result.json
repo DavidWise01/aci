@@ -1,0 +1,148 @@
+{
+  "ok": false,
+  "strict": true,
+  "root": "/mnt/data/haci_project_validator_v2_2/examples/bad_project",
+  "symbols": {
+    "memory.m": {
+      "symbol": "memory.m",
+      "alias": "m",
+      "kind": "file",
+      "file": "/mnt/data/haci_project_validator_v2_2/examples/bad_project/10_memory/m.haci",
+      "scope": "memory",
+      "meaning": "memory",
+      "declared_at": "/mnt/data/haci_project_validator_v2_2/examples/bad_project/10_memory/m.haci:L1",
+      "authority": "human"
+    },
+    "runtime.runtime": {
+      "symbol": "runtime.runtime",
+      "alias": "runtime",
+      "kind": "file",
+      "file": "/mnt/data/haci_project_validator_v2_2/examples/bad_project/20_runtime/runtime.haci",
+      "scope": "runtime"
+    }
+  },
+  "aliases": {
+    "m": [
+      "memory.m"
+    ],
+    "memory.m": [
+      "memory.m"
+    ],
+    "runtime": [
+      "runtime.runtime"
+    ],
+    "runtime.runtime": [
+      "runtime.runtime"
+    ]
+  },
+  "edges": [],
+  "cycles": [],
+  "conversations": [
+    {
+      "id": "m.haci:L1:memory.m",
+      "kind": "declaration",
+      "object": "memory.m",
+      "files": [
+        "/mnt/data/haci_project_validator_v2_2/examples/bad_project/10_memory/m.haci"
+      ],
+      "start": {
+        "file": "/mnt/data/haci_project_validator_v2_2/examples/bad_project/10_memory/m.haci",
+        "line": 1,
+        "raw": "! m memory >",
+        "outbound": "declare",
+        "inbound": "observe",
+        "object": "m",
+        "resolved_object": "memory.m",
+        "payload": "memory",
+        "owner": "human",
+        "authority": "human"
+      },
+      "body": [],
+      "returns": [
+        {
+          "file": "/mnt/data/haci_project_validator_v2_2/examples/bad_project/10_memory/m.haci",
+          "line": 1,
+          "raw": "! m memory >",
+          "outbound": "declare",
+          "inbound": "observe",
+          "object": "m",
+          "resolved_object": "memory.m",
+          "payload": "memory",
+          "owner": "human",
+          "authority": "human"
+        }
+      ],
+      "complete": true,
+      "unresolved": false,
+      "diagnostics": []
+    },
+    {
+      "id": "runtime.haci:L1:m.parser.last",
+      "kind": "conversation",
+      "object": "m.parser.last",
+      "files": [
+        "/mnt/data/haci_project_validator_v2_2/examples/bad_project/20_runtime/runtime.haci"
+      ],
+      "start": {
+        "file": "/mnt/data/haci_project_validator_v2_2/examples/bad_project/20_runtime/runtime.haci",
+        "line": 1,
+        "raw": "? m.parser.last previous result >",
+        "outbound": "ask",
+        "inbound": "observe",
+        "object": "m.parser.last",
+        "resolved_object": null,
+        "payload": "previous result",
+        "owner": "human",
+        "authority": null
+      },
+      "body": [],
+      "returns": [
+        {
+          "file": "/mnt/data/haci_project_validator_v2_2/examples/bad_project/20_runtime/runtime.haci",
+          "line": 1,
+          "raw": "? m.parser.last previous result >",
+          "outbound": "ask",
+          "inbound": "observe",
+          "object": "m.parser.last",
+          "resolved_object": null,
+          "payload": "previous result",
+          "owner": "human",
+          "authority": null
+        }
+      ],
+      "complete": true,
+      "unresolved": false,
+      "diagnostics": []
+    }
+  ],
+  "errors": [
+    "/mnt/data/haci_project_validator_v2_2/examples/bad_project/20_runtime/runtime.haci:L1:DOT_PATH_NOT_FOUND:memory.m.parser.last"
+  ],
+  "warnings": [],
+  "nodes": [
+    {
+      "file": "/mnt/data/haci_project_validator_v2_2/examples/bad_project/10_memory/m.haci",
+      "line": 1,
+      "raw": "! m memory >",
+      "outbound": "declare",
+      "inbound": "observe",
+      "object": "m",
+      "resolved_object": "memory.m",
+      "payload": "memory",
+      "owner": "human",
+      "authority": "human"
+    },
+    {
+      "file": "/mnt/data/haci_project_validator_v2_2/examples/bad_project/20_runtime/runtime.haci",
+      "line": 1,
+      "raw": "? m.parser.last previous result >",
+      "outbound": "ask",
+      "inbound": "observe",
+      "object": "m.parser.last",
+      "resolved_object": null,
+      "payload": "previous result",
+      "owner": "human",
+      "authority": null
+    }
+  ]
+}

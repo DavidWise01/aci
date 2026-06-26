@@ -1,0 +1,26 @@
+# Runtime
+
+! BUILD NETWORK
+
+The runtime initializes workers.
+
+allocate scheduler
+
+allocate workers
+
+? should memory be pooled?
+
+pool memory ?
+
+> latency reduced 18%
+
+! BUILD NETWORK >
+
+BUILD RUNTIME !
+
+runtime verified >
+
+```python
+! this is code, not HACI intent
+network.start()
+```

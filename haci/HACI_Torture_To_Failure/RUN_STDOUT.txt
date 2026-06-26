@@ -1,0 +1,7 @@
+{
+  "failure": "ambiguous positive return pairing accepted",
+  "reason": "Validator accepted ambiguous positive-overlap returns. Object+payload scoring is too weak when all candidate scores tie.",
+  "saved_to": "FAILURE_FOUND",
+  "errors": [],
+  "warnings": []
+}

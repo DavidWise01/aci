@@ -1,0 +1,154 @@
+{
+  "ok": true,
+  "strict": true,
+  "root": "/tmp/tmpb1v0k3au",
+  "symbols": {
+    "memory.m": {
+      "symbol": "memory.m",
+      "alias": "m",
+      "kind": "file",
+      "file": "/tmp/tmpb1v0k3au/10_memory/m.haci",
+      "scope": "memory"
+    }
+  },
+  "aliases": {
+    "m": [
+      "memory.m"
+    ],
+    "memory.m": [
+      "memory.m"
+    ]
+  },
+  "edges": [],
+  "cycles": [],
+  "conversations": [
+    {
+      "id": "m.haci:L1:memory.m",
+      "kind": "conversation",
+      "object": "memory.m",
+      "files": [
+        "/tmp/tmpb1v0k3au/10_memory/m.haci"
+      ],
+      "start": {
+        "file": "/tmp/tmpb1v0k3au/10_memory/m.haci",
+        "line": 1,
+        "raw": "? m alpha red",
+        "outbound": "ask",
+        "inbound": null,
+        "object": "m",
+        "resolved_object": "memory.m",
+        "payload": "alpha red",
+        "owner": "human",
+        "authority": null
+      },
+      "body": [],
+      "returns": [
+        {
+          "file": "/tmp/tmpb1v0k3au/10_memory/m.haci",
+          "line": 3,
+          "raw": "m alpha green >",
+          "outbound": null,
+          "inbound": "observe",
+          "object": "m",
+          "resolved_object": "memory.m",
+          "payload": "alpha green",
+          "owner": "human",
+          "authority": null
+        }
+      ],
+      "complete": true,
+      "unresolved": false,
+      "diagnostics": []
+    },
+    {
+      "id": "m.haci:L2:memory.m",
+      "kind": "conversation",
+      "object": "memory.m",
+      "files": [
+        "/tmp/tmpb1v0k3au/10_memory/m.haci"
+      ],
+      "start": {
+        "file": "/tmp/tmpb1v0k3au/10_memory/m.haci",
+        "line": 2,
+        "raw": "? m alpha blue",
+        "outbound": "ask",
+        "inbound": null,
+        "object": "m",
+        "resolved_object": "memory.m",
+        "payload": "alpha blue",
+        "owner": "human",
+        "authority": null
+      },
+      "body": [],
+      "returns": [
+        {
+          "file": "/tmp/tmpb1v0k3au/10_memory/m.haci",
+          "line": 4,
+          "raw": "m alpha yellow >",
+          "outbound": null,
+          "inbound": "observe",
+          "object": "m",
+          "resolved_object": "memory.m",
+          "payload": "alpha yellow",
+          "owner": "human",
+          "authority": null
+        }
+      ],
+      "complete": true,
+      "unresolved": false,
+      "diagnostics": []
+    }
+  ],
+  "errors": [],
+  "warnings": [],
+  "nodes": [
+    {
+      "file": "/tmp/tmpb1v0k3au/10_memory/m.haci",
+      "line": 1,
+      "raw": "? m alpha red",
+      "outbound": "ask",
+      "inbound": null,
+      "object": "m",
+      "resolved_object": "memory.m",
+      "payload": "alpha red",
+      "owner": "human",
+      "authority": null
+    },
+    {
+      "file": "/tmp/tmpb1v0k3au/10_memory/m.haci",
+      "line": 2,
+      "raw": "? m alpha blue",
+      "outbound": "ask",
+      "inbound": null,
+      "object": "m",
+      "resolved_object": "memory.m",
+      "payload": "alpha blue",
+      "owner": "human",
+      "authority": null
+    },
+    {
+      "file": "/tmp/tmpb1v0k3au/10_memory/m.haci",
+      "line": 3,
+      "raw": "m alpha green >",
+      "outbound": null,
+      "inbound": "observe",
+      "object": "m",
+      "resolved_object": "memory.m",
+      "payload": "alpha green",
+      "owner": "human",
+      "authority": null
+    },
+    {
+      "file": "/tmp/tmpb1v0k3au/10_memory/m.haci",
+      "line": 4,
+      "raw": "m alpha yellow >",
+      "outbound": null,
+      "inbound": "observe",
+      "object": "m",
+      "resolved_object": "memory.m",
+      "payload": "alpha yellow",
+      "owner": "human",
+      "authority": null
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+Validator accepted ambiguous positive-overlap returns. Object+payload scoring is too weak when all candidate scores tie.

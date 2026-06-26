@@ -1,0 +1,6 @@
+HACI v2.5 build log
+PASS: HACI Project Validator v2.5 tests passed
+examples/failure_fixed ['--strict']: exit 1 expected 1
+examples/clean_commit ['--strict']: exit 0 expected 0
+examples/pending_then_commit ['--strict']: exit 1 expected 1
+PASS: prior v2.4 commit-gating failure now fails closed

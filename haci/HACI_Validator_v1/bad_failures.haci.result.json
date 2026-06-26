@@ -1,0 +1,73 @@
+{
+  "ok": false,
+  "file": "/mnt/data/haci_validator_v1/bad_failures.haci",
+  "symbols": {
+    "m": {
+      "source": "/mnt/data/haci_validator_v1/bad_failures.haci",
+      "scope": "/mnt/data/haci_validator_v1",
+      "declared_by": "line",
+      "meaning": "MEMORY",
+      "line": 7
+    }
+  },
+  "nodes": [
+    {
+      "line": 1,
+      "raw": "# Bad Runtime",
+      "outbound": null,
+      "inbound": null,
+      "object": null,
+      "payload": "# Bad Runtime",
+      "owner": "structure",
+      "diagnostics": []
+    },
+    {
+      "line": 3,
+      "raw": "? x previous parser result >",
+      "outbound": "ask",
+      "inbound": "observe",
+      "object": "x",
+      "payload": "previous parser result",
+      "owner": "machine",
+      "diagnostics": []
+    },
+    {
+      "line": 5,
+      "raw": "? m >",
+      "outbound": "ask",
+      "inbound": "observe",
+      "object": "m",
+      "payload": "",
+      "owner": "machine",
+      "diagnostics": []
+    },
+    {
+      "line": 7,
+      "raw": "! m MEMORY >",
+      "outbound": "declare",
+      "inbound": "observe",
+      "object": "m",
+      "payload": "MEMORY",
+      "owner": "human",
+      "diagnostics": []
+    },
+    {
+      "line": 8,
+      "raw": "! m MODEL >",
+      "outbound": "declare",
+      "inbound": "observe",
+      "object": "m",
+      "payload": "MODEL",
+      "owner": "human",
+      "diagnostics": []
+    }
+  ],
+  "errors": [
+    "L3: UNDECLARED_OBJECT:x",
+    "L5: EMPTY_PAYLOAD",
+    "L5: UNDECLARED_OBJECT:m",
+    "L8: AUTHORITY_MUTATION:m",
+    "L8: DUPLICATE_OR_CONFLICTING_SYMBOL:m"
+  ],
+  "warnings": []
+}

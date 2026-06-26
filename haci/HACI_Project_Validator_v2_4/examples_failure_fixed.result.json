@@ -1,0 +1,89 @@
+{
+  "ok": false,
+  "strict": true,
+  "root": "/mnt/data/haci_project_validator_v2_4/examples/failure_fixed",
+  "symbols": {
+    "memory.m": {
+      "symbol": "memory.m",
+      "alias": "m",
+      "kind": "file",
+      "file": "/mnt/data/haci_project_validator_v2_4/examples/failure_fixed/10_memory/m.haci",
+      "scope": "memory"
+    }
+  },
+  "aliases": {
+    "m": [
+      "memory.m"
+    ],
+    "memory.m": [
+      "memory.m"
+    ]
+  },
+  "edges": [],
+  "cycles": [],
+  "conversations": [
+    {
+      "id": "m.haci:L1:memory.m",
+      "kind": "conversation",
+      "object": "memory.m",
+      "files": [
+        "/mnt/data/haci_project_validator_v2_4/examples/failure_fixed/10_memory/m.haci"
+      ],
+      "start": {
+        "file": "/mnt/data/haci_project_validator_v2_4/examples/failure_fixed/10_memory/m.haci",
+        "line": 1,
+        "raw": "? m clarify this ?",
+        "outbound": "ask",
+        "inbound": "ask",
+        "object": "m",
+        "resolved_object": "memory.m",
+        "payload": "clarify this",
+        "owner": "human",
+        "authority": null
+      },
+      "body": [],
+      "returns": [
+        {
+          "file": "/mnt/data/haci_project_validator_v2_4/examples/failure_fixed/10_memory/m.haci",
+          "line": 1,
+          "raw": "? m clarify this ?",
+          "outbound": "ask",
+          "inbound": "ask",
+          "object": "m",
+          "resolved_object": "memory.m",
+          "payload": "clarify this",
+          "owner": "human",
+          "authority": null
+        }
+      ],
+      "complete": false,
+      "unresolved": true,
+      "diagnostics": [
+        "INBOUND_QUESTION_UNRESOLVED",
+        "OPEN_CONVERSATION"
+      ]
+    }
+  ],
+  "errors": [
+    "/mnt/data/haci_project_validator_v2_4/examples/failure_fixed/10_memory/m.haci:L1:OPEN_CONVERSATION:m.haci:L1:memory.m",
+    "/mnt/data/haci_project_validator_v2_4/examples/failure_fixed/10_memory/m.haci:L1:ASK_WITHOUT_RETURN:m.haci:L1:memory.m",
+    "/mnt/data/haci_project_validator_v2_4/examples/failure_fixed/10_memory/m.haci:L1:INBOUND_QUESTION_UNRESOLVED:m.haci:L1:memory.m"
+  ],
+  "warnings": [
+    "/mnt/data/haci_project_validator_v2_4/examples/failure_fixed/10_memory/m.haci:L1:OPEN_CONVERSATION:m.haci:L1:memory.m"
+  ],
+  "nodes": [
+    {
+      "file": "/mnt/data/haci_project_validator_v2_4/examples/failure_fixed/10_memory/m.haci",
+      "line": 1,
+      "raw": "? m clarify this ?",
+      "outbound": "ask",
+      "inbound": "ask",
+      "object": "m",
+      "resolved_object": "memory.m",
+      "payload": "clarify this",
+      "owner": "human",
+      "authority": null
+    }
+  ]
+}

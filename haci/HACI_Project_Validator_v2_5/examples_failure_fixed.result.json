@@ -1,0 +1,100 @@
+{
+  "ok": false,
+  "strict": true,
+  "root": "/mnt/data/haci_project_validator_v2_5/examples/failure_fixed",
+  "symbols": {
+    "memory.m": {
+      "symbol": "memory.m",
+      "alias": "m",
+      "kind": "file",
+      "file": "/mnt/data/haci_project_validator_v2_5/examples/failure_fixed/10_memory/m.haci",
+      "scope": "memory",
+      "pending_declarations": [
+        {
+          "meaning": "memory",
+          "authority": "human",
+          "declared_at": "/mnt/data/haci_project_validator_v2_5/examples/failure_fixed/10_memory/m.haci:L1",
+          "inbound": "ask",
+          "state": "pending"
+        }
+      ]
+    }
+  },
+  "aliases": {
+    "m": [
+      "memory.m"
+    ],
+    "memory.m": [
+      "memory.m"
+    ]
+  },
+  "edges": [],
+  "cycles": [],
+  "conversations": [
+    {
+      "id": "m.haci:L1:memory.m",
+      "kind": "declaration",
+      "object": "memory.m",
+      "files": [
+        "/mnt/data/haci_project_validator_v2_5/examples/failure_fixed/10_memory/m.haci"
+      ],
+      "start": {
+        "file": "/mnt/data/haci_project_validator_v2_5/examples/failure_fixed/10_memory/m.haci",
+        "line": 1,
+        "raw": "! m memory ?",
+        "outbound": "declare",
+        "inbound": "ask",
+        "object": "m",
+        "resolved_object": "memory.m",
+        "payload": "memory",
+        "owner": "human",
+        "authority": "human"
+      },
+      "body": [],
+      "returns": [
+        {
+          "file": "/mnt/data/haci_project_validator_v2_5/examples/failure_fixed/10_memory/m.haci",
+          "line": 1,
+          "raw": "! m memory ?",
+          "outbound": "declare",
+          "inbound": "ask",
+          "object": "m",
+          "resolved_object": "memory.m",
+          "payload": "memory",
+          "owner": "human",
+          "authority": "human"
+        }
+      ],
+      "complete": false,
+      "unresolved": true,
+      "diagnostics": [
+        "INBOUND_QUESTION_UNRESOLVED",
+        "DECLARATION_PENDING_NOT_COMMITTED",
+        "OPEN_CONVERSATION"
+      ]
+    }
+  ],
+  "errors": [
+    "/mnt/data/haci_project_validator_v2_5/examples/failure_fixed/10_memory/m.haci:L1:OPEN_CONVERSATION:m.haci:L1:memory.m",
+    "/mnt/data/haci_project_validator_v2_5/examples/failure_fixed/10_memory/m.haci:L1:INBOUND_QUESTION_UNRESOLVED:m.haci:L1:memory.m",
+    "/mnt/data/haci_project_validator_v2_5/examples/failure_fixed/10_memory/m.haci:L1:DECLARATION_PENDING_NOT_COMMITTED:m.haci:L1:memory.m"
+  ],
+  "warnings": [
+    "/mnt/data/haci_project_validator_v2_5/examples/failure_fixed/10_memory/m.haci:L1:DECLARATION_PENDING_NOT_COMMITTED:memory.m",
+    "/mnt/data/haci_project_validator_v2_5/examples/failure_fixed/10_memory/m.haci:L1:OPEN_CONVERSATION:m.haci:L1:memory.m"
+  ],
+  "nodes": [
+    {
+      "file": "/mnt/data/haci_project_validator_v2_5/examples/failure_fixed/10_memory/m.haci",
+      "line": 1,
+      "raw": "! m memory ?",
+      "outbound": "declare",
+      "inbound": "ask",
+      "object": "m",
+      "resolved_object": "memory.m",
+      "payload": "memory",
+      "owner": "human",
+      "authority": "human"
+    }
+  ]
+}

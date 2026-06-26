@@ -1,0 +1,23 @@
+HACI Validator v1.0
+
+Frozen target:
+- HACI v1.0 syntax is immutable.
+- No new operators.
+- No new punctuation.
+- Validator checks semantic safety after parsing.
+
+Validation checks:
+1. EMPTY_PAYLOAD
+2. UNDECLARED_OBJECT
+3. DUPLICATE_OR_CONFLICTING_SYMBOL
+4. AUTHORITY_MUTATION
+5. dependency cycles
+6. OG/FSS/BSS/OG' merge failures
+
+Important v1 object-slot rule:
+Only operator-bearing protocol lines use the first token as an object address.
+Plain machine lines like "allocate scheduler" remain machine payload.
+
+Core rule:
+Parser accepts structure.
+Validator rejects unsafe meaning.

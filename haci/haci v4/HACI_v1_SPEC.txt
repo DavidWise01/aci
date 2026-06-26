@@ -1,0 +1,57 @@
+HACI Version 1.0 (Frozen)
+Human Artfully Crafted Intelligence
+
+Core Principles
+---------------
+- Collaboration protocol encoded in Markdown-like text.
+- No new punctuation beyond existing operators.
+- Prefix operator = outbound communication act.
+- Suffix operator = inbound return.
+- Case = ownership convention.
+- Folder hierarchy = scope/namespace.
+- '.' = descend one scope level (forward); during reverse traversal, ascend one scope level.
+- Objects are declared upstream and indexed into a symbol table.
+
+Operators
+---------
+!  Declare
+?  Inquire
+>  Observe
+
+Parser Pipeline
+---------------
+Source
+-> Lexer
+-> HACI Parser
+-> HACI IR
+-> Symbol Table
+-> Dependency Graph
+-> Merge
+-> OG'
+
+Feedback Loop
+-------------
+OG   = Original state (immutable during cycle)
+FSS  = Forward Secondary Stream (proposal)
+BSS  = Backward Secondary Stream (validation/provenance)
+OG'  = Committed next state
+
+Merge Rules
+-----------
+1. OG is read-only during a cycle.
+2. FSS proposes changes.
+3. BSS validates proposals and dependencies.
+4. OG' is created only after a successful merge.
+
+Failure Sources
+---------------
+1. OG failure
+2. FSS failure
+3. BSS failure
+4. OG' merge/drift failure
+
+Filesystem Semantics
+--------------------
+Folders = namespaces
+Files = declared objects
+Lines = collaboration events

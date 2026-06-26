@@ -1,0 +1,31 @@
+HACI Torture Suite x2 for v2.5
+
+Purpose:
+Rerun x2 torture against HACI Project Validator v2.5.
+
+Coverage:
+- deterministic output
+- strict-mode monotonic behavior
+- commit gating for declarations
+- pending declarations do not commit meaning/authority
+- pending declarations do not poison later committed declarations
+- inbound question remains open
+- inbound observe completes
+- inbound commit completes
+- return-question does not complete ask
+- phantom dot-path rejection
+- real dot-path acceptance
+- scoped alias ambiguity
+- canonical scoped references
+- return pairing by mutual unique best match
+- ambiguous positive tie rejection
+- zero-score rejection
+- unmatched return handling
+- heading and blank boundary behavior
+- object-required protocol lines
+- code fence suspension
+- cycle detection
+- lowercase human / UPPERCASE AI ownership
+
+This is not a new validator version.
+It is a validation harness for v2.5.

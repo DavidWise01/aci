@@ -1,0 +1,21 @@
+HACI Project Validator v2.5 — Commit Gating Patch
+
+No syntax changes.
+No new operators.
+No new HACI features.
+
+Patch purpose:
+v2.4 failed state-commit torture because unresolved declarations still committed symbol meaning and authority.
+
+Commit rule:
+- declaration + suffix > = committed
+- declaration + suffix ! = committed
+- declaration + suffix ? = pending, not committed
+- declaration with no suffix = pending, not committed
+
+Pending declarations:
+- may be reported under pending_declarations
+- do not set committed meaning
+- do not set committed authority
+- do not update immutable authority
+- do not conflict with later committed declarations

@@ -1,0 +1,17 @@
+HACI Project Validator v2.2 build/test log
+
+Step 1 — implement real dot-path resolution:
+Initial gate found a fixture problem: m.parser.last was tested without declaring m upstream.
+Action: declared m upstream in the test fixture.
+Result: baseline advanced to next check.
+
+Step 2 — structure-boundary tests:
+Initial boundary fixture used a completed dual-edge ask and then added a second return after the heading.
+Validator correctly treated the second return as unmatched.
+Action: changed the fixture to test only heading/blank body detachment.
+Result: full suite passed.
+
+Full baseline + v2.2 adversarial suite exit: 0
+PASS: HACI Project Validator v2.2 tests passed
+examples/clean_project ['--strict']: exit 0
+examples/bad_project ['--strict']: exit 1

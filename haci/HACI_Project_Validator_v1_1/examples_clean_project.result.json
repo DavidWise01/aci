@@ -1,0 +1,82 @@
+{
+  "ok": true,
+  "root": "/mnt/data/haci_project_validator_v1_1/examples/clean_project",
+  "symbols": {
+    "root": {
+      "symbol": "root",
+      "kind": "file",
+      "file": "/mnt/data/haci_project_validator_v1_1/examples/clean_project/00_core/root.haci",
+      "scope": "/mnt/data/haci_project_validator_v1_1/examples/clean_project/00_core",
+      "meaning": "CORE",
+      "declared_at": "/mnt/data/haci_project_validator_v1_1/examples/clean_project/00_core/root.haci:L1"
+    },
+    "m": {
+      "symbol": "m",
+      "kind": "file",
+      "file": "/mnt/data/haci_project_validator_v1_1/examples/clean_project/10_memory/m.haci",
+      "scope": "/mnt/data/haci_project_validator_v1_1/examples/clean_project/10_memory",
+      "meaning": "memory",
+      "declared_at": "/mnt/data/haci_project_validator_v1_1/examples/clean_project/10_memory/m.haci:L1"
+    },
+    "runtime": {
+      "symbol": "runtime",
+      "kind": "file",
+      "file": "/mnt/data/haci_project_validator_v1_1/examples/clean_project/20_runtime/runtime.haci",
+      "scope": "/mnt/data/haci_project_validator_v1_1/examples/clean_project/20_runtime"
+    }
+  },
+  "edges": [
+    {
+      "from": "runtime",
+      "to": "m",
+      "file": "/mnt/data/haci_project_validator_v1_1/examples/clean_project/20_runtime/runtime.haci",
+      "line": 1,
+      "raw": "? m previous parser result >"
+    }
+  ],
+  "cycles": [],
+  "errors": [],
+  "warnings": [],
+  "nodes": [
+    {
+      "file": "/mnt/data/haci_project_validator_v1_1/examples/clean_project/00_core/root.haci",
+      "line": 1,
+      "raw": "! root CORE >",
+      "outbound": "declare",
+      "inbound": "observe",
+      "object": "root",
+      "payload": "CORE",
+      "owner": "human"
+    },
+    {
+      "file": "/mnt/data/haci_project_validator_v1_1/examples/clean_project/10_memory/m.haci",
+      "line": 1,
+      "raw": "! m memory >",
+      "outbound": "declare",
+      "inbound": "observe",
+      "object": "m",
+      "payload": "memory",
+      "owner": "machine"
+    },
+    {
+      "file": "/mnt/data/haci_project_validator_v1_1/examples/clean_project/20_runtime/runtime.haci",
+      "line": 1,
+      "raw": "? m previous parser result >",
+      "outbound": "ask",
+      "inbound": "observe",
+      "object": "m",
+      "payload": "previous parser result",
+      "owner": "machine"
+    },
+    {
+      "file": "/mnt/data/haci_project_validator_v1_1/examples/clean_project/20_runtime/runtime.haci",
+      "line": 2,
+      "raw": "allocate scheduler",
+      "outbound": null,
+      "inbound": null,
+      "object": null,
+      "payload": "allocate scheduler",
+      "owner": "machine"
+    }
+  ]
+}

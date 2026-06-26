@@ -1,0 +1,43 @@
+HACI Project Validator v2.0
+
+Breaking semantic change:
+- lowercase = human-owned
+- UPPERCASE = AI-owned
+- Sentence Case = context/shared
+
+Syntax unchanged:
+- Operators remain ! ? >
+- Prefix = outbound act
+- Suffix = inbound return
+- Dot = scope dive
+- Folders = namespace
+- File stems = object declarations
+
+Adopted fixes:
+1. Lowercase human ownership fixes natural declaration payloads:
+   ! m memory >
+   now declares m as human-owned authority.
+
+2. Scoped canonical symbols:
+   /10_memory/cache.haci -> memory.cache
+   /20_code/cache.haci   -> code.cache
+
+3. Bare duplicate aliases become ambiguous only when referenced:
+   ? cache status >
+   fails if both memory.cache and code.cache exist.
+
+4. Body after dual-edge protocol lines is preserved:
+   ? m previous result >
+   search index
+   rank context
+
+5. Cross-file conversation pairing:
+   request in one file and return in another can bind by resolved object.
+
+6. Strict mode:
+   --strict turns open conversations into errors.
+
+7. Authority decoupling:
+   declarations report authority explicitly.
+   lowercase declaration = human authority
+   UPPERCASE declaration = AI declaration, not human authority.

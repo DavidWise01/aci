@@ -1,0 +1,216 @@
+{
+  "ok": false,
+  "strict": false,
+  "root": "/mnt/data/haci_project_validator_v2_0/examples/bad_project",
+  "symbols": {
+    "memory.cache": {
+      "symbol": "memory.cache",
+      "alias": "cache",
+      "kind": "line",
+      "file": "/mnt/data/haci_project_validator_v2_0/examples/bad_project/10_memory/cache.haci",
+      "scope": "memory",
+      "meaning": "memory cache",
+      "declared_at": "/mnt/data/haci_project_validator_v2_0/examples/bad_project/10_memory/cache.haci:L1",
+      "authority": "human"
+    },
+    "code.cache": {
+      "symbol": "code.cache",
+      "alias": "cache",
+      "kind": "line",
+      "file": "/mnt/data/haci_project_validator_v2_0/examples/bad_project/20_code/cache.haci",
+      "scope": "code",
+      "meaning": "code cache",
+      "declared_at": "/mnt/data/haci_project_validator_v2_0/examples/bad_project/20_code/cache.haci:L1",
+      "authority": "human"
+    },
+    "runtime.runtime": {
+      "symbol": "runtime.runtime",
+      "alias": "runtime",
+      "kind": "file",
+      "file": "/mnt/data/haci_project_validator_v2_0/examples/bad_project/30_runtime/runtime.haci",
+      "scope": "runtime"
+    }
+  },
+  "aliases": {
+    "cache": [
+      "memory.cache",
+      "code.cache"
+    ],
+    "memory.cache": [
+      "memory.cache"
+    ],
+    "code.cache": [
+      "code.cache"
+    ],
+    "runtime": [
+      "runtime.runtime"
+    ],
+    "runtime.runtime": [
+      "runtime.runtime"
+    ]
+  },
+  "edges": [],
+  "cycles": [],
+  "conversations": [
+    {
+      "id": "cache.haci:L1:memory.cache",
+      "object": "memory.cache",
+      "files": [
+        "/mnt/data/haci_project_validator_v2_0/examples/bad_project/10_memory/cache.haci"
+      ],
+      "start": {
+        "file": "/mnt/data/haci_project_validator_v2_0/examples/bad_project/10_memory/cache.haci",
+        "line": 1,
+        "raw": "! cache memory cache >",
+        "outbound": "declare",
+        "inbound": "observe",
+        "object": "cache",
+        "resolved_object": "memory.cache",
+        "payload": "memory cache",
+        "owner": "human",
+        "authority": "human"
+      },
+      "body": [],
+      "returns": [
+        {
+          "file": "/mnt/data/haci_project_validator_v2_0/examples/bad_project/10_memory/cache.haci",
+          "line": 1,
+          "raw": "! cache memory cache >",
+          "outbound": "declare",
+          "inbound": "observe",
+          "object": "cache",
+          "resolved_object": "memory.cache",
+          "payload": "memory cache",
+          "owner": "human",
+          "authority": "human"
+        }
+      ],
+      "diagnostics": [
+        "OPEN_CONVERSATION"
+      ]
+    },
+    {
+      "id": "cache.haci:L1:code.cache",
+      "object": "code.cache",
+      "files": [
+        "/mnt/data/haci_project_validator_v2_0/examples/bad_project/20_code/cache.haci"
+      ],
+      "start": {
+        "file": "/mnt/data/haci_project_validator_v2_0/examples/bad_project/20_code/cache.haci",
+        "line": 1,
+        "raw": "! cache code cache >",
+        "outbound": "declare",
+        "inbound": "observe",
+        "object": "cache",
+        "resolved_object": "code.cache",
+        "payload": "code cache",
+        "owner": "human",
+        "authority": "human"
+      },
+      "body": [],
+      "returns": [
+        {
+          "file": "/mnt/data/haci_project_validator_v2_0/examples/bad_project/20_code/cache.haci",
+          "line": 1,
+          "raw": "! cache code cache >",
+          "outbound": "declare",
+          "inbound": "observe",
+          "object": "cache",
+          "resolved_object": "code.cache",
+          "payload": "code cache",
+          "owner": "human",
+          "authority": "human"
+        }
+      ],
+      "diagnostics": [
+        "OPEN_CONVERSATION"
+      ]
+    },
+    {
+      "id": "runtime.haci:L1:cache",
+      "object": "cache",
+      "files": [
+        "/mnt/data/haci_project_validator_v2_0/examples/bad_project/30_runtime/runtime.haci"
+      ],
+      "start": {
+        "file": "/mnt/data/haci_project_validator_v2_0/examples/bad_project/30_runtime/runtime.haci",
+        "line": 1,
+        "raw": "? cache ambiguous >",
+        "outbound": "ask",
+        "inbound": "observe",
+        "object": "cache",
+        "resolved_object": null,
+        "payload": "ambiguous",
+        "owner": "human",
+        "authority": null
+      },
+      "body": [],
+      "returns": [
+        {
+          "file": "/mnt/data/haci_project_validator_v2_0/examples/bad_project/30_runtime/runtime.haci",
+          "line": 1,
+          "raw": "? cache ambiguous >",
+          "outbound": "ask",
+          "inbound": "observe",
+          "object": "cache",
+          "resolved_object": null,
+          "payload": "ambiguous",
+          "owner": "human",
+          "authority": null
+        }
+      ],
+      "diagnostics": [
+        "OPEN_CONVERSATION"
+      ]
+    }
+  ],
+  "errors": [
+    "/mnt/data/haci_project_validator_v2_0/examples/bad_project/30_runtime/runtime.haci:L1:AMBIGUOUS_OBJECT:cache:memory.cache,code.cache"
+  ],
+  "warnings": [
+    "/mnt/data/haci_project_validator_v2_0/examples/bad_project/10_memory/cache.haci:L1:OPEN_CONVERSATION:cache.haci:L1:memory.cache",
+    "/mnt/data/haci_project_validator_v2_0/examples/bad_project/20_code/cache.haci:L1:OPEN_CONVERSATION:cache.haci:L1:code.cache",
+    "/mnt/data/haci_project_validator_v2_0/examples/bad_project/30_runtime/runtime.haci:L1:OPEN_CONVERSATION:runtime.haci:L1:cache",
+    "/mnt/data/haci_project_validator_v2_0/examples/bad_project/10_memory/cache.haci:L1:OPEN_CONVERSATION:cache.haci:L1:memory.cache",
+    "/mnt/data/haci_project_validator_v2_0/examples/bad_project/20_code/cache.haci:L1:OPEN_CONVERSATION:cache.haci:L1:code.cache",
+    "/mnt/data/haci_project_validator_v2_0/examples/bad_project/30_runtime/runtime.haci:L1:OPEN_CONVERSATION:runtime.haci:L1:cache"
+  ],
+  "nodes": [
+    {
+      "file": "/mnt/data/haci_project_validator_v2_0/examples/bad_project/10_memory/cache.haci",
+      "line": 1,
+      "raw": "! cache memory cache >",
+      "outbound": "declare",
+      "inbound": "observe",
+      "object": "cache",
+      "resolved_object": "memory.cache",
+      "payload": "memory cache",
+      "owner": "human",
+      "authority": "human"
+    },
+    {
+      "file": "/mnt/data/haci_project_validator_v2_0/examples/bad_project/20_code/cache.haci",
+      "line": 1,
+      "raw": "! cache code cache >",
+      "outbound": "declare",
+      "inbound": "observe",
+      "object": "cache",
+      "resolved_object": "code.cache",
+      "payload": "code cache",
+      "owner": "human",
+      "authority": "human"
+    },
+    {
+      "file": "/mnt/data/haci_project_validator_v2_0/examples/bad_project/30_runtime/runtime.haci",
+      "line": 1,
+      "raw": "? cache ambiguous >",
+      "outbound": "ask",
+      "inbound": "observe",
+      "object": "cache",
+      "resolved_object": null,
+      "payload": "ambiguous",
+      "owner": "human",
+      "authority": null
+    }
+  ]
+}

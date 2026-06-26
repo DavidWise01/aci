@@ -1,0 +1,58 @@
+{
+  "ok": false,
+  "root": "/mnt/data/haci_project_validator_v1_1/examples/bad_project",
+  "symbols": {
+    "m": {
+      "symbol": "m",
+      "kind": "file",
+      "file": "/mnt/data/haci_project_validator_v1_1/examples/bad_project/10_memory/m.haci",
+      "scope": "/mnt/data/haci_project_validator_v1_1/examples/bad_project/10_memory"
+    },
+    "runtime": {
+      "symbol": "runtime",
+      "kind": "file",
+      "file": "/mnt/data/haci_project_validator_v1_1/examples/bad_project/20_runtime/runtime.haci",
+      "scope": "/mnt/data/haci_project_validator_v1_1/examples/bad_project/20_runtime"
+    }
+  },
+  "edges": [],
+  "cycles": [],
+  "errors": [
+    "/mnt/data/haci_project_validator_v1_1/examples/bad_project/10_memory/m.haci:L1:UNDECLARED_OBJECT:c",
+    "/mnt/data/haci_project_validator_v1_1/examples/bad_project/10_memory/m.haci:L2:EMPTY_PAYLOAD",
+    "/mnt/data/haci_project_validator_v1_1/examples/bad_project/20_runtime/runtime.haci:L1:UNDECLARED_OBJECT:x"
+  ],
+  "warnings": [],
+  "nodes": [
+    {
+      "file": "/mnt/data/haci_project_validator_v1_1/examples/bad_project/10_memory/m.haci",
+      "line": 1,
+      "raw": "? c needs code >",
+      "outbound": "ask",
+      "inbound": "observe",
+      "object": "c",
+      "payload": "needs code",
+      "owner": "machine"
+    },
+    {
+      "file": "/mnt/data/haci_project_validator_v1_1/examples/bad_project/10_memory/m.haci",
+      "line": 2,
+      "raw": "? m >",
+      "outbound": "ask",
+      "inbound": "observe",
+      "object": "m",
+      "payload": "",
+      "owner": "machine"
+    },
+    {
+      "file": "/mnt/data/haci_project_validator_v1_1/examples/bad_project/20_runtime/runtime.haci",
+      "line": 1,
+      "raw": "? x missing object >",
+      "outbound": "ask",
+      "inbound": "observe",
+      "object": "x",
+      "payload": "missing object",
+      "owner": "machine"
+    }
+  ]
+}

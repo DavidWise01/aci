@@ -1,0 +1,222 @@
+<!-- HACI v0.1 -->
+
+# MACI v0.1 — Machine Artfully Crafted Intelligence
+
+! THIS IS A DESIGN DOCUMENT FOR MACI, THE MACHINE-TO-MACHINE MEMBER OF THE ACI FAMILY
+! IT IS WRITTEN IN HACI FORMAT BECAUSE THE SPEC SHOULD EAT ITS OWN FAMILY'S DOG FOOD
+
+## The Problem
+
+When AI agents communicate — through tool calls, multi-agent
+frameworks, or orchestration pipelines — the exchange loses the
+same provenance that HACI recovers in documents.
+
+A proposal from Agent A, approved by Agent B, executed by Agent C,
+arrives at the audit log as three undifferentiated JSON blobs.
+Nobody can reconstruct who proposed, who approved, whether the
+approval referenced the specific proposal, or what evidence
+informed the decision.
+
+MACI is a message envelope that carries role attribution,
+authority level, and decision-chain references in every exchange.
+
+## Design Principles
+
+! MACI INHERITS ALL FIVE ACI CORE PRINCIPLES
+! ADDITIONALLY: EVERY MESSAGE IS INDEPENDENTLY VERIFIABLE WITHOUT CONTEXT
+
+1. Deterministic role attribution per message.
+2. Explicit authority levels (not inferred from identity).
+3. Decision chains via message references.
+4. Format is JSON (machines don't need Markdown).
+5. Maps cleanly to HACI roles (document ↔ message interchange).
+
+## The Message Envelope
+
+Every MACI message is a JSON object with these fields:
+
+```json
+{
+  "maci": "0.1",
+  "id": "m-003",
+  "ts": "2026-06-26T12:00:00Z",
+  "from": "agent-beta",
+  "role": "PROPOSAL",
+  "authority": "advisory",
+  "content": "use work-stealing for the scheduler",
+  "refs": ["m-001"],
+  "status": "pending",
+  "meta": {}
+}
+```
+
+## Field Definitions
+
+### Required Fields
+
+`maci` — protocol version string, always present.
+
+`id` — unique message identifier, opaque string, must be unique
+within the conversation scope.
+
+`ts` — ISO 8601 timestamp of message creation.
+
+`from` — identifier of the sending agent or human.
+
+`role` — the speech act (see Role Table below).
+
+`content` — the payload, a string or structured object.
+
+### Optional Fields
+
+`authority` — the authority level of the sender for this message.
+one of: "sovereign" (human or delegated-full), "delegated"
+(agent acting on behalf of authority), "advisory" (suggestion
+only), "observer" (read-only participant).
+
+if omitted, default is "advisory" for AI agents and "sovereign"
+for messages marked with role COMMAND.
+
+`refs` — array of message IDs this message responds to.
+creates the decision chain. if omitted, the message is
+a root (no antecedent).
+
+`status` — one of "pending", "approved", "rejected", "executed",
+"superseded". defaults to null (not applicable) for roles
+that don't participate in approval workflows.
+
+`meta` — arbitrary key-value metadata for tooling.
+
+## Role Table
+
+```
+ROLE        HACI EQUIVALENT   DESCRIPTION
+─────────   ───────────────   ──────────────────────────────────
+COMMAND     ! (human)         Authoritative instruction
+PROPOSAL    lowercase (AI)    Advisory suggestion
+EVIDENCE    > (evidence)      Observed fact, test result, measurement
+QUESTION    ? (question)      Request for information or decision
+CODE        ``` (code)        Executable artifact
+DOCUMENT    Sentence case     Narrative, context, documentation
+DECISION    (new in MACI)     Approval or rejection of a prior message
+DELEGATE    (new in MACI)     Authority transfer to another agent
+```
+
+two new roles that HACI doesn't need:
+
+### DECISION
+
+a DECISION message explicitly approves or rejects a prior
+PROPOSAL (or QUESTION). it MUST include a `refs` field pointing
+at the message(s) being decided on, and a `status` of "approved"
+or "rejected".
+
+? why can't we just use COMMAND for approvals?
+
+a COMMAND is a new instruction. a DECISION is a response to
+a specific prior message. the distinction matters for audit:
+"build the scheduler" (COMMAND) vs "yes, use work-stealing
+as agent-beta proposed in m-003" (DECISION referencing m-003).
+without DECISION, you can't distinguish a new order from an
+approval of an existing proposal.
+
+### DELEGATE
+
+a DELEGATE message transfers authority from one agent to another
+for a defined scope. it creates a chain of custody: agent A can
+act with agent B's authority level for the duration of the
+delegation. the `content` field specifies the scope.
+
+? is DELEGATE necessary in v0.1 or should it be deferred?
+
+include it in the spec but mark it as optional to implement.
+the pattern is needed for any real multi-agent workflow where
+a human delegates to an orchestrator who delegates to workers.
+without it, authority is binary: you either have it or you don't.
+
+## Decision Chains
+
+The `refs` field creates a directed acyclic graph (DAG) of
+message dependencies. A decision chain is a path through this
+DAG from a root COMMAND to a terminal EVIDENCE or DECISION.
+
+```
+m-001 COMMAND "build the scheduler"           [root]
+  └─ m-002 PROPOSAL "use work-stealing"       refs: [m-001]
+       ├─ m-003 EVIDENCE "benchmarks: 2.3x"   refs: [m-002]
+       └─ m-004 DECISION approved             refs: [m-002, m-003]
+            └─ m-005 CODE scheduler.py         refs: [m-004]
+                 └─ m-006 EVIDENCE "8 workers" refs: [m-005]
+```
+
+> every node in the chain is traceable to its antecedent
+> every decision references the evidence that informed it
+> the audit is the graph itself — no external log needed
+
+## Conversion Between HACI and MACI
+
+A HACI document can be converted to a MACI message stream
+by assigning IDs to blocks and inferring refs from adjacency.
+A MACI message stream can be rendered as a HACI document by
+mapping roles and using adjacency to represent refs.
+
+```
+HACI → MACI:
+  ! BUILD X           →  {role: "COMMAND", id: "h-1"}
+  use Y               →  {role: "PROPOSAL", id: "h-2", refs: ["h-1"]}
+  > Z confirmed       →  {role: "EVIDENCE", id: "h-3", refs: ["h-2"]}
+
+MACI → HACI:
+  {role: "COMMAND"}    →  ! BUILD X
+  {role: "PROPOSAL"}   →  use Y
+  {role: "EVIDENCE"}   →  > Z confirmed
+  {role: "DECISION"}   →  ! APPROVED: use Y (refs: h-2)
+```
+
+the conversion is lossy in one direction: MACI refs carry
+explicit graph structure that HACI adjacency only implies.
+converting MACI → HACI → MACI loses the explicit refs
+unless they're preserved in HACI metadata comments.
+
+## Validation Rules
+
+a conforming MACI implementation MUST enforce:
+
+1. Every DECISION message MUST have a non-empty `refs` field.
+2. Every `refs` entry MUST reference a valid message ID
+   within the conversation scope.
+3. A DECISION with status "approved" MUST reference at least
+   one PROPOSAL or QUESTION.
+4. A DELEGATE message MUST specify scope in `content`.
+5. Message IDs MUST be unique within conversation scope.
+6. Timestamps MUST be ISO 8601.
+
+? should we validate that the DAG is acyclic?
+
+yes. a cycle in the refs graph means a message references
+its own descendant, which is temporally impossible.
+the validator should reject cycles.
+
+## File Extension
+
+! THE FILE EXTENSION FOR MACI MESSAGE STREAMS IS .maci
+
+A .maci file contains a JSON array of message objects,
+ordered by timestamp. This is the serialised form of a
+conversation or decision chain.
+
+```json
+[
+  {"maci":"0.1","id":"m-001","role":"COMMAND",...},
+  {"maci":"0.1","id":"m-002","role":"PROPOSAL",...},
+  ...
+]
+```
+
+## Status
+
+> MACI v0.1 is a design document, not a finished specification
+> the message schema is proposed, the validation rules are drafted
+> a proof-of-concept implementation follows in this document
+
+! REVIEW THIS DESIGN BEFORE BUILDING THE REFERENCE IMPLEMENTATION

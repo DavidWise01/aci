@@ -1,0 +1,154 @@
+{
+  "ok": true,
+  "strict": true,
+  "root": "/mnt/data/haci_project_validator_v2_3/examples/clean_unique",
+  "symbols": {
+    "memory.m": {
+      "symbol": "memory.m",
+      "alias": "m",
+      "kind": "file",
+      "file": "/mnt/data/haci_project_validator_v2_3/examples/clean_unique/10_memory/m.haci",
+      "scope": "memory"
+    }
+  },
+  "aliases": {
+    "m": [
+      "memory.m"
+    ],
+    "memory.m": [
+      "memory.m"
+    ]
+  },
+  "edges": [],
+  "cycles": [],
+  "conversations": [
+    {
+      "id": "m.haci:L1:memory.m",
+      "kind": "conversation",
+      "object": "memory.m",
+      "files": [
+        "/mnt/data/haci_project_validator_v2_3/examples/clean_unique/10_memory/m.haci"
+      ],
+      "start": {
+        "file": "/mnt/data/haci_project_validator_v2_3/examples/clean_unique/10_memory/m.haci",
+        "line": 1,
+        "raw": "? m alpha red",
+        "outbound": "ask",
+        "inbound": null,
+        "object": "m",
+        "resolved_object": "memory.m",
+        "payload": "alpha red",
+        "owner": "human",
+        "authority": null
+      },
+      "body": [],
+      "returns": [
+        {
+          "file": "/mnt/data/haci_project_validator_v2_3/examples/clean_unique/10_memory/m.haci",
+          "line": 4,
+          "raw": "m alpha red >",
+          "outbound": null,
+          "inbound": "observe",
+          "object": "m",
+          "resolved_object": "memory.m",
+          "payload": "alpha red",
+          "owner": "human",
+          "authority": null
+        }
+      ],
+      "complete": true,
+      "unresolved": false,
+      "diagnostics": []
+    },
+    {
+      "id": "m.haci:L2:memory.m",
+      "kind": "conversation",
+      "object": "memory.m",
+      "files": [
+        "/mnt/data/haci_project_validator_v2_3/examples/clean_unique/10_memory/m.haci"
+      ],
+      "start": {
+        "file": "/mnt/data/haci_project_validator_v2_3/examples/clean_unique/10_memory/m.haci",
+        "line": 2,
+        "raw": "? m alpha blue",
+        "outbound": "ask",
+        "inbound": null,
+        "object": "m",
+        "resolved_object": "memory.m",
+        "payload": "alpha blue",
+        "owner": "human",
+        "authority": null
+      },
+      "body": [],
+      "returns": [
+        {
+          "file": "/mnt/data/haci_project_validator_v2_3/examples/clean_unique/10_memory/m.haci",
+          "line": 3,
+          "raw": "m alpha blue >",
+          "outbound": null,
+          "inbound": "observe",
+          "object": "m",
+          "resolved_object": "memory.m",
+          "payload": "alpha blue",
+          "owner": "human",
+          "authority": null
+        }
+      ],
+      "complete": true,
+      "unresolved": false,
+      "diagnostics": []
+    }
+  ],
+  "errors": [],
+  "warnings": [],
+  "nodes": [
+    {
+      "file": "/mnt/data/haci_project_validator_v2_3/examples/clean_unique/10_memory/m.haci",
+      "line": 1,
+      "raw": "? m alpha red",
+      "outbound": "ask",
+      "inbound": null,
+      "object": "m",
+      "resolved_object": "memory.m",
+      "payload": "alpha red",
+      "owner": "human",
+      "authority": null
+    },
+    {
+      "file": "/mnt/data/haci_project_validator_v2_3/examples/clean_unique/10_memory/m.haci",
+      "line": 2,
+      "raw": "? m alpha blue",
+      "outbound": "ask",
+      "inbound": null,
+      "object": "m",
+      "resolved_object": "memory.m",
+      "payload": "alpha blue",
+      "owner": "human",
+      "authority": null
+    },
+    {
+      "file": "/mnt/data/haci_project_validator_v2_3/examples/clean_unique/10_memory/m.haci",
+      "line": 3,
+      "raw": "m alpha blue >",
+      "outbound": null,
+      "inbound": "observe",
+      "object": "m",
+      "resolved_object": "memory.m",
+      "payload": "alpha blue",
+      "owner": "human",
+      "authority": null
+    },
+    {
+      "file": "/mnt/data/haci_project_validator_v2_3/examples/clean_unique/10_memory/m.haci",
+      "line": 4,
+      "raw": "m alpha red >",
+      "outbound": null,
+      "inbound": "observe",
+      "object": "m",
+      "resolved_object": "memory.m",
+      "payload": "alpha red",
+      "owner": "human",
+      "authority": null
+    }
+  ]
+}

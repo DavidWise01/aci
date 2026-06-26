@@ -1,0 +1,8 @@
+# Memory
+
+! m memory >
+
+? m previous parser result >
+
+The runtime initializes.
+allocate scheduler

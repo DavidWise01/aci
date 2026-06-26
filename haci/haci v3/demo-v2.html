@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>demo-v2 — HACI v0.2</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=Spectral:wght@300;400&family=Cormorant+Garamond:wght@300;400&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#170d20;color:#c8c0b0;font-family:"Spectral",serif;line-height:1.6;display:flex;justify-content:center}
+.doc{max-width:760px;width:100%;padding:32px 20px 60px}
+.hdr{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:rgba(168,127,51,.5);margin-bottom:18px}
+.nd{display:flex;gap:8px;margin:2px 0;align-items:baseline;padding:3px 0 3px 8px;border-left:2px solid transparent}
+.nd:hover{background:rgba(255,255,255,.015)}
+.badges{display:flex;gap:3px;min-width:28px;justify-content:flex-end;flex-shrink:0;padding-top:2px}
+.badge{font-size:10px;width:14px;text-align:center}
+.own{font-family:"IBM Plex Mono",monospace;font-size:8px;letter-spacing:.06em;min-width:48px;text-align:right;opacity:.35;flex-shrink:0;padding-top:3px}
+.con{flex:1;font-size:14.5px;word-wrap:break-word}
+.con.bold{font-weight:bold}
+pre.code{background:rgba(0,0,0,.25);border:1px solid rgba(154,152,166,.12);border-radius:6px;padding:12px 14px;
+  font-family:"IBM Plex Mono",monospace;font-size:12px;overflow-x:auto;margin:0;white-space:pre-wrap;line-height:1.5}
+.h1{font-family:"Cormorant Garamond",serif;font-size:28px;font-weight:300;margin-top:20px;line-height:1.1;color:#e9e2d2}
+.h2{font-family:"Cormorant Garamond",serif;font-size:22px;font-weight:300;margin-top:16px;line-height:1.15;color:#e9e2d2}
+.h3{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;margin-top:14px;font-weight:500;color:#d9a441}
+.foot{font-family:"IBM Plex Mono",monospace;font-size:9px;color:rgba(154,152,166,.3);text-align:center;margin-top:36px;letter-spacing:.08em}
+</style></head><body><div class="doc">
+<div class="hdr">HACI v0.2 &middot; demo-v2</div>
+
+<div class="nd"><span class="badges"></span><span class="own" style="color:#5b5868">meta</span><div class="con" style="color:#5b5868">&lt;!-- HACI v0.2 --&gt;</div></div>
+<div class="nd"><span class="badges"></span><span class="own"></span><div class="con h1">Scheduler Build</div></div>
+<div class="nd" style="border-left-color:#8a2be222"><span class="badges"><span class="badge" style="color:#8a2be2">●</span></span><span class="own" style="color:#8a2be2">human</span><div class="con bold" style="color:#8a2be2">BUILD A WORK-STEALING SCHEDULER</div></div>
+<div class="nd" style="border-left-color:#c8c0b022"><span class="badges"></span><span class="own" style="color:#c8c0b0">shared</span><div class="con" style="color:#c8c0b0">The scheduler distributes tasks across worker threads.</div></div>
+<div class="nd" style="border-left-color:#c8c0b022"><span class="badges"></span><span class="own" style="color:#c8c0b0">shared</span><div class="con" style="color:#c8c0b0">Each worker maintains a local deque.</div></div>
+<div class="nd" style="border-left-color:#1db95422"><span class="badges"></span><span class="own" style="color:#1db954">machine</span><div class="con" style="color:#1db954">allocate thread pool based on cpu count</div></div>
+<div class="nd" style="border-left-color:#1db95422"><span class="badges"></span><span class="own" style="color:#1db954">machine</span><div class="con" style="color:#1db954">initialize per-worker deques</div></div>
+<div class="nd" style="border-left-color:#1db95422"><span class="badges"></span><span class="own" style="color:#1db954">machine</span><div class="con" style="color:#1db954">wire up steal protocol between workers</div></div>
+<div class="nd" style="border-left-color:#1db95422"><span class="badges"><span class="badge" style="color:#d9a441">○</span></span><span class="own" style="color:#1db954">machine</span><div class="con" style="color:#1db954">should we use a bounded or unbounded deque</div></div>
+<div class="nd" style="border-left-color:#1db95422"><span class="badges"></span><span class="own" style="color:#1db954">machine</span><div class="con" style="color:#1db954">bounded deques cap memory but risk blocking</div></div>
+<div class="nd" style="border-left-color:#1db95422"><span class="badges"></span><span class="own" style="color:#1db954">machine</span><div class="con" style="color:#1db954">unbounded deques simplify logic but risk runaway allocation</div></div>
+<div class="nd" style="border-left-color:#8a2be222"><span class="badges"><span class="badge" style="color:#8a2be2">●</span></span><span class="own" style="color:#8a2be2">human</span><div class="con bold" style="color:#8a2be2">USE BOUNDED WITH 1024 SLOTS</div></div>
+<div class="nd" style="border-left-color:#1db95422"><span class="badges"><span class="badge" style="color:#73b3a3">✓</span></span><span class="own" style="color:#1db954">machine</span><div class="con" style="color:#1db954">implement bounded ring buffer per worker</div></div>
+<div class="nd" style="border-left-color:#1db95422"><span class="badges"><span class="badge" style="color:#73b3a3">✓</span></span><span class="own" style="color:#1db954">machine</span><div class="con" style="color:#1db954">steal protocol crosses worker boundaries</div></div>
+<div class="nd"><span class="badges"></span><span class="own" style="color:#73b3a3">code</span><pre class="code" style="color:#73b3a3">class Worker:
+    def __init__(self, id, capacity=1024):
+        self.id = id
+        self.deque = RingBuffer(capacity)</pre></div>
+<div class="nd" style="border-left-color:#1db95422"><span class="badges"><span class="badge" style="color:#73b3a3">▶</span></span><span class="own" style="color:#1db954">machine</span><div class="con" style="color:#1db954">8 workers instantiated</div></div>
+<div class="nd" style="border-left-color:#1db95422"><span class="badges"><span class="badge" style="color:#73b3a3">▶</span></span><span class="own" style="color:#1db954">machine</span><div class="con" style="color:#1db954">steal protocol verified across all pairs</div></div>
+<div class="nd" style="border-left-color:#1db95422"><span class="badges"><span class="badge" style="color:#73b3a3">▶</span></span><span class="own" style="color:#1db954">machine</span><div class="con" style="color:#1db954">memory bounded at 64KB per worker</div></div>
+<div class="nd" style="border-left-color:#8a2be222"><span class="badges"><span class="badge" style="color:#8a2be2">●</span><span class="badge" style="color:#8a2be2">✓</span></span><span class="own" style="color:#8a2be2">human</span><div class="con bold" style="color:#8a2be2">SCHEDULER APPROVED FOR STAGING</div></div>
+<div class="nd" style="border-left-color:#1db95422"><span class="badges"><span class="badge" style="color:#73b3a3">✓</span></span><span class="own" style="color:#1db954">machine</span><div class="con" style="color:#1db954">deploy to staging environment</div></div>
+<div class="nd" style="border-left-color:#1db95422"><span class="badges"><span class="badge" style="color:#d9a441">○</span></span><span class="own" style="color:#1db954">machine</span><div class="con" style="color:#1db954">monitor for 24h before production</div></div>
+<div class="nd" style="border-left-color:#c8c0b022"><span class="badges"></span><span class="own" style="color:#c8c0b0">shared</span><div class="con" style="color:#c8c0b0">The staging deployment uses the blue-green pattern.</div></div>
+<div class="nd" style="border-left-color:#c8c0b022"><span class="badges"></span><span class="own" style="color:#c8c0b0">shared</span><div class="con" style="color:#c8c0b0">Rollback is automatic if error rate exceeds 0.1%.</div></div>
+<div class="nd" style="border-left-color:#8a2be222"><span class="badges"><span class="badge" style="color:#d9a441">○</span></span><span class="own" style="color:#8a2be2">human</span><div class="con bold" style="color:#8a2be2">WHAT IS THE ROLLBACK LATENCY</div></div>
+<div class="nd" style="border-left-color:#1db95422"><span class="badges"></span><span class="own" style="color:#1db954">machine</span><div class="con" style="color:#1db954">measure rollback time under load</div></div>
+<div class="nd" style="border-left-color:#1db95422"><span class="badges"></span><span class="own" style="color:#1db954">machine</span><div class="con" style="color:#1db954">estimate worst-case from current metrics</div></div>
+<div class="nd" style="border-left-color:#1db95422"><span class="badges"><span class="badge" style="color:#73b3a3">▶</span></span><span class="own" style="color:#1db954">machine</span><div class="con" style="color:#1db954">rollback measured at 340ms p99</div></div>
+<div class="nd" style="border-left-color:#1db95422"><span class="badges"><span class="badge" style="color:#73b3a3">▶</span></span><span class="own" style="color:#1db954">machine</span><div class="con" style="color:#1db954">below 500ms threshold</div></div>
+<div class="nd" style="border-left-color:#8a2be222"><span class="badges"><span class="badge" style="color:#8a2be2">●</span><span class="badge" style="color:#8a2be2">✓</span></span><span class="own" style="color:#8a2be2">human</span><div class="con bold" style="color:#8a2be2">PROMOTE TO PRODUCTION</div></div>
+<div class="foot">HACI v0.2 &middot; Human-AI Collaborative Interchange &middot; ACI family</div>
+</div></body></html>

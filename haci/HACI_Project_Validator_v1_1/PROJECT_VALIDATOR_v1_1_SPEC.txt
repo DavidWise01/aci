@@ -1,0 +1,29 @@
+HACI Project Validator v1.1
+
+Frozen base:
+- HACI v1.0 syntax remains frozen.
+- No new characters.
+- No new operators.
+
+Adds:
+1. Project folder scan.
+2. Global symbol table from .haci file stems.
+3. Line declarations can enrich symbols.
+4. Cross-file object resolution.
+5. Dependency edge extraction.
+6. Cycle detection connected to project validation.
+7. Merge helper retained for OG/FSS/BSS/OG' audit tests.
+
+Filesystem rules:
+- folders = scope
+- .haci file stem = object symbol
+- lines = collaboration events
+
+Object resolution:
+- only operator-bearing lines consume the first token as an object
+- base object is the first dot segment
+- dot segments are path/scope dive levels
+
+Failure boundary:
+- syntax remains parseable
+- validator blocks unsafe semantics

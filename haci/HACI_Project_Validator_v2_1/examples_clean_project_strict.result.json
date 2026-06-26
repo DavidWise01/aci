@@ -1,0 +1,262 @@
+{
+  "ok": true,
+  "strict": true,
+  "root": "/mnt/data/haci_project_validator_v2_1/examples/clean_project",
+  "symbols": {
+    "code.c": {
+      "symbol": "code.c",
+      "alias": "c",
+      "kind": "file",
+      "file": "/mnt/data/haci_project_validator_v2_1/examples/clean_project/05_code/c.haci",
+      "scope": "code"
+    },
+    "memory.m": {
+      "symbol": "memory.m",
+      "alias": "m",
+      "kind": "file",
+      "file": "/mnt/data/haci_project_validator_v2_1/examples/clean_project/10_memory/m.haci",
+      "scope": "memory",
+      "meaning": "memory",
+      "declared_at": "/mnt/data/haci_project_validator_v2_1/examples/clean_project/10_memory/m.haci:L1",
+      "authority": "human"
+    },
+    "runtime.runtime": {
+      "symbol": "runtime.runtime",
+      "alias": "runtime",
+      "kind": "file",
+      "file": "/mnt/data/haci_project_validator_v2_1/examples/clean_project/30_runtime/runtime.haci",
+      "scope": "runtime"
+    }
+  },
+  "aliases": {
+    "c": [
+      "code.c"
+    ],
+    "code.c": [
+      "code.c"
+    ],
+    "m": [
+      "memory.m"
+    ],
+    "memory.m": [
+      "memory.m"
+    ],
+    "runtime": [
+      "runtime.runtime"
+    ],
+    "runtime.runtime": [
+      "runtime.runtime"
+    ]
+  },
+  "edges": [
+    {
+      "from": "memory.m",
+      "to": "code.c",
+      "file": "/mnt/data/haci_project_validator_v2_1/examples/clean_project/10_memory/m.haci",
+      "line": 2,
+      "raw": "? c helper"
+    },
+    {
+      "from": "runtime.runtime",
+      "to": "memory.m",
+      "file": "/mnt/data/haci_project_validator_v2_1/examples/clean_project/30_runtime/runtime.haci",
+      "line": 1,
+      "raw": "? m previous result >"
+    }
+  ],
+  "cycles": [],
+  "conversations": [
+    {
+      "id": "m.haci:L1:memory.m",
+      "kind": "declaration",
+      "object": "memory.m",
+      "files": [
+        "/mnt/data/haci_project_validator_v2_1/examples/clean_project/10_memory/m.haci"
+      ],
+      "start": {
+        "file": "/mnt/data/haci_project_validator_v2_1/examples/clean_project/10_memory/m.haci",
+        "line": 1,
+        "raw": "! m memory >",
+        "outbound": "declare",
+        "inbound": "observe",
+        "object": "m",
+        "resolved_object": "memory.m",
+        "payload": "memory",
+        "owner": "human",
+        "authority": "human"
+      },
+      "body": [],
+      "returns": [
+        {
+          "file": "/mnt/data/haci_project_validator_v2_1/examples/clean_project/10_memory/m.haci",
+          "line": 1,
+          "raw": "! m memory >",
+          "outbound": "declare",
+          "inbound": "observe",
+          "object": "m",
+          "resolved_object": "memory.m",
+          "payload": "memory",
+          "owner": "human",
+          "authority": "human"
+        }
+      ],
+      "complete": true,
+      "unresolved": false,
+      "diagnostics": []
+    },
+    {
+      "id": "m.haci:L2:code.c",
+      "kind": "conversation",
+      "object": "code.c",
+      "files": [
+        "/mnt/data/haci_project_validator_v2_1/examples/clean_project/10_memory/m.haci",
+        "/mnt/data/haci_project_validator_v2_1/examples/clean_project/05_code/c.haci"
+      ],
+      "start": {
+        "file": "/mnt/data/haci_project_validator_v2_1/examples/clean_project/10_memory/m.haci",
+        "line": 2,
+        "raw": "? c helper",
+        "outbound": "ask",
+        "inbound": null,
+        "object": "c",
+        "resolved_object": "code.c",
+        "payload": "helper",
+        "owner": "human",
+        "authority": null
+      },
+      "body": [],
+      "returns": [
+        {
+          "file": "/mnt/data/haci_project_validator_v2_1/examples/clean_project/05_code/c.haci",
+          "line": 1,
+          "raw": "c helper ready >",
+          "outbound": null,
+          "inbound": "observe",
+          "object": "c",
+          "resolved_object": "code.c",
+          "payload": "helper ready",
+          "owner": "human",
+          "authority": null
+        }
+      ],
+      "complete": true,
+      "unresolved": false,
+      "diagnostics": []
+    },
+    {
+      "id": "runtime.haci:L1:memory.m",
+      "kind": "conversation",
+      "object": "memory.m",
+      "files": [
+        "/mnt/data/haci_project_validator_v2_1/examples/clean_project/30_runtime/runtime.haci"
+      ],
+      "start": {
+        "file": "/mnt/data/haci_project_validator_v2_1/examples/clean_project/30_runtime/runtime.haci",
+        "line": 1,
+        "raw": "? m previous result >",
+        "outbound": "ask",
+        "inbound": "observe",
+        "object": "m",
+        "resolved_object": "memory.m",
+        "payload": "previous result",
+        "owner": "human",
+        "authority": null
+      },
+      "body": [
+        {
+          "file": "/mnt/data/haci_project_validator_v2_1/examples/clean_project/30_runtime/runtime.haci",
+          "line": 2,
+          "raw": "search index",
+          "outbound": null,
+          "inbound": null,
+          "object": null,
+          "resolved_object": null,
+          "payload": "search index",
+          "owner": "human",
+          "authority": null
+        }
+      ],
+      "returns": [
+        {
+          "file": "/mnt/data/haci_project_validator_v2_1/examples/clean_project/30_runtime/runtime.haci",
+          "line": 1,
+          "raw": "? m previous result >",
+          "outbound": "ask",
+          "inbound": "observe",
+          "object": "m",
+          "resolved_object": "memory.m",
+          "payload": "previous result",
+          "owner": "human",
+          "authority": null
+        }
+      ],
+      "complete": true,
+      "unresolved": false,
+      "diagnostics": []
+    }
+  ],
+  "errors": [],
+  "warnings": [],
+  "nodes": [
+    {
+      "file": "/mnt/data/haci_project_validator_v2_1/examples/clean_project/05_code/c.haci",
+      "line": 1,
+      "raw": "c helper ready >",
+      "outbound": null,
+      "inbound": "observe",
+      "object": "c",
+      "resolved_object": "code.c",
+      "payload": "helper ready",
+      "owner": "human",
+      "authority": null
+    },
+    {
+      "file": "/mnt/data/haci_project_validator_v2_1/examples/clean_project/10_memory/m.haci",
+      "line": 1,
+      "raw": "! m memory >",
+      "outbound": "declare",
+      "inbound": "observe",
+      "object": "m",
+      "resolved_object": "memory.m",
+      "payload": "memory",
+      "owner": "human",
+      "authority": "human"
+    },
+    {
+      "file": "/mnt/data/haci_project_validator_v2_1/examples/clean_project/10_memory/m.haci",
+      "line": 2,
+      "raw": "? c helper",
+      "outbound": "ask",
+      "inbound": null,
+      "object": "c",
+      "resolved_object": "code.c",
+      "payload": "helper",
+      "owner": "human",
+      "authority": null
+    },
+    {
+      "file": "/mnt/data/haci_project_validator_v2_1/examples/clean_project/30_runtime/runtime.haci",
+      "line": 1,
+      "raw": "? m previous result >",
+      "outbound": "ask",
+      "inbound": "observe",
+      "object": "m",
+      "resolved_object": "memory.m",
+      "payload": "previous result",
+      "owner": "human",
+      "authority": null
+    },
+    {
+      "file": "/mnt/data/haci_project_validator_v2_1/examples/clean_project/30_runtime/runtime.haci",
+      "line": 2,
+      "raw": "search index",
+      "outbound": null,
+      "inbound": null,
+      "object": null,
+      "resolved_object": null,
+      "payload": "search index",
+      "owner": "human",
+      "authority": null
+    }
+  ]
+}

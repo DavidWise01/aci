@@ -1,0 +1,51 @@
+<!-- HACI v0.2 -->
+
+# Scheduler Build
+
+! BUILD A WORK-STEALING SCHEDULER
+
+The scheduler distributes tasks across worker threads.
+Each worker maintains a local deque.
+
+allocate thread pool based on cpu count
+initialize per-worker deques
+wire up steal protocol between workers
+
+? should we use a bounded or unbounded deque
+
+bounded deques cap memory but risk blocking
+unbounded deques simplify logic but risk runaway allocation
+
+! USE BOUNDED WITH 1024 SLOTS
+
+implement bounded ring buffer per worker >
+steal protocol crosses worker boundaries >
+
+```python
+class Worker:
+    def __init__(self, id, capacity=1024):
+        self.id = id
+        self.deque = RingBuffer(capacity)
+```
+
+> 8 workers instantiated
+> steal protocol verified across all pairs
+> memory bounded at 64KB per worker
+
+! SCHEDULER APPROVED FOR STAGING !
+
+deploy to staging environment >
+monitor for 24h before production ?
+
+The staging deployment uses the blue-green pattern.
+Rollback is automatic if error rate exceeds 0.1%.
+
+? WHAT IS THE ROLLBACK LATENCY
+
+measure rollback time under load
+estimate worst-case from current metrics
+
+> rollback measured at 340ms p99
+> below 500ms threshold
+
+! PROMOTE TO PRODUCTION !

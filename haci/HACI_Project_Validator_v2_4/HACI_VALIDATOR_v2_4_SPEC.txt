@@ -1,0 +1,20 @@
+HACI Project Validator v2.4 — Inbound Semantics Patch
+
+No syntax changes.
+No new operators.
+No new HACI features.
+
+Patch purpose:
+v2.3 failed protocol-semantics torture because suffix ? was treated as completion.
+
+Correct inbound semantics:
+- suffix > = told / evidence / result / complete answer
+- suffix ! = accepted / acknowledged / committed / complete commitment
+- suffix ? = returned as question / still open / unresolved
+
+Examples:
+? m clarify this ?   -> unresolved in strict mode
+? m clarify this >   -> complete
+? m commit this !    -> complete
+m needle ?           -> return-question, does not complete prior ask
+m needle >           -> returned answer, may complete prior ask

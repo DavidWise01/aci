@@ -1,0 +1,23 @@
+HACI Torture Suite x2
+
+Purpose:
+Validate HACI Project Validator v2.2 without adding features.
+
+Coverage:
+- deterministic output
+- strict mode monotonic behavior
+- phantom dot-path rejection
+- real dot-path acceptance
+- scoped alias ambiguity
+- canonical scoped references
+- return pairing by payload
+- ambiguous return rejection
+- unmatched return handling
+- heading and blank boundary behavior
+- object-required protocol lines
+- code fence suspension
+- cycle detection
+- lowercase human / UPPERCASE AI ownership
+
+This is not a new validator version.
+It is a validation harness for v2.2.

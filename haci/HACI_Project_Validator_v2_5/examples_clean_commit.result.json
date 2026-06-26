@@ -1,0 +1,84 @@
+{
+  "ok": true,
+  "strict": true,
+  "root": "/mnt/data/haci_project_validator_v2_5/examples/clean_commit",
+  "symbols": {
+    "memory.m": {
+      "symbol": "memory.m",
+      "alias": "m",
+      "kind": "file",
+      "file": "/mnt/data/haci_project_validator_v2_5/examples/clean_commit/10_memory/m.haci",
+      "scope": "memory",
+      "meaning": "memory",
+      "declared_at": "/mnt/data/haci_project_validator_v2_5/examples/clean_commit/10_memory/m.haci:L1",
+      "authority": "human",
+      "commit_state": "committed"
+    }
+  },
+  "aliases": {
+    "m": [
+      "memory.m"
+    ],
+    "memory.m": [
+      "memory.m"
+    ]
+  },
+  "edges": [],
+  "cycles": [],
+  "conversations": [
+    {
+      "id": "m.haci:L1:memory.m",
+      "kind": "declaration",
+      "object": "memory.m",
+      "files": [
+        "/mnt/data/haci_project_validator_v2_5/examples/clean_commit/10_memory/m.haci"
+      ],
+      "start": {
+        "file": "/mnt/data/haci_project_validator_v2_5/examples/clean_commit/10_memory/m.haci",
+        "line": 1,
+        "raw": "! m memory >",
+        "outbound": "declare",
+        "inbound": "observe",
+        "object": "m",
+        "resolved_object": "memory.m",
+        "payload": "memory",
+        "owner": "human",
+        "authority": "human"
+      },
+      "body": [],
+      "returns": [
+        {
+          "file": "/mnt/data/haci_project_validator_v2_5/examples/clean_commit/10_memory/m.haci",
+          "line": 1,
+          "raw": "! m memory >",
+          "outbound": "declare",
+          "inbound": "observe",
+          "object": "m",
+          "resolved_object": "memory.m",
+          "payload": "memory",
+          "owner": "human",
+          "authority": "human"
+        }
+      ],
+      "complete": true,
+      "unresolved": false,
+      "diagnostics": []
+    }
+  ],
+  "errors": [],
+  "warnings": [],
+  "nodes": [
+    {
+      "file": "/mnt/data/haci_project_validator_v2_5/examples/clean_commit/10_memory/m.haci",
+      "line": 1,
+      "raw": "! m memory >",
+      "outbound": "declare",
+      "inbound": "observe",
+      "object": "m",
+      "resolved_object": "memory.m",
+      "payload": "memory",
+      "owner": "human",
+      "authority": "human"
+    }
+  ]
+}

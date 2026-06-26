@@ -1,0 +1,27 @@
+HACI Project Validator v1.2 — Conversation Rules
+
+Purpose:
+Fix the node problem without changing HACI v1.0 syntax.
+
+Frozen language:
+- No new characters.
+- No new operators.
+- ! ? > remain the only intent/return operators.
+- Folder scope and object-slot rules remain unchanged.
+
+Architecture:
+1. Parser emits low-level nodes.
+2. Validator groups nodes into conversation events.
+3. Project validator validates symbols, dependencies, cycles, and conversations.
+
+Conversation Rules v1.2:
+- A protocol node opens a conversation event.
+- Plain non-protocol lines immediately after it become that conversation body.
+- A dual-edge line with both outbound and inbound is self-closed.
+- A return-only line may close an open conversation when it targets the same object.
+- Open conversations are warnings unless another validation rule makes them errors.
+
+Why this fixes the node problem:
+Nodes are syntax.
+Conversations are protocol events.
+Validation now targets the protocol, not isolated lines.

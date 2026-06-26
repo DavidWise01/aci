@@ -1,0 +1,199 @@
+{
+  "type": "haci_document",
+  "haci_version": "0.1",
+  "ir_version": "0.1",
+  "source_name": "sample.haci",
+  "nodes": [
+    {
+      "id": 1,
+      "type": "heading",
+      "raw": "# Runtime",
+      "content": "# Runtime",
+      "owner": "shared",
+      "meta": {
+        "level": 1,
+        "text": "Runtime"
+      }
+    },
+    {
+      "id": 2,
+      "type": "blank",
+      "raw": "",
+      "content": ""
+    },
+    {
+      "id": 3,
+      "type": "statement",
+      "raw": "! BUILD NETWORK",
+      "content": "BUILD NETWORK",
+      "intent": "declare",
+      "owner": "human"
+    },
+    {
+      "id": 4,
+      "type": "blank",
+      "raw": "",
+      "content": ""
+    },
+    {
+      "id": 5,
+      "type": "documentation",
+      "raw": "The runtime initializes workers.",
+      "content": "The runtime initializes workers.",
+      "owner": "shared"
+    },
+    {
+      "id": 6,
+      "type": "blank",
+      "raw": "",
+      "content": ""
+    },
+    {
+      "id": 7,
+      "type": "machine",
+      "raw": "allocate scheduler",
+      "content": "allocate scheduler",
+      "owner": "machine"
+    },
+    {
+      "id": 8,
+      "type": "blank",
+      "raw": "",
+      "content": ""
+    },
+    {
+      "id": 9,
+      "type": "machine",
+      "raw": "allocate workers",
+      "content": "allocate workers",
+      "owner": "machine"
+    },
+    {
+      "id": 10,
+      "type": "blank",
+      "raw": "",
+      "content": ""
+    },
+    {
+      "id": 11,
+      "type": "statement",
+      "raw": "? should memory be pooled?",
+      "content": "should memory be pooled",
+      "intent": "inquire",
+      "status": "pending",
+      "owner": "machine"
+    },
+    {
+      "id": 12,
+      "type": "blank",
+      "raw": "",
+      "content": ""
+    },
+    {
+      "id": 13,
+      "type": "statement",
+      "raw": "pool memory ?",
+      "content": "pool memory",
+      "status": "pending",
+      "owner": "machine"
+    },
+    {
+      "id": 14,
+      "type": "blank",
+      "raw": "",
+      "content": ""
+    },
+    {
+      "id": 15,
+      "type": "statement",
+      "raw": "> latency reduced 18%",
+      "content": "latency reduced 18%",
+      "intent": "observe",
+      "owner": "machine"
+    },
+    {
+      "id": 16,
+      "type": "blank",
+      "raw": "",
+      "content": ""
+    },
+    {
+      "id": 17,
+      "type": "statement",
+      "raw": "! BUILD NETWORK >",
+      "content": "BUILD NETWORK",
+      "intent": "declare",
+      "status": "verified",
+      "owner": "human"
+    },
+    {
+      "id": 18,
+      "type": "blank",
+      "raw": "",
+      "content": ""
+    },
+    {
+      "id": 19,
+      "type": "statement",
+      "raw": "BUILD RUNTIME !",
+      "content": "BUILD RUNTIME",
+      "status": "committed",
+      "owner": "human"
+    },
+    {
+      "id": 20,
+      "type": "blank",
+      "raw": "",
+      "content": ""
+    },
+    {
+      "id": 21,
+      "type": "statement",
+      "raw": "runtime verified >",
+      "content": "runtime verified",
+      "status": "verified",
+      "owner": "machine"
+    },
+    {
+      "id": 22,
+      "type": "blank",
+      "raw": "",
+      "content": ""
+    },
+    {
+      "id": 23,
+      "type": "code_fence_open",
+      "raw": "```python",
+      "content": "```python",
+      "owner": "runtime",
+      "meta": {
+        "fence": "```",
+        "language": "python"
+      }
+    },
+    {
+      "id": 24,
+      "type": "code",
+      "raw": "! this is code, not HACI intent",
+      "content": "! this is code, not HACI intent",
+      "owner": "runtime"
+    },
+    {
+      "id": 25,
+      "type": "code",
+      "raw": "network.start()",
+      "content": "network.start()",
+      "owner": "runtime"
+    },
+    {
+      "id": 26,
+      "type": "code_fence_close",
+      "raw": "```",
+      "content": "```",
+      "owner": "runtime",
+      "meta": {
+        "fence": "```"
+      }
+    }
+  ]
+}

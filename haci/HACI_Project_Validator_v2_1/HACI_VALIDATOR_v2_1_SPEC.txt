@@ -1,0 +1,40 @@
+HACI Project Validator v2.1 — Conversation Engine Patch
+
+No syntax changes.
+No new characters.
+No new operators.
+
+Language base:
+- HACI v2.0 case semantics remain:
+  lowercase = human
+  UPPERCASE = AI
+  Sentence Case = context/shared
+
+Patch fixes:
+1. Dual-edge lines are complete by default.
+   Example:
+   ? m previous result >
+   is complete even in strict mode.
+
+2. Body lines after dual-edge lines attach without making the event unresolved.
+   Example:
+   ? m previous result >
+   search index
+   rank context
+
+3. Declarations do not remain open.
+   Example:
+   ! m memory >
+   is a complete declaration event, not an open conversation.
+
+4. Cross-file pairing is two-pass and order-independent.
+   Return-only lines can appear before or after the outbound ask and still pair by resolved object.
+
+5. Warnings/errors are deduplicated.
+
+Conversation semantics:
+- Parser emits nodes.
+- Validator groups nodes into conversation events.
+- Declarations are symbol events.
+- Ask/observe events may be complete, unresolved, or paired with returns.
+- Strict mode fails unresolved conversations.

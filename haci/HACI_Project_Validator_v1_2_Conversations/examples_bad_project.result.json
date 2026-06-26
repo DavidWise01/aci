@@ -1,0 +1,87 @@
+{
+  "ok": false,
+  "root": "/mnt/data/haci_project_validator_v1_2_conversations/examples/bad_project",
+  "symbols": {
+    "m": {
+      "symbol": "m",
+      "kind": "file",
+      "file": "/mnt/data/haci_project_validator_v1_2_conversations/examples/bad_project/10_memory/m.haci",
+      "scope": "/mnt/data/haci_project_validator_v1_2_conversations/examples/bad_project/10_memory"
+    },
+    "runtime": {
+      "symbol": "runtime",
+      "kind": "file",
+      "file": "/mnt/data/haci_project_validator_v1_2_conversations/examples/bad_project/20_runtime/runtime.haci",
+      "scope": "/mnt/data/haci_project_validator_v1_2_conversations/examples/bad_project/20_runtime"
+    }
+  },
+  "edges": [],
+  "cycles": [],
+  "conversations": [
+    {
+      "id": "m.haci:1",
+      "file": "/mnt/data/haci_project_validator_v1_2_conversations/examples/bad_project/10_memory/m.haci",
+      "start_line": 1,
+      "object": "c",
+      "opener": {
+        "file": "/mnt/data/haci_project_validator_v1_2_conversations/examples/bad_project/10_memory/m.haci",
+        "line": 1,
+        "raw": "? c helper >",
+        "outbound": "ask",
+        "inbound": "observe",
+        "object": "c",
+        "payload": "helper",
+        "owner": "machine"
+      },
+      "body": [],
+      "closer": null,
+      "diagnostics": []
+    },
+    {
+      "id": "runtime.haci:1",
+      "file": "/mnt/data/haci_project_validator_v1_2_conversations/examples/bad_project/20_runtime/runtime.haci",
+      "start_line": 1,
+      "object": "x",
+      "opener": {
+        "file": "/mnt/data/haci_project_validator_v1_2_conversations/examples/bad_project/20_runtime/runtime.haci",
+        "line": 1,
+        "raw": "? x missing >",
+        "outbound": "ask",
+        "inbound": "observe",
+        "object": "x",
+        "payload": "missing",
+        "owner": "machine"
+      },
+      "body": [],
+      "closer": null,
+      "diagnostics": []
+    }
+  ],
+  "errors": [
+    "/mnt/data/haci_project_validator_v1_2_conversations/examples/bad_project/10_memory/m.haci:L1:UNDECLARED_OBJECT:c",
+    "/mnt/data/haci_project_validator_v1_2_conversations/examples/bad_project/20_runtime/runtime.haci:L1:UNDECLARED_OBJECT:x"
+  ],
+  "warnings": [],
+  "nodes": [
+    {
+      "file": "/mnt/data/haci_project_validator_v1_2_conversations/examples/bad_project/10_memory/m.haci",
+      "line": 1,
+      "raw": "? c helper >",
+      "outbound": "ask",
+      "inbound": "observe",
+      "object": "c",
+      "payload": "helper",
+      "owner": "machine"
+    },
+    {
+      "file": "/mnt/data/haci_project_validator_v1_2_conversations/examples/bad_project/20_runtime/runtime.haci",
+      "line": 1,
+      "raw": "? x missing >",
+      "outbound": "ask",
+      "inbound": "observe",
+      "object": "x",
+      "payload": "missing",
+      "owner": "machine"
+    }
+  ]
+}

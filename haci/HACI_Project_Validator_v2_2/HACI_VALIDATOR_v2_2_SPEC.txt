@@ -1,0 +1,30 @@
+HACI Project Validator v2.2 — Resolution + Pairing Patch
+
+No syntax changes.
+No new characters.
+No new operators.
+
+Base:
+- HACI v2.x case semantics remain:
+  lowercase = human
+  UPPERCASE = AI
+  Sentence Case = context/shared
+
+Fixes:
+1. Real dot-path resolution:
+   m.parser.last must resolve to an actual scoped object such as:
+   /10_memory/m/parser/last.haci -> memory.m.parser.last
+
+2. Return pairing beyond object FIFO:
+   Returns are paired by object + payload-token overlap.
+   This prevents first/second answer swaps.
+
+3. Strict unmatched returns:
+   RETURN_WITHOUT_OPEN_REQUEST is a warning in normal mode and an error in strict mode.
+
+4. Structure boundaries:
+   Headings and blank lines stop body attachment.
+
+5. Object-required protocol lines:
+   Protocol lines must target an object.
+   Free-standing returns remain invalid in v2.2.

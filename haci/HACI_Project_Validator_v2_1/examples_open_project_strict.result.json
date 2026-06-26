@@ -1,0 +1,74 @@
+{
+  "ok": false,
+  "strict": true,
+  "root": "/mnt/data/haci_project_validator_v2_1/examples/open_project",
+  "symbols": {
+    "memory.m": {
+      "symbol": "memory.m",
+      "alias": "m",
+      "kind": "file",
+      "file": "/mnt/data/haci_project_validator_v2_1/examples/open_project/10_memory/m.haci",
+      "scope": "memory"
+    }
+  },
+  "aliases": {
+    "m": [
+      "memory.m"
+    ],
+    "memory.m": [
+      "memory.m"
+    ]
+  },
+  "edges": [],
+  "cycles": [],
+  "conversations": [
+    {
+      "id": "m.haci:L1:memory.m",
+      "kind": "conversation",
+      "object": "memory.m",
+      "files": [
+        "/mnt/data/haci_project_validator_v2_1/examples/open_project/10_memory/m.haci"
+      ],
+      "start": {
+        "file": "/mnt/data/haci_project_validator_v2_1/examples/open_project/10_memory/m.haci",
+        "line": 1,
+        "raw": "? m previous parser result",
+        "outbound": "ask",
+        "inbound": null,
+        "object": "m",
+        "resolved_object": "memory.m",
+        "payload": "previous parser result",
+        "owner": "human",
+        "authority": null
+      },
+      "body": [],
+      "returns": [],
+      "complete": false,
+      "unresolved": true,
+      "diagnostics": [
+        "OPEN_CONVERSATION"
+      ]
+    }
+  ],
+  "errors": [
+    "/mnt/data/haci_project_validator_v2_1/examples/open_project/10_memory/m.haci:L1:OPEN_CONVERSATION:m.haci:L1:memory.m",
+    "/mnt/data/haci_project_validator_v2_1/examples/open_project/10_memory/m.haci:L1:ASK_WITHOUT_RETURN:m.haci:L1:memory.m"
+  ],
+  "warnings": [
+    "/mnt/data/haci_project_validator_v2_1/examples/open_project/10_memory/m.haci:L1:OPEN_CONVERSATION:m.haci:L1:memory.m"
+  ],
+  "nodes": [
+    {
+      "file": "/mnt/data/haci_project_validator_v2_1/examples/open_project/10_memory/m.haci",
+      "line": 1,
+      "raw": "? m previous parser result",
+      "outbound": "ask",
+      "inbound": null,
+      "object": "m",
+      "resolved_object": "memory.m",
+      "payload": "previous parser result",
+      "owner": "human",
+      "authority": null
+    }
+  ]
+}

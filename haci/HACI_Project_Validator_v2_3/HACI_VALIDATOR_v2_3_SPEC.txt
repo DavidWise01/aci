@@ -1,0 +1,33 @@
+HACI Project Validator v2.3 — No-Guess Pairing Patch
+
+No syntax changes.
+No new operators.
+No new HACI features.
+
+Patch purpose:
+v2.2 failed torture-to-failure because ambiguous positive-overlap returns were accepted.
+
+Old bad case:
+? m alpha red
+? m alpha blue
+m alpha green >
+m alpha yellow >
+
+v2.2 accepted it because every return had positive overlap on alpha.
+v2.3 rejects it because no return is a unique best match.
+
+v2.3 pairing rule:
+A return pairs only when it is the mutual, unique, positive best match:
+1. same resolved object
+2. score > 0
+3. the ask has exactly one best return
+4. that return has exactly one best ask
+5. they point to each other
+
+Removed:
+- weak zero-score fallback
+- order-based tie guessing
+
+Result:
+Less clever.
+More correct.
