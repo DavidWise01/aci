@@ -1,0 +1,15 @@
+{
+  "failure": "single accepted return does not complete ask",
+  "reason": "With one open ask for object m, suffix ! means accepted/committed back, but v2.5 still requires payload-token overlap and leaves it open.",
+  "expected": "strict pass for unique same-object accepted return",
+  "saved_to": "FAILURE_FOUND",
+  "errors": [
+    "/tmp/tmphzyza4bd/10_memory/m.haci:L1:OPEN_CONVERSATION:m.haci:L1:memory.m",
+    "/tmp/tmphzyza4bd/10_memory/m.haci:L1:ASK_WITHOUT_RETURN:m.haci:L1:memory.m",
+    "/tmp/tmphzyza4bd/10_memory/m.haci:L2:RETURN_WITHOUT_OPEN_REQUEST:m.haci:L2:memory.m"
+  ],
+  "warnings": [
+    "/tmp/tmphzyza4bd/10_memory/m.haci:L2:RETURN_WITHOUT_OPEN_REQUEST:m.haci:L2:memory.m",
+    "/tmp/tmphzyza4bd/10_memory/m.haci:L1:OPEN_CONVERSATION:m.haci:L1:memory.m"
+  ]
+}

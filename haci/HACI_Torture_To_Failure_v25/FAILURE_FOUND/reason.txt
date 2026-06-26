@@ -1,0 +1,1 @@
+With one open ask for object m, suffix ! means accepted/committed back, but v2.5 still requires payload-token overlap and leaves it open.
