@@ -1,0 +1,6 @@
+HACI v2.6 build log
+PASS: HACI Project Validator v2.6 tests passed
+examples/clean_accept ['--strict']: exit 0 expected 0
+examples/failure_fixed ['--strict']: exit 1 expected 1
+examples/observe_unrelated_fail ['--strict']: exit 1 expected 1
+PASS: prior v2.5 accepted-return failure now closes only when unique

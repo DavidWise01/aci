@@ -1,0 +1,16 @@
+HACI Project Validator v3.4 — Missing Parent Scope Gate
+
+No syntax changes.
+No new operators.
+No new HACI features.
+
+Patch purpose:
+v3.3 failed audit-to-failure because a deep child symbol could commit even when its parent object chain did not exist.
+
+Rule:
+- flat namespace-root objects are allowed, e.g. memory.m
+- nested child symbols require their parent object chain to exist and be committed
+- memory.m.parser requires memory.m
+- memory.m.parser.last requires memory.m and memory.m.parser
+- missing parents block child commit with MISSING_PARENT_SCOPE
+- pending/uncommitted parents block child commit with PENDING_PARENT_SCOPE

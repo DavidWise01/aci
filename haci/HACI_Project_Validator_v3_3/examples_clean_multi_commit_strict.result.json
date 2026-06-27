@@ -1,0 +1,122 @@
+{
+  "ok": true,
+  "strict": true,
+  "root": "/mnt/data/haci_project_validator_v3_3/examples/clean_multi_commit",
+  "symbols": {
+    "memory.m": {
+      "symbol": "memory.m",
+      "alias": "m",
+      "kind": "file",
+      "file": "/mnt/data/haci_project_validator_v3_3/examples/clean_multi_commit/10_memory/m.haci",
+      "scope": "memory"
+    }
+  },
+  "aliases": {
+    "m": [
+      "memory.m"
+    ],
+    "memory.m": [
+      "memory.m"
+    ]
+  },
+  "edges": [],
+  "cycles": [],
+  "conversations": [
+    {
+      "id": "m.haci:L1:memory.m",
+      "kind": "conversation",
+      "object": "memory.m",
+      "files": [
+        "/mnt/data/haci_project_validator_v3_3/examples/clean_multi_commit/10_memory/m.haci"
+      ],
+      "start": {
+        "file": "/mnt/data/haci_project_validator_v3_3/examples/clean_multi_commit/10_memory/m.haci",
+        "line": 1,
+        "raw": "? m alpha approval",
+        "outbound": "ask",
+        "inbound": null,
+        "object": "m",
+        "resolved_object": "memory.m",
+        "payload": "alpha approval",
+        "owner": "human",
+        "authority": null
+      },
+      "body": [],
+      "returns": [
+        {
+          "file": "/mnt/data/haci_project_validator_v3_3/examples/clean_multi_commit/10_memory/m.haci",
+          "line": 2,
+          "raw": "m alpha accepted !",
+          "outbound": null,
+          "inbound": "declare",
+          "object": "m",
+          "resolved_object": "memory.m",
+          "payload": "alpha accepted",
+          "owner": "human",
+          "authority": null
+        },
+        {
+          "file": "/mnt/data/haci_project_validator_v3_3/examples/clean_multi_commit/10_memory/m.haci",
+          "line": 3,
+          "raw": "m alpha committed !",
+          "outbound": null,
+          "inbound": "declare",
+          "object": "m",
+          "resolved_object": "memory.m",
+          "payload": "alpha committed",
+          "owner": "human",
+          "authority": null
+        }
+      ],
+      "complete": true,
+      "unresolved": false,
+      "diagnostics": [
+        "COMMIT_RETURN_PAIR",
+        "COMMIT_RETURN_PAIR"
+      ]
+    }
+  ],
+  "errors": [],
+  "warnings": [
+    "/mnt/data/haci_project_validator_v3_3/examples/clean_multi_commit/10_memory/m.haci:L2:COMMIT_RETURN_PAIR:m.haci:L1:memory.m",
+    "/mnt/data/haci_project_validator_v3_3/examples/clean_multi_commit/10_memory/m.haci:L3:COMMIT_RETURN_PAIR:m.haci:L1:memory.m"
+  ],
+  "nodes": [
+    {
+      "file": "/mnt/data/haci_project_validator_v3_3/examples/clean_multi_commit/10_memory/m.haci",
+      "line": 1,
+      "raw": "? m alpha approval",
+      "outbound": "ask",
+      "inbound": null,
+      "object": "m",
+      "resolved_object": "memory.m",
+      "payload": "alpha approval",
+      "owner": "human",
+      "authority": null
+    },
+    {
+      "file": "/mnt/data/haci_project_validator_v3_3/examples/clean_multi_commit/10_memory/m.haci",
+      "line": 2,
+      "raw": "m alpha accepted !",
+      "outbound": null,
+      "inbound": "declare",
+      "object": "m",
+      "resolved_object": "memory.m",
+      "payload": "alpha accepted",
+      "owner": "human",
+      "authority": null
+    },
+    {
+      "file": "/mnt/data/haci_project_validator_v3_3/examples/clean_multi_commit/10_memory/m.haci",
+      "line": 3,
+      "raw": "m alpha committed !",
+      "outbound": null,
+      "inbound": "declare",
+      "object": "m",
+      "resolved_object": "memory.m",
+      "payload": "alpha committed",
+      "owner": "human",
+      "authority": null
+    }
+  ]
+}

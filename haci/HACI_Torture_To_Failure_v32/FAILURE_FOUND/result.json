@@ -1,0 +1,184 @@
+{
+  "ok": false,
+  "strict": true,
+  "root": "/tmp/tmpsxjt5i7z",
+  "symbols": {
+    "memory.m": {
+      "symbol": "memory.m",
+      "alias": "m",
+      "kind": "file",
+      "file": "/tmp/tmpsxjt5i7z/10_memory/m.haci",
+      "scope": "memory"
+    }
+  },
+  "aliases": {
+    "m": [
+      "memory.m"
+    ],
+    "memory.m": [
+      "memory.m"
+    ]
+  },
+  "edges": [],
+  "cycles": [],
+  "conversations": [
+    {
+      "id": "m.haci:L1:memory.m",
+      "kind": "conversation",
+      "object": "memory.m",
+      "files": [
+        "/tmp/tmpsxjt5i7z/10_memory/m.haci"
+      ],
+      "start": {
+        "file": "/tmp/tmpsxjt5i7z/10_memory/m.haci",
+        "line": 1,
+        "raw": "? m alpha approval",
+        "outbound": "ask",
+        "inbound": null,
+        "object": "m",
+        "resolved_object": "memory.m",
+        "payload": "alpha approval",
+        "owner": "human",
+        "authority": null
+      },
+      "body": [],
+      "returns": [],
+      "complete": false,
+      "unresolved": true,
+      "diagnostics": [
+        "UNPAIRED_CONVERSATION",
+        "NO_UNIQUE_RETURN_PAIR",
+        "OPEN_CONVERSATION"
+      ]
+    },
+    {
+      "id": "m.haci:L2:memory.m",
+      "kind": "return",
+      "object": "memory.m",
+      "files": [
+        "/tmp/tmpsxjt5i7z/10_memory/m.haci"
+      ],
+      "start": {
+        "file": "/tmp/tmpsxjt5i7z/10_memory/m.haci",
+        "line": 2,
+        "raw": "m alpha accepted !",
+        "outbound": null,
+        "inbound": "declare",
+        "object": "m",
+        "resolved_object": "memory.m",
+        "payload": "alpha accepted",
+        "owner": "human",
+        "authority": null
+      },
+      "body": [],
+      "returns": [
+        {
+          "file": "/tmp/tmpsxjt5i7z/10_memory/m.haci",
+          "line": 2,
+          "raw": "m alpha accepted !",
+          "outbound": null,
+          "inbound": "declare",
+          "object": "m",
+          "resolved_object": "memory.m",
+          "payload": "alpha accepted",
+          "owner": "human",
+          "authority": null
+        }
+      ],
+      "complete": true,
+      "unresolved": false,
+      "diagnostics": [
+        "RETURN_WITHOUT_OPEN_REQUEST"
+      ]
+    },
+    {
+      "id": "m.haci:L3:memory.m",
+      "kind": "return",
+      "object": "memory.m",
+      "files": [
+        "/tmp/tmpsxjt5i7z/10_memory/m.haci"
+      ],
+      "start": {
+        "file": "/tmp/tmpsxjt5i7z/10_memory/m.haci",
+        "line": 3,
+        "raw": "m alpha committed !",
+        "outbound": null,
+        "inbound": "declare",
+        "object": "m",
+        "resolved_object": "memory.m",
+        "payload": "alpha committed",
+        "owner": "human",
+        "authority": null
+      },
+      "body": [],
+      "returns": [
+        {
+          "file": "/tmp/tmpsxjt5i7z/10_memory/m.haci",
+          "line": 3,
+          "raw": "m alpha committed !",
+          "outbound": null,
+          "inbound": "declare",
+          "object": "m",
+          "resolved_object": "memory.m",
+          "payload": "alpha committed",
+          "owner": "human",
+          "authority": null
+        }
+      ],
+      "complete": true,
+      "unresolved": false,
+      "diagnostics": [
+        "RETURN_WITHOUT_OPEN_REQUEST"
+      ]
+    }
+  ],
+  "errors": [
+    "/tmp/tmpsxjt5i7z/10_memory/m.haci:L1:OPEN_CONVERSATION:m.haci:L1:memory.m",
+    "/tmp/tmpsxjt5i7z/10_memory/m.haci:L1:ASK_WITHOUT_RETURN:m.haci:L1:memory.m",
+    "/tmp/tmpsxjt5i7z/10_memory/m.haci:L2:RETURN_WITHOUT_OPEN_REQUEST:m.haci:L2:memory.m",
+    "/tmp/tmpsxjt5i7z/10_memory/m.haci:L3:RETURN_WITHOUT_OPEN_REQUEST:m.haci:L3:memory.m"
+  ],
+  "warnings": [
+    "/tmp/tmpsxjt5i7z/10_memory/m.haci:L2:RETURN_WITHOUT_OPEN_REQUEST:m.haci:L2:memory.m",
+    "/tmp/tmpsxjt5i7z/10_memory/m.haci:L3:RETURN_WITHOUT_OPEN_REQUEST:m.haci:L3:memory.m",
+    "/tmp/tmpsxjt5i7z/10_memory/m.haci:L1:OPEN_CONVERSATION:m.haci:L1:memory.m"
+  ],
+  "nodes": [
+    {
+      "file": "/tmp/tmpsxjt5i7z/10_memory/m.haci",
+      "line": 1,
+      "raw": "? m alpha approval",
+      "outbound": "ask",
+      "inbound": null,
+      "object": "m",
+      "resolved_object": "memory.m",
+      "payload": "alpha approval",
+      "owner": "human",
+      "authority": null
+    },
+    {
+      "file": "/tmp/tmpsxjt5i7z/10_memory/m.haci",
+      "line": 2,
+      "raw": "m alpha accepted !",
+      "outbound": null,
+      "inbound": "declare",
+      "object": "m",
+      "resolved_object": "memory.m",
+      "payload": "alpha accepted",
+      "owner": "human",
+      "authority": null
+    },
+    {
+      "file": "/tmp/tmpsxjt5i7z/10_memory/m.haci",
+      "line": 3,
+      "raw": "m alpha committed !",
+      "outbound": null,
+      "inbound": "declare",
+      "object": "m",
+      "resolved_object": "memory.m",
+      "payload": "alpha committed",
+      "owner": "human",
+      "authority": null
+    }
+  ]
+}

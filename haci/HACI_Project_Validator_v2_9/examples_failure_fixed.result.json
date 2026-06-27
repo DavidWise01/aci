@@ -1,0 +1,165 @@
+{
+  "ok": true,
+  "strict": false,
+  "root": "/mnt/data/haci_project_validator_v2_9/examples/failure_fixed",
+  "symbols": {
+    "memory.m": {
+      "symbol": "memory.m",
+      "alias": "m",
+      "kind": "file",
+      "file": "/mnt/data/haci_project_validator_v2_9/examples/failure_fixed/10_memory/m.haci",
+      "scope": "memory"
+    },
+    "code.c": {
+      "symbol": "code.c",
+      "alias": "c",
+      "kind": "file",
+      "file": "/mnt/data/haci_project_validator_v2_9/examples/failure_fixed/20_code/c.haci",
+      "scope": "code",
+      "pending_declarations": [
+        {
+          "meaning": "pending",
+          "authority": "human",
+          "declared_at": "/mnt/data/haci_project_validator_v2_9/examples/failure_fixed/10_memory/m.haci:L1",
+          "inbound": "ask",
+          "state": "pending"
+        }
+      ],
+      "meaning": "code",
+      "declared_at": "/mnt/data/haci_project_validator_v2_9/examples/failure_fixed/20_code/c.haci:L1",
+      "authority": "human",
+      "commit_state": "committed"
+    }
+  },
+  "aliases": {
+    "m": [
+      "memory.m"
+    ],
+    "memory.m": [
+      "memory.m"
+    ],
+    "c": [
+      "code.c"
+    ],
+    "code.c": [
+      "code.c"
+    ]
+  },
+  "edges": [],
+  "cycles": [],
+  "conversations": [
+    {
+      "id": "m.haci:L1:code.c",
+      "kind": "declaration",
+      "object": "code.c",
+      "files": [
+        "/mnt/data/haci_project_validator_v2_9/examples/failure_fixed/10_memory/m.haci"
+      ],
+      "start": {
+        "file": "/mnt/data/haci_project_validator_v2_9/examples/failure_fixed/10_memory/m.haci",
+        "line": 1,
+        "raw": "! c pending ?",
+        "outbound": "declare",
+        "inbound": "ask",
+        "object": "c",
+        "resolved_object": "code.c",
+        "payload": "pending",
+        "owner": "human",
+        "authority": "human"
+      },
+      "body": [],
+      "returns": [
+        {
+          "file": "/mnt/data/haci_project_validator_v2_9/examples/failure_fixed/10_memory/m.haci",
+          "line": 1,
+          "raw": "! c pending ?",
+          "outbound": "declare",
+          "inbound": "ask",
+          "object": "c",
+          "resolved_object": "code.c",
+          "payload": "pending",
+          "owner": "human",
+          "authority": "human"
+        }
+      ],
+      "complete": false,
+      "unresolved": true,
+      "diagnostics": [
+        "INBOUND_QUESTION_UNRESOLVED",
+        "DECLARATION_PENDING_NOT_COMMITTED",
+        "OPEN_CONVERSATION"
+      ]
+    },
+    {
+      "id": "c.haci:L1:code.c",
+      "kind": "declaration",
+      "object": "code.c",
+      "files": [
+        "/mnt/data/haci_project_validator_v2_9/examples/failure_fixed/20_code/c.haci"
+      ],
+      "start": {
+        "file": "/mnt/data/haci_project_validator_v2_9/examples/failure_fixed/20_code/c.haci",
+        "line": 1,
+        "raw": "! c code >",
+        "outbound": "declare",
+        "inbound": "observe",
+        "object": "c",
+        "resolved_object": "code.c",
+        "payload": "code",
+        "owner": "human",
+        "authority": "human"
+      },
+      "body": [],
+      "returns": [
+        {
+          "file": "/mnt/data/haci_project_validator_v2_9/examples/failure_fixed/20_code/c.haci",
+          "line": 1,
+          "raw": "! c code >",
+          "outbound": "declare",
+          "inbound": "observe",
+          "object": "c",
+          "resolved_object": "code.c",
+          "payload": "code",
+          "owner": "human",
+          "authority": "human"
+        }
+      ],
+      "complete": true,
+      "unresolved": false,
+      "diagnostics": []
+    }
+  ],
+  "errors": [],
+  "warnings": [
+    "/mnt/data/haci_project_validator_v2_9/examples/failure_fixed/10_memory/m.haci:L1:DECLARATION_PENDING_NOT_COMMITTED:code.c",
+    "/mnt/data/haci_project_validator_v2_9/examples/failure_fixed/10_memory/m.haci:L1:OPEN_CONVERSATION:m.haci:L1:code.c",
+    "/mnt/data/haci_project_validator_v2_9/examples/failure_fixed/10_memory/m.haci:L1:INBOUND_QUESTION_UNRESOLVED:m.haci:L1:code.c",
+    "/mnt/data/haci_project_validator_v2_9/examples/failure_fixed/10_memory/m.haci:L1:DECLARATION_PENDING_NOT_COMMITTED:m.haci:L1:code.c"
+  ],
+  "nodes": [
+    {
+      "file": "/mnt/data/haci_project_validator_v2_9/examples/failure_fixed/10_memory/m.haci",
+      "line": 1,
+      "raw": "! c pending ?",
+      "outbound": "declare",
+      "inbound": "ask",
+      "object": "c",
+      "resolved_object": "code.c",
+      "payload": "pending",
+      "owner": "human",
+      "authority": "human"
+    },
+    {
+      "file": "/mnt/data/haci_project_validator_v2_9/examples/failure_fixed/20_code/c.haci",
+      "line": 1,
+      "raw": "! c code >",
+      "outbound": "declare",
+      "inbound": "observe",
+      "object": "c",
+      "resolved_object": "code.c",
+      "payload": "code",
+      "owner": "human",
+      "authority": "human"
+    }
+  ]
+}

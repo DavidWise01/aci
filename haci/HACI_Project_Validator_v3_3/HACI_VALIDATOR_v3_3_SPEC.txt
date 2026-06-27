@@ -1,0 +1,17 @@
+HACI Project Validator v3.3 — Multi Commit Return Attachment Patch
+
+No syntax changes.
+No new operators.
+No new HACI features.
+
+Patch purpose:
+v3.2 failed torture-to-failure because multiple suffix ! accepted/acknowledged/committed returns could not attach to one ask.
+
+Rule:
+- multiple positive suffix ! commit/ack returns may attach to the same conversation
+- each positive ! return still needs a positive unique conversation match
+- suffix ! completes the conversation
+- old no-token accepted-return fallback remains conservative:
+  exactly one still-open ask + exactly one zero-score ! return
+- ambiguous/zero-score multi-! returns still fail closed
+- same-file chronology gate still applies

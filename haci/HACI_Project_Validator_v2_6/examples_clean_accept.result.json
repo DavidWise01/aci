@@ -1,0 +1,96 @@
+{
+  "ok": true,
+  "strict": true,
+  "root": "/mnt/data/haci_project_validator_v2_6/examples/clean_accept",
+  "symbols": {
+    "memory.m": {
+      "symbol": "memory.m",
+      "alias": "m",
+      "kind": "file",
+      "file": "/mnt/data/haci_project_validator_v2_6/examples/clean_accept/10_memory/m.haci",
+      "scope": "memory"
+    }
+  },
+  "aliases": {
+    "m": [
+      "memory.m"
+    ],
+    "memory.m": [
+      "memory.m"
+    ]
+  },
+  "edges": [],
+  "cycles": [],
+  "conversations": [
+    {
+      "id": "m.haci:L1:memory.m",
+      "kind": "conversation",
+      "object": "memory.m",
+      "files": [
+        "/mnt/data/haci_project_validator_v2_6/examples/clean_accept/10_memory/m.haci"
+      ],
+      "start": {
+        "file": "/mnt/data/haci_project_validator_v2_6/examples/clean_accept/10_memory/m.haci",
+        "line": 1,
+        "raw": "? m approve deployment",
+        "outbound": "ask",
+        "inbound": null,
+        "object": "m",
+        "resolved_object": "memory.m",
+        "payload": "approve deployment",
+        "owner": "human",
+        "authority": null
+      },
+      "body": [],
+      "returns": [
+        {
+          "file": "/mnt/data/haci_project_validator_v2_6/examples/clean_accept/10_memory/m.haci",
+          "line": 2,
+          "raw": "m accepted !",
+          "outbound": null,
+          "inbound": "declare",
+          "object": "m",
+          "resolved_object": "memory.m",
+          "payload": "accepted",
+          "owner": "human",
+          "authority": null
+        }
+      ],
+      "complete": true,
+      "unresolved": false,
+      "diagnostics": [
+        "ACCEPTED_RETURN_PAIR"
+      ]
+    }
+  ],
+  "errors": [],
+  "warnings": [
+    "/mnt/data/haci_project_validator_v2_6/examples/clean_accept/10_memory/m.haci:L2:ACCEPTED_RETURN_PAIR:m.haci:L1:memory.m"
+  ],
+  "nodes": [
+    {
+      "file": "/mnt/data/haci_project_validator_v2_6/examples/clean_accept/10_memory/m.haci",
+      "line": 1,
+      "raw": "? m approve deployment",
+      "outbound": "ask",
+      "inbound": null,
+      "object": "m",
+      "resolved_object": "memory.m",
+      "payload": "approve deployment",
+      "owner": "human",
+      "authority": null
+    },
+    {
+      "file": "/mnt/data/haci_project_validator_v2_6/examples/clean_accept/10_memory/m.haci",
+      "line": 2,
+      "raw": "m accepted !",
+      "outbound": null,
+      "inbound": "declare",
+      "object": "m",
+      "resolved_object": "memory.m",
+      "payload": "accepted",
+      "owner": "human",
+      "authority": null
+    }
+  ]
+}

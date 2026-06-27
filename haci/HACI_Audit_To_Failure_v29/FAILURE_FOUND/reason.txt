@@ -1,0 +1,1 @@
+A return appearing before its ask in the same HACI file was accepted. Cross-file pairing needs order-independence, but same-file chronology should not silently invert.

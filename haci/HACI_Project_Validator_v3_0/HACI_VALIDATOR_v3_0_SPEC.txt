@@ -1,0 +1,17 @@
+HACI Project Validator v3.0 — Same-File Chronology Gate
+
+No syntax changes.
+No new operators.
+No new HACI features.
+
+Patch purpose:
+v2.9 failed audit-to-failure because same-file returns could pair backward to later asks.
+
+Chronology rule:
+- same-file returns may not pair backward to later asks
+- applies to suffix >, suffix !, and suffix ?
+- cross-file return/ask pairing remains order-independent
+
+Why:
+Cross-file merge requires order-independent pairing.
+Single-file HACI text has line chronology, so return-before-ask should not silently invert time.

@@ -1,0 +1,615 @@
+{
+  "v2.4": {
+    "commit_gating_pending_decl_no_symbol_mutation": {
+      "ok": false,
+      "project_ok": false,
+      "symbol_mutated": true,
+      "errors": [
+        "/tmp/tmplrsyoryk/10_memory/m.haci:L1:OPEN_CONVERSATION:m.haci:L1:memory.m",
+        "/tmp/tmplrsyoryk/10_memory/m.haci:L1:INBOUND_QUESTION_UNRESOLVED:m.haci:L1:memory.m"
+      ],
+      "warnings": [
+        "/tmp/tmplrsyoryk/10_memory/m.haci:L1:OPEN_CONVERSATION:m.haci:L1:memory.m"
+      ]
+    },
+    "accepted_return_unique_closes": {
+      "ok": false,
+      "project_ok": false,
+      "errors": [
+        "/tmp/tmpj8bog7lo/10_memory/m.haci:L1:OPEN_CONVERSATION:m.haci:L1:memory.m",
+        "/tmp/tmpj8bog7lo/10_memory/m.haci:L1:ASK_WITHOUT_RETURN:m.haci:L1:memory.m",
+        "/tmp/tmpj8bog7lo/10_memory/m.haci:L2:RETURN_WITHOUT_OPEN_REQUEST:m.haci:L2:memory.m"
+      ],
+      "warnings": [
+        "/tmp/tmpj8bog7lo/10_memory/m.haci:L2:RETURN_WITHOUT_OPEN_REQUEST:m.haci:L2:memory.m",
+        "/tmp/tmpj8bog7lo/10_memory/m.haci:L1:OPEN_CONVERSATION:m.haci:L1:memory.m"
+      ]
+    },
+    "pending_parent_blocks_child_commit_even_loose": {
+      "ok": false,
+      "project_ok": true,
+      "child_mutated": true,
+      "child": {
+        "symbol": "memory.m.parser.last",
+        "alias": "last",
+        "kind": "file",
+        "file": "/tmp/tmpqsshjj6t/10_memory/m/parser/last.haci",
+        "scope": "memory.m.parser",
+        "meaning": "prior",
+        "declared_at": "/tmp/tmpqsshjj6t/10_memory/m/parser/last.haci:L1",
+        "authority": "human"
+      },
+      "errors": [],
+      "warnings": [
+        "/tmp/tmpqsshjj6t/10_memory/m.haci:L1:OPEN_CONVERSATION:m.haci:L1:memory.m",
+        "/tmp/tmpqsshjj6t/10_memory/m.haci:L1:INBOUND_QUESTION_UNRESOLVED:m.haci:L1:memory.m"
+      ]
+    },
+    "return_question_payload_specific_pairs": {
+      "ok": false,
+      "project_ok": false,
+      "alpha_has_question": false,
+      "errors": [
+        "/tmp/tmpwja1tz99/10_memory/m.haci:L3:OPEN_CONVERSATION:m.haci:L3:memory.m",
+        "/tmp/tmpwja1tz99/10_memory/m.haci:L3:RETURN_QUESTION_WITHOUT_UNIQUE_REQUEST:m.haci:L3:memory.m"
+      ],
+      "warnings": [
+        "/tmp/tmpwja1tz99/10_memory/m.haci:L3:RETURN_QUESTION_WITHOUT_UNIQUE_REQUEST:m.haci:L3:memory.m"
+      ]
+    },
+    "pending_declaration_does_not_create_graph_edge": {
+      "ok": false,
+      "project_ok": false,
+      "edge_exists": true,
+      "edges": [
+        {
+          "from": "memory.m",
+          "to": "code.c",
+          "file": "/tmp/tmpwpy4mg4t/10_memory/m.haci",
+          "line": 1,
+          "raw": "! c pending ?"
+        }
+      ],
+      "errors": [
+        "/tmp/tmpwpy4mg4t/20_code/c.haci:L1:AUTHORITY_MUTATION:code.c",
+        "/tmp/tmpwpy4mg4t/20_code/c.haci:L1:DUPLICATE_OR_CONFLICTING_SYMBOL:code.c"
+      ],
+      "warnings": [
+        "/tmp/tmpwpy4mg4t/10_memory/m.haci:L1:OPEN_CONVERSATION:m.haci:L1:code.c",
+        "/tmp/tmpwpy4mg4t/10_memory/m.haci:L1:INBOUND_QUESTION_UNRESOLVED:m.haci:L1:code.c"
+      ]
+    },
+    "same_file_return_before_ask_rejected": {
+      "ok": false,
+      "project_ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "cross_file_return_before_ask_allowed": {
+      "ok": true,
+      "project_ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "committed_declaration_still_creates_edge": {
+      "ok": true,
+      "project_ok": true,
+      "edge_exists": true,
+      "errors": [],
+      "warnings": []
+    }
+  },
+  "v2.5": {
+    "commit_gating_pending_decl_no_symbol_mutation": {
+      "ok": true,
+      "project_ok": false,
+      "symbol_mutated": false,
+      "errors": [
+        "/tmp/tmpeya5dhup/10_memory/m.haci:L1:OPEN_CONVERSATION:m.haci:L1:memory.m",
+        "/tmp/tmpeya5dhup/10_memory/m.haci:L1:INBOUND_QUESTION_UNRESOLVED:m.haci:L1:memory.m",
+        "/tmp/tmpeya5dhup/10_memory/m.haci:L1:DECLARATION_PENDING_NOT_COMMITTED:m.haci:L1:memory.m"
+      ],
+      "warnings": [
+        "/tmp/tmpeya5dhup/10_memory/m.haci:L1:DECLARATION_PENDING_NOT_COMMITTED:memory.m",
+        "/tmp/tmpeya5dhup/10_memory/m.haci:L1:OPEN_CONVERSATION:m.haci:L1:memory.m"
+      ]
+    },
+    "accepted_return_unique_closes": {
+      "ok": false,
+      "project_ok": false,
+      "errors": [
+        "/tmp/tmpusom3qzh/10_memory/m.haci:L1:OPEN_CONVERSATION:m.haci:L1:memory.m",
+        "/tmp/tmpusom3qzh/10_memory/m.haci:L1:ASK_WITHOUT_RETURN:m.haci:L1:memory.m",
+        "/tmp/tmpusom3qzh/10_memory/m.haci:L2:RETURN_WITHOUT_OPEN_REQUEST:m.haci:L2:memory.m"
+      ],
+      "warnings": [
+        "/tmp/tmpusom3qzh/10_memory/m.haci:L2:RETURN_WITHOUT_OPEN_REQUEST:m.haci:L2:memory.m",
+        "/tmp/tmpusom3qzh/10_memory/m.haci:L1:OPEN_CONVERSATION:m.haci:L1:memory.m"
+      ]
+    },
+    "pending_parent_blocks_child_commit_even_loose": {
+      "ok": false,
+      "project_ok": true,
+      "child_mutated": true,
+      "child": {
+        "symbol": "memory.m.parser.last",
+        "alias": "last",
+        "kind": "file",
+        "file": "/tmp/tmp3ipv264a/10_memory/m/parser/last.haci",
+        "scope": "memory.m.parser",
+        "meaning": "prior",
+        "declared_at": "/tmp/tmp3ipv264a/10_memory/m/parser/last.haci:L1",
+        "authority": "human",
+        "commit_state": "committed"
+      },
+      "errors": [],
+      "warnings": [
+        "/tmp/tmp3ipv264a/10_memory/m.haci:L1:DECLARATION_PENDING_NOT_COMMITTED:memory.m",
+        "/tmp/tmp3ipv264a/10_memory/m.haci:L1:OPEN_CONVERSATION:m.haci:L1:memory.m",
+        "/tmp/tmp3ipv264a/10_memory/m.haci:L1:INBOUND_QUESTION_UNRESOLVED:m.haci:L1:memory.m",
+        "/tmp/tmp3ipv264a/10_memory/m.haci:L1:DECLARATION_PENDING_NOT_COMMITTED:m.haci:L1:memory.m"
+      ]
+    },
+    "return_question_payload_specific_pairs": {
+      "ok": false,
+      "project_ok": false,
+      "alpha_has_question": false,
+      "errors": [
+        "/tmp/tmps4awvtk6/10_memory/m.haci:L3:OPEN_CONVERSATION:m.haci:L3:memory.m",
+        "/tmp/tmps4awvtk6/10_memory/m.haci:L3:RETURN_QUESTION_WITHOUT_UNIQUE_REQUEST:m.haci:L3:memory.m"
+      ],
+      "warnings": [
+        "/tmp/tmps4awvtk6/10_memory/m.haci:L3:RETURN_QUESTION_WITHOUT_UNIQUE_REQUEST:m.haci:L3:memory.m"
+      ]
+    },
+    "pending_declaration_does_not_create_graph_edge": {
+      "ok": false,
+      "project_ok": true,
+      "edge_exists": true,
+      "edges": [
+        {
+          "from": "memory.m",
+          "to": "code.c",
+          "file": "/tmp/tmp8clw60al/10_memory/m.haci",
+          "line": 1,
+          "raw": "! c pending ?"
+        }
+      ],
+      "errors": [],
+      "warnings": [
+        "/tmp/tmp8clw60al/10_memory/m.haci:L1:DECLARATION_PENDING_NOT_COMMITTED:code.c",
+        "/tmp/tmp8clw60al/10_memory/m.haci:L1:OPEN_CONVERSATION:m.haci:L1:code.c",
+        "/tmp/tmp8clw60al/10_memory/m.haci:L1:INBOUND_QUESTION_UNRESOLVED:m.haci:L1:code.c",
+        "/tmp/tmp8clw60al/10_memory/m.haci:L1:DECLARATION_PENDING_NOT_COMMITTED:m.haci:L1:code.c"
+      ]
+    },
+    "same_file_return_before_ask_rejected": {
+      "ok": false,
+      "project_ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "cross_file_return_before_ask_allowed": {
+      "ok": true,
+      "project_ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "committed_declaration_still_creates_edge": {
+      "ok": true,
+      "project_ok": true,
+      "edge_exists": true,
+      "errors": [],
+      "warnings": []
+    }
+  },
+  "v2.6": {
+    "commit_gating_pending_decl_no_symbol_mutation": {
+      "ok": true,
+      "project_ok": false,
+      "symbol_mutated": false,
+      "errors": [
+        "/tmp/tmp4k1291md/10_memory/m.haci:L1:OPEN_CONVERSATION:m.haci:L1:memory.m",
+        "/tmp/tmp4k1291md/10_memory/m.haci:L1:INBOUND_QUESTION_UNRESOLVED:m.haci:L1:memory.m",
+        "/tmp/tmp4k1291md/10_memory/m.haci:L1:DECLARATION_PENDING_NOT_COMMITTED:m.haci:L1:memory.m"
+      ],
+      "warnings": [
+        "/tmp/tmp4k1291md/10_memory/m.haci:L1:DECLARATION_PENDING_NOT_COMMITTED:memory.m",
+        "/tmp/tmp4k1291md/10_memory/m.haci:L1:OPEN_CONVERSATION:m.haci:L1:memory.m"
+      ]
+    },
+    "accepted_return_unique_closes": {
+      "ok": true,
+      "project_ok": true,
+      "errors": [],
+      "warnings": [
+        "/tmp/tmp919mtwcf/10_memory/m.haci:L2:ACCEPTED_RETURN_PAIR:m.haci:L1:memory.m"
+      ]
+    },
+    "pending_parent_blocks_child_commit_even_loose": {
+      "ok": false,
+      "project_ok": true,
+      "child_mutated": true,
+      "child": {
+        "symbol": "memory.m.parser.last",
+        "alias": "last",
+        "kind": "file",
+        "file": "/tmp/tmprb5dau65/10_memory/m/parser/last.haci",
+        "scope": "memory.m.parser",
+        "meaning": "prior",
+        "declared_at": "/tmp/tmprb5dau65/10_memory/m/parser/last.haci:L1",
+        "authority": "human",
+        "commit_state": "committed"
+      },
+      "errors": [],
+      "warnings": [
+        "/tmp/tmprb5dau65/10_memory/m.haci:L1:DECLARATION_PENDING_NOT_COMMITTED:memory.m",
+        "/tmp/tmprb5dau65/10_memory/m.haci:L1:OPEN_CONVERSATION:m.haci:L1:memory.m",
+        "/tmp/tmprb5dau65/10_memory/m.haci:L1:INBOUND_QUESTION_UNRESOLVED:m.haci:L1:memory.m",
+        "/tmp/tmprb5dau65/10_memory/m.haci:L1:DECLARATION_PENDING_NOT_COMMITTED:m.haci:L1:memory.m"
+      ]
+    },
+    "return_question_payload_specific_pairs": {
+      "ok": false,
+      "project_ok": false,
+      "alpha_has_question": false,
+      "errors": [
+        "/tmp/tmprf_t7b8k/10_memory/m.haci:L3:OPEN_CONVERSATION:m.haci:L3:memory.m",
+        "/tmp/tmprf_t7b8k/10_memory/m.haci:L3:RETURN_QUESTION_WITHOUT_UNIQUE_REQUEST:m.haci:L3:memory.m"
+      ],
+      "warnings": [
+        "/tmp/tmprf_t7b8k/10_memory/m.haci:L3:RETURN_QUESTION_WITHOUT_UNIQUE_REQUEST:m.haci:L3:memory.m"
+      ]
+    },
+    "pending_declaration_does_not_create_graph_edge": {
+      "ok": false,
+      "project_ok": true,
+      "edge_exists": true,
+      "edges": [
+        {
+          "from": "memory.m",
+          "to": "code.c",
+          "file": "/tmp/tmpip5wqn5c/10_memory/m.haci",
+          "line": 1,
+          "raw": "! c pending ?"
+        }
+      ],
+      "errors": [],
+      "warnings": [
+        "/tmp/tmpip5wqn5c/10_memory/m.haci:L1:DECLARATION_PENDING_NOT_COMMITTED:code.c",
+        "/tmp/tmpip5wqn5c/10_memory/m.haci:L1:OPEN_CONVERSATION:m.haci:L1:code.c",
+        "/tmp/tmpip5wqn5c/10_memory/m.haci:L1:INBOUND_QUESTION_UNRESOLVED:m.haci:L1:code.c",
+        "/tmp/tmpip5wqn5c/10_memory/m.haci:L1:DECLARATION_PENDING_NOT_COMMITTED:m.haci:L1:code.c"
+      ]
+    },
+    "same_file_return_before_ask_rejected": {
+      "ok": false,
+      "project_ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "cross_file_return_before_ask_allowed": {
+      "ok": true,
+      "project_ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "committed_declaration_still_creates_edge": {
+      "ok": true,
+      "project_ok": true,
+      "edge_exists": true,
+      "errors": [],
+      "warnings": []
+    }
+  },
+  "v2.7": {
+    "commit_gating_pending_decl_no_symbol_mutation": {
+      "ok": true,
+      "project_ok": false,
+      "symbol_mutated": false,
+      "errors": [
+        "/tmp/tmp6sisyawy/10_memory/m.haci:L1:OPEN_CONVERSATION:m.haci:L1:memory.m",
+        "/tmp/tmp6sisyawy/10_memory/m.haci:L1:INBOUND_QUESTION_UNRESOLVED:m.haci:L1:memory.m",
+        "/tmp/tmp6sisyawy/10_memory/m.haci:L1:DECLARATION_PENDING_NOT_COMMITTED:m.haci:L1:memory.m"
+      ],
+      "warnings": [
+        "/tmp/tmp6sisyawy/10_memory/m.haci:L1:DECLARATION_PENDING_NOT_COMMITTED:memory.m",
+        "/tmp/tmp6sisyawy/10_memory/m.haci:L1:OPEN_CONVERSATION:m.haci:L1:memory.m"
+      ]
+    },
+    "accepted_return_unique_closes": {
+      "ok": true,
+      "project_ok": true,
+      "errors": [],
+      "warnings": [
+        "/tmp/tmpyl71niro/10_memory/m.haci:L2:ACCEPTED_RETURN_PAIR:m.haci:L1:memory.m"
+      ]
+    },
+    "pending_parent_blocks_child_commit_even_loose": {
+      "ok": true,
+      "project_ok": false,
+      "child_mutated": false,
+      "child": {
+        "symbol": "memory.m.parser.last",
+        "alias": "last",
+        "kind": "file",
+        "file": "/tmp/tmposuvmv94/10_memory/m/parser/last.haci",
+        "scope": "memory.m.parser",
+        "blocked_commits": [
+          {
+            "meaning": "prior",
+            "authority": "human",
+            "declared_at": "/tmp/tmposuvmv94/10_memory/m/parser/last.haci:L1",
+            "previous_commit_state": "committed",
+            "blocked_by": "memory.m",
+            "reason": "PENDING_PARENT_SCOPE"
+          }
+        ],
+        "commit_state": "blocked_pending_parent"
+      },
+      "errors": [
+        "/tmp/tmposuvmv94/10_memory/m/parser/last.haci:PENDING_PARENT_SCOPE:memory.m->memory.m.parser.last"
+      ],
+      "warnings": [
+        "/tmp/tmposuvmv94/10_memory/m.haci:L1:DECLARATION_PENDING_NOT_COMMITTED:memory.m",
+        "/tmp/tmposuvmv94/10_memory/m.haci:L1:OPEN_CONVERSATION:m.haci:L1:memory.m",
+        "/tmp/tmposuvmv94/10_memory/m.haci:L1:INBOUND_QUESTION_UNRESOLVED:m.haci:L1:memory.m",
+        "/tmp/tmposuvmv94/10_memory/m.haci:L1:DECLARATION_PENDING_NOT_COMMITTED:m.haci:L1:memory.m"
+      ]
+    },
+    "return_question_payload_specific_pairs": {
+      "ok": false,
+      "project_ok": false,
+      "alpha_has_question": false,
+      "errors": [
+        "/tmp/tmp6iwcyll_/10_memory/m.haci:L3:OPEN_CONVERSATION:m.haci:L3:memory.m",
+        "/tmp/tmp6iwcyll_/10_memory/m.haci:L3:RETURN_QUESTION_WITHOUT_UNIQUE_REQUEST:m.haci:L3:memory.m"
+      ],
+      "warnings": [
+        "/tmp/tmp6iwcyll_/10_memory/m.haci:L3:RETURN_QUESTION_WITHOUT_UNIQUE_REQUEST:m.haci:L3:memory.m"
+      ]
+    },
+    "pending_declaration_does_not_create_graph_edge": {
+      "ok": false,
+      "project_ok": true,
+      "edge_exists": true,
+      "edges": [
+        {
+          "from": "memory.m",
+          "to": "code.c",
+          "file": "/tmp/tmp9woqo2f7/10_memory/m.haci",
+          "line": 1,
+          "raw": "! c pending ?"
+        }
+      ],
+      "errors": [],
+      "warnings": [
+        "/tmp/tmp9woqo2f7/10_memory/m.haci:L1:DECLARATION_PENDING_NOT_COMMITTED:code.c",
+        "/tmp/tmp9woqo2f7/10_memory/m.haci:L1:OPEN_CONVERSATION:m.haci:L1:code.c",
+        "/tmp/tmp9woqo2f7/10_memory/m.haci:L1:INBOUND_QUESTION_UNRESOLVED:m.haci:L1:code.c",
+        "/tmp/tmp9woqo2f7/10_memory/m.haci:L1:DECLARATION_PENDING_NOT_COMMITTED:m.haci:L1:code.c"
+      ]
+    },
+    "same_file_return_before_ask_rejected": {
+      "ok": false,
+      "project_ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "cross_file_return_before_ask_allowed": {
+      "ok": true,
+      "project_ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "committed_declaration_still_creates_edge": {
+      "ok": true,
+      "project_ok": true,
+      "edge_exists": true,
+      "errors": [],
+      "warnings": []
+    }
+  },
+  "v2.8": {
+    "commit_gating_pending_decl_no_symbol_mutation": {
+      "ok": true,
+      "project_ok": false,
+      "symbol_mutated": false,
+      "errors": [
+        "/tmp/tmpd3c44oax/10_memory/m.haci:L1:OPEN_CONVERSATION:m.haci:L1:memory.m",
+        "/tmp/tmpd3c44oax/10_memory/m.haci:L1:INBOUND_QUESTION_UNRESOLVED:m.haci:L1:memory.m",
+        "/tmp/tmpd3c44oax/10_memory/m.haci:L1:DECLARATION_PENDING_NOT_COMMITTED:m.haci:L1:memory.m"
+      ],
+      "warnings": [
+        "/tmp/tmpd3c44oax/10_memory/m.haci:L1:DECLARATION_PENDING_NOT_COMMITTED:memory.m",
+        "/tmp/tmpd3c44oax/10_memory/m.haci:L1:OPEN_CONVERSATION:m.haci:L1:memory.m"
+      ]
+    },
+    "accepted_return_unique_closes": {
+      "ok": true,
+      "project_ok": true,
+      "errors": [],
+      "warnings": [
+        "/tmp/tmpd8xlt2x9/10_memory/m.haci:L2:ACCEPTED_RETURN_PAIR:m.haci:L1:memory.m"
+      ]
+    },
+    "pending_parent_blocks_child_commit_even_loose": {
+      "ok": true,
+      "project_ok": false,
+      "child_mutated": false,
+      "child": {
+        "symbol": "memory.m.parser.last",
+        "alias": "last",
+        "kind": "file",
+        "file": "/tmp/tmpy4jmvyks/10_memory/m/parser/last.haci",
+        "scope": "memory.m.parser",
+        "blocked_commits": [
+          {
+            "meaning": "prior",
+            "authority": "human",
+            "declared_at": "/tmp/tmpy4jmvyks/10_memory/m/parser/last.haci:L1",
+            "previous_commit_state": "committed",
+            "blocked_by": "memory.m",
+            "reason": "PENDING_PARENT_SCOPE"
+          }
+        ],
+        "commit_state": "blocked_pending_parent"
+      },
+      "errors": [
+        "/tmp/tmpy4jmvyks/10_memory/m/parser/last.haci:PENDING_PARENT_SCOPE:memory.m->memory.m.parser.last"
+      ],
+      "warnings": [
+        "/tmp/tmpy4jmvyks/10_memory/m.haci:L1:DECLARATION_PENDING_NOT_COMMITTED:memory.m",
+        "/tmp/tmpy4jmvyks/10_memory/m.haci:L1:OPEN_CONVERSATION:m.haci:L1:memory.m",
+        "/tmp/tmpy4jmvyks/10_memory/m.haci:L1:INBOUND_QUESTION_UNRESOLVED:m.haci:L1:memory.m",
+        "/tmp/tmpy4jmvyks/10_memory/m.haci:L1:DECLARATION_PENDING_NOT_COMMITTED:m.haci:L1:memory.m"
+      ]
+    },
+    "return_question_payload_specific_pairs": {
+      "ok": true,
+      "project_ok": true,
+      "alpha_has_question": true,
+      "errors": [],
+      "warnings": [
+        "/tmp/tmpdpvam2qp/10_memory/m.haci:L3:RETURNED_AS_QUESTION:m.haci:L1:memory.m"
+      ]
+    },
+    "pending_declaration_does_not_create_graph_edge": {
+      "ok": false,
+      "project_ok": true,
+      "edge_exists": true,
+      "edges": [
+        {
+          "from": "memory.m",
+          "to": "code.c",
+          "file": "/tmp/tmp0i7xtlvo/10_memory/m.haci",
+          "line": 1,
+          "raw": "! c pending ?"
+        }
+      ],
+      "errors": [],
+      "warnings": [
+        "/tmp/tmp0i7xtlvo/10_memory/m.haci:L1:DECLARATION_PENDING_NOT_COMMITTED:code.c",
+        "/tmp/tmp0i7xtlvo/10_memory/m.haci:L1:OPEN_CONVERSATION:m.haci:L1:code.c",
+        "/tmp/tmp0i7xtlvo/10_memory/m.haci:L1:INBOUND_QUESTION_UNRESOLVED:m.haci:L1:code.c",
+        "/tmp/tmp0i7xtlvo/10_memory/m.haci:L1:DECLARATION_PENDING_NOT_COMMITTED:m.haci:L1:code.c"
+      ]
+    },
+    "same_file_return_before_ask_rejected": {
+      "ok": false,
+      "project_ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "cross_file_return_before_ask_allowed": {
+      "ok": true,
+      "project_ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "committed_declaration_still_creates_edge": {
+      "ok": true,
+      "project_ok": true,
+      "edge_exists": true,
+      "errors": [],
+      "warnings": []
+    }
+  },
+  "v2.9": {
+    "commit_gating_pending_decl_no_symbol_mutation": {
+      "ok": true,
+      "project_ok": false,
+      "symbol_mutated": false,
+      "errors": [
+        "/tmp/tmpxf10y7t7/10_memory/m.haci:L1:OPEN_CONVERSATION:m.haci:L1:memory.m",
+        "/tmp/tmpxf10y7t7/10_memory/m.haci:L1:INBOUND_QUESTION_UNRESOLVED:m.haci:L1:memory.m",
+        "/tmp/tmpxf10y7t7/10_memory/m.haci:L1:DECLARATION_PENDING_NOT_COMMITTED:m.haci:L1:memory.m"
+      ],
+      "warnings": [
+        "/tmp/tmpxf10y7t7/10_memory/m.haci:L1:DECLARATION_PENDING_NOT_COMMITTED:memory.m",
+        "/tmp/tmpxf10y7t7/10_memory/m.haci:L1:OPEN_CONVERSATION:m.haci:L1:memory.m"
+      ]
+    },
+    "accepted_return_unique_closes": {
+      "ok": true,
+      "project_ok": true,
+      "errors": [],
+      "warnings": [
+        "/tmp/tmpa_ykzl1z/10_memory/m.haci:L2:ACCEPTED_RETURN_PAIR:m.haci:L1:memory.m"
+      ]
+    },
+    "pending_parent_blocks_child_commit_even_loose": {
+      "ok": true,
+      "project_ok": false,
+      "child_mutated": false,
+      "child": {
+        "symbol": "memory.m.parser.last",
+        "alias": "last",
+        "kind": "file",
+        "file": "/tmp/tmpoz_7heqq/10_memory/m/parser/last.haci",
+        "scope": "memory.m.parser",
+        "blocked_commits": [
+          {
+            "meaning": "prior",
+            "authority": "human",
+            "declared_at": "/tmp/tmpoz_7heqq/10_memory/m/parser/last.haci:L1",
+            "previous_commit_state": "committed",
+            "blocked_by": "memory.m",
+            "reason": "PENDING_PARENT_SCOPE"
+          }
+        ],
+        "commit_state": "blocked_pending_parent"
+      },
+      "errors": [
+        "/tmp/tmpoz_7heqq/10_memory/m/parser/last.haci:PENDING_PARENT_SCOPE:memory.m->memory.m.parser.last"
+      ],
+      "warnings": [
+        "/tmp/tmpoz_7heqq/10_memory/m.haci:L1:DECLARATION_PENDING_NOT_COMMITTED:memory.m",
+        "/tmp/tmpoz_7heqq/10_memory/m.haci:L1:OPEN_CONVERSATION:m.haci:L1:memory.m",
+        "/tmp/tmpoz_7heqq/10_memory/m.haci:L1:INBOUND_QUESTION_UNRESOLVED:m.haci:L1:memory.m",
+        "/tmp/tmpoz_7heqq/10_memory/m.haci:L1:DECLARATION_PENDING_NOT_COMMITTED:m.haci:L1:memory.m"
+      ]
+    },
+    "return_question_payload_specific_pairs": {
+      "ok": true,
+      "project_ok": true,
+      "alpha_has_question": true,
+      "errors": [],
+      "warnings": [
+        "/tmp/tmp8guqu_d5/10_memory/m.haci:L3:RETURNED_AS_QUESTION:m.haci:L1:memory.m"
+      ]
+    },
+    "pending_declaration_does_not_create_graph_edge": {
+      "ok": true,
+      "project_ok": true,
+      "edge_exists": false,
+      "edges": [],
+      "errors": [],
+      "warnings": [
+        "/tmp/tmp6syh2w29/10_memory/m.haci:L1:DECLARATION_PENDING_NOT_COMMITTED:code.c",
+        "/tmp/tmp6syh2w29/10_memory/m.haci:L1:OPEN_CONVERSATION:m.haci:L1:code.c",
+        "/tmp/tmp6syh2w29/10_memory/m.haci:L1:INBOUND_QUESTION_UNRESOLVED:m.haci:L1:code.c",
+        "/tmp/tmp6syh2w29/10_memory/m.haci:L1:DECLARATION_PENDING_NOT_COMMITTED:m.haci:L1:code.c"
+      ]
+    },
+    "same_file_return_before_ask_rejected": {
+      "ok": false,
+      "project_ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "cross_file_return_before_ask_allowed": {
+      "ok": true,
+      "project_ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "committed_declaration_still_creates_edge": {
+      "ok": true,
+      "project_ok": true,
+      "edge_exists": true,
+      "errors": [],
+      "warnings": []
+    }
+  }
+}

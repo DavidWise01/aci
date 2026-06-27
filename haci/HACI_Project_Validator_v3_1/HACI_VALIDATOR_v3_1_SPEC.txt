@@ -1,0 +1,16 @@
+HACI Project Validator v3.1 — Multi Return-Question Attachment Patch
+
+No syntax changes.
+No new operators.
+No new HACI features.
+
+Patch purpose:
+v3.0 failed audit-to-failure because only one suffix ? return-question could attach to an open ask.
+
+Rule:
+- multiple suffix ? return-questions may attach to the same open conversation
+- each return-question still needs a positive unique conversation match
+- return-questions do not complete the conversation
+- final suffix > or ! still completes the conversation
+- same-file chronology gate still applies
+- ambiguous return-questions still fail closed

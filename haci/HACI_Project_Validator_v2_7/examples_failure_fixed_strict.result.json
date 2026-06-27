@@ -1,0 +1,246 @@
+{
+  "ok": false,
+  "strict": true,
+  "root": "/mnt/data/haci_project_validator_v2_7/examples/failure_fixed",
+  "symbols": {
+    "memory.m": {
+      "symbol": "memory.m",
+      "alias": "m",
+      "kind": "file",
+      "file": "/mnt/data/haci_project_validator_v2_7/examples/failure_fixed/10_memory/m.haci",
+      "scope": "memory",
+      "pending_declarations": [
+        {
+          "meaning": "memory",
+          "authority": "human",
+          "declared_at": "/mnt/data/haci_project_validator_v2_7/examples/failure_fixed/10_memory/m.haci:L1",
+          "inbound": "ask",
+          "state": "pending"
+        }
+      ]
+    },
+    "memory.m.parser.last": {
+      "symbol": "memory.m.parser.last",
+      "alias": "last",
+      "kind": "file",
+      "file": "/mnt/data/haci_project_validator_v2_7/examples/failure_fixed/10_memory/m/parser/last.haci",
+      "scope": "memory.m.parser",
+      "blocked_commits": [
+        {
+          "meaning": "prior",
+          "authority": "human",
+          "declared_at": "/mnt/data/haci_project_validator_v2_7/examples/failure_fixed/10_memory/m/parser/last.haci:L1",
+          "previous_commit_state": "committed",
+          "blocked_by": "memory.m",
+          "reason": "PENDING_PARENT_SCOPE"
+        }
+      ],
+      "commit_state": "blocked_pending_parent"
+    },
+    "runtime.runtime": {
+      "symbol": "runtime.runtime",
+      "alias": "runtime",
+      "kind": "file",
+      "file": "/mnt/data/haci_project_validator_v2_7/examples/failure_fixed/20_runtime/runtime.haci",
+      "scope": "runtime"
+    }
+  },
+  "aliases": {
+    "m": [
+      "memory.m"
+    ],
+    "memory.m": [
+      "memory.m"
+    ],
+    "last": [
+      "memory.m.parser.last"
+    ],
+    "memory.m.parser.last": [
+      "memory.m.parser.last"
+    ],
+    "runtime": [
+      "runtime.runtime"
+    ],
+    "runtime.runtime": [
+      "runtime.runtime"
+    ]
+  },
+  "edges": [
+    {
+      "from": "runtime.runtime",
+      "to": "memory.m.parser.last",
+      "file": "/mnt/data/haci_project_validator_v2_7/examples/failure_fixed/20_runtime/runtime.haci",
+      "line": 1,
+      "raw": "? m.parser.last previous result >"
+    }
+  ],
+  "cycles": [],
+  "conversations": [
+    {
+      "id": "m.haci:L1:memory.m",
+      "kind": "declaration",
+      "object": "memory.m",
+      "files": [
+        "/mnt/data/haci_project_validator_v2_7/examples/failure_fixed/10_memory/m.haci"
+      ],
+      "start": {
+        "file": "/mnt/data/haci_project_validator_v2_7/examples/failure_fixed/10_memory/m.haci",
+        "line": 1,
+        "raw": "! m memory ?",
+        "outbound": "declare",
+        "inbound": "ask",
+        "object": "m",
+        "resolved_object": "memory.m",
+        "payload": "memory",
+        "owner": "human",
+        "authority": "human"
+      },
+      "body": [],
+      "returns": [
+        {
+          "file": "/mnt/data/haci_project_validator_v2_7/examples/failure_fixed/10_memory/m.haci",
+          "line": 1,
+          "raw": "! m memory ?",
+          "outbound": "declare",
+          "inbound": "ask",
+          "object": "m",
+          "resolved_object": "memory.m",
+          "payload": "memory",
+          "owner": "human",
+          "authority": "human"
+        }
+      ],
+      "complete": false,
+      "unresolved": true,
+      "diagnostics": [
+        "INBOUND_QUESTION_UNRESOLVED",
+        "DECLARATION_PENDING_NOT_COMMITTED",
+        "OPEN_CONVERSATION"
+      ]
+    },
+    {
+      "id": "last.haci:L1:memory.m.parser.last",
+      "kind": "declaration",
+      "object": "memory.m.parser.last",
+      "files": [
+        "/mnt/data/haci_project_validator_v2_7/examples/failure_fixed/10_memory/m/parser/last.haci"
+      ],
+      "start": {
+        "file": "/mnt/data/haci_project_validator_v2_7/examples/failure_fixed/10_memory/m/parser/last.haci",
+        "line": 1,
+        "raw": "! last prior >",
+        "outbound": "declare",
+        "inbound": "observe",
+        "object": "last",
+        "resolved_object": "memory.m.parser.last",
+        "payload": "prior",
+        "owner": "human",
+        "authority": "human"
+      },
+      "body": [],
+      "returns": [
+        {
+          "file": "/mnt/data/haci_project_validator_v2_7/examples/failure_fixed/10_memory/m/parser/last.haci",
+          "line": 1,
+          "raw": "! last prior >",
+          "outbound": "declare",
+          "inbound": "observe",
+          "object": "last",
+          "resolved_object": "memory.m.parser.last",
+          "payload": "prior",
+          "owner": "human",
+          "authority": "human"
+        }
+      ],
+      "complete": true,
+      "unresolved": false,
+      "diagnostics": []
+    },
+    {
+      "id": "runtime.haci:L1:memory.m.parser.last",
+      "kind": "conversation",
+      "object": "memory.m.parser.last",
+      "files": [
+        "/mnt/data/haci_project_validator_v2_7/examples/failure_fixed/20_runtime/runtime.haci"
+      ],
+      "start": {
+        "file": "/mnt/data/haci_project_validator_v2_7/examples/failure_fixed/20_runtime/runtime.haci",
+        "line": 1,
+        "raw": "? m.parser.last previous result >",
+        "outbound": "ask",
+        "inbound": "observe",
+        "object": "m.parser.last",
+        "resolved_object": "memory.m.parser.last",
+        "payload": "previous result",
+        "owner": "human",
+        "authority": null
+      },
+      "body": [],
+      "returns": [
+        {
+          "file": "/mnt/data/haci_project_validator_v2_7/examples/failure_fixed/20_runtime/runtime.haci",
+          "line": 1,
+          "raw": "? m.parser.last previous result >",
+          "outbound": "ask",
+          "inbound": "observe",
+          "object": "m.parser.last",
+          "resolved_object": "memory.m.parser.last",
+          "payload": "previous result",
+          "owner": "human",
+          "authority": null
+        }
+      ],
+      "complete": true,
+      "unresolved": false,
+      "diagnostics": []
+    }
+  ],
+  "errors": [
+    "/mnt/data/haci_project_validator_v2_7/examples/failure_fixed/10_memory/m/parser/last.haci:PENDING_PARENT_SCOPE:memory.m->memory.m.parser.last",
+    "/mnt/data/haci_project_validator_v2_7/examples/failure_fixed/10_memory/m.haci:L1:OPEN_CONVERSATION:m.haci:L1:memory.m",
+    "/mnt/data/haci_project_validator_v2_7/examples/failure_fixed/10_memory/m.haci:L1:INBOUND_QUESTION_UNRESOLVED:m.haci:L1:memory.m",
+    "/mnt/data/haci_project_validator_v2_7/examples/failure_fixed/10_memory/m.haci:L1:DECLARATION_PENDING_NOT_COMMITTED:m.haci:L1:memory.m"
+  ],
+  "warnings": [
+    "/mnt/data/haci_project_validator_v2_7/examples/failure_fixed/10_memory/m.haci:L1:DECLARATION_PENDING_NOT_COMMITTED:memory.m",
+    "/mnt/data/haci_project_validator_v2_7/examples/failure_fixed/10_memory/m.haci:L1:OPEN_CONVERSATION:m.haci:L1:memory.m"
+  ],
+  "nodes": [
+    {
+      "file": "/mnt/data/haci_project_validator_v2_7/examples/failure_fixed/10_memory/m.haci",
+      "line": 1,
+      "raw": "! m memory ?",
+      "outbound": "declare",
+      "inbound": "ask",
+      "object": "m",
+      "resolved_object": "memory.m",
+      "payload": "memory",
+      "owner": "human",
+      "authority": "human"
+    },
+    {
+      "file": "/mnt/data/haci_project_validator_v2_7/examples/failure_fixed/10_memory/m/parser/last.haci",
+      "line": 1,
+      "raw": "! last prior >",
+      "outbound": "declare",
+      "inbound": "observe",
+      "object": "last",
+      "resolved_object": "memory.m.parser.last",
+      "payload": "prior",
+      "owner": "human",
+      "authority": "human"
+    },
+    {
+      "file": "/mnt/data/haci_project_validator_v2_7/examples/failure_fixed/20_runtime/runtime.haci",
+      "line": 1,
+      "raw": "? m.parser.last previous result >",
+      "outbound": "ask",
+      "inbound": "observe",
+      "object": "m.parser.last",
+      "resolved_object": "memory.m.parser.last",
+      "payload": "previous result",
+      "owner": "human",
+      "authority": null
+    }
+  ]
+}

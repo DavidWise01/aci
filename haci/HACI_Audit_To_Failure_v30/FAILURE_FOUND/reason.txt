@@ -1,0 +1,1 @@
+Only one suffix-? return-question can attach to a conversation; the second becomes unmatched even though it has the same object and positive payload relation.

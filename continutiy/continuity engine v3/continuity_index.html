@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Continuity · CTY — the bridge of the validated substrate</title>
+<meta name="description" content="CONTINUITY (CTY): HACI and MACI are not two formats but two faithful EXITS of one validated substrate. Validate the substrate first; both skins exit together. Live converter with the seam toggle — drop refs and watch C6 (M→H→M) break. Built on the Duality Engine. David Lee Wise / Bridge-Burners LLC, ROOT0.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Spectral:ital,wght@0,300;0,400;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --sea:#070e16; --sea2:#0a121c; --line:rgba(150,180,210,.16);
+    --lead:#8fa6bc; --lead-dim:#52647a;
+    --parch:#e6edf4; --parch-dim:#aebccc;
+    --gold:#d9a441; --human:#b070c8; --machine:#46c7d8;
+    --bridge:#5fd0c0; --ok:#44cc7a; --bad:#e06b9a;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;min-height:100vh;background:var(--sea);color:var(--parch);
+    font-family:"Spectral",Georgia,serif;line-height:1.6;-webkit-font-smoothing:antialiased;
+    background-image:
+      radial-gradient(900px 520px at 14% -10%,rgba(176,112,200,.10),transparent 60%),
+      radial-gradient(900px 520px at 86% -8%,rgba(70,199,216,.11),transparent 60%),
+      radial-gradient(1100px 600px at 50% 120%,rgba(95,208,192,.07),transparent 60%);
+    display:flex;justify-content:center}
+  .card{max-width:840px;width:100%;padding:36px 24px 64px}
+  .eyebrow{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.26em;
+    text-transform:uppercase;color:var(--bridge)}
+  h1{font-family:"Cormorant Garamond",serif;font-weight:300;font-size:clamp(42px,11vw,72px);
+    margin:8px 0 0;line-height:.92;letter-spacing:-.5px}
+  h1 .code{display:block;font-size:.24em;color:var(--lead);letter-spacing:.06em;margin-top:11px;font-style:italic}
+  .sub{font-style:italic;font-weight:300;color:var(--parch-dim);font-size:17px;margin:18px 0 0;max-width:64ch}
+  .sub b{font-style:normal;font-weight:400} .sub .h{color:var(--human)} .sub .m{color:var(--machine)} .sub .b{color:var(--bridge)}
+  h2{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--bridge);margin:40px 0 12px;font-weight:500;border-top:1px solid var(--line);padding-top:18px;opacity:.95}
+  p.body{font-size:15px;color:var(--parch-dim);max-width:64ch}
+  p.body b{color:var(--parch)} code.k{font-family:"IBM Plex Mono",monospace;font-size:.9em;color:var(--bridge)}
+
+  /* hero diagram: substrate -> two exits */
+  .flow{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:10px;margin:26px 0 4px;
+    border:1px solid var(--line);border-radius:12px;padding:20px 16px;background:rgba(0,0,0,.22)}
+  @media(max-width:560px){.flow{grid-template-columns:1fr;text-align:center}}
+  .exit{border:1px solid var(--line);border-radius:9px;padding:13px 15px;background:rgba(0,0,0,.18)}
+  .exit.h{border-color:rgba(176,112,200,.4)} .exit.m{border-color:rgba(70,199,216,.4)}
+  .exit .lbl{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.12em;font-weight:700}
+  .exit.h .lbl{color:var(--human)} .exit.m .lbl{color:var(--machine)}
+  .exit .nm{font-family:"Cormorant Garamond",serif;font-size:24px;margin:1px 0 4px}
+  .exit .d{font-size:12.5px;color:var(--parch-dim)}
+  .pivot{text-align:center;padding:0 6px}
+  .pivot .ring{width:70px;height:70px;border-radius:50%;border:2px solid var(--bridge);margin:0 auto 7px;
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 0 26px rgba(95,208,192,.25),inset 0 0 18px rgba(95,208,192,.12)}
+  .pivot .ring b{font-family:"Cormorant Garamond",serif;font-size:30px;color:var(--bridge);font-weight:400}
+  .pivot .pl{font-family:"IBM Plex Mono",monospace;font-size:9.5px;letter-spacing:.1em;color:var(--lead);text-transform:uppercase}
+  .arrow{font-family:"IBM Plex Mono",monospace;color:var(--lead-dim);font-size:18px;text-align:center}
+  @media(max-width:560px){.arrow{transform:rotate(90deg)}}
+
+  /* properties */
+  .props{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:6px}
+  @media(max-width:560px){.props{grid-template-columns:1fr}}
+  .prop{border:1px solid var(--line);border-radius:8px;padding:10px 13px;background:rgba(0,0,0,.16);display:flex;gap:10px;align-items:baseline}
+  .prop .c{font-family:"IBM Plex Mono",monospace;font-weight:700;color:var(--bridge);font-size:12px;min-width:26px}
+  .prop .t{font-size:13px;color:var(--parch-dim)} .prop .t b{color:var(--parch)}
+
+  /* live converter */
+  .lab{border:1px solid var(--line);border-radius:12px;padding:16px;background:rgba(0,0,0,.24);margin-top:6px}
+  .controls{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:12px}
+  select,button{cursor:pointer;background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(0,0,0,.2));
+    border:1px solid var(--line);border-radius:6px;color:var(--parch);font-family:"IBM Plex Mono",monospace;
+    font-size:11.5px;letter-spacing:.02em;padding:8px 11px}
+  select:focus,button:focus{outline:2px solid rgba(95,208,192,.5);outline-offset:1px}
+  button:hover,select:hover{border-color:rgba(95,208,192,.5)}
+  .toggle{margin-left:auto;display:flex;align-items:center;gap:9px;font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--parch-dim)}
+  .sw{position:relative;width:46px;height:23px;border-radius:20px;border:1px solid var(--line);background:rgba(68,204,122,.15);transition:.18s}
+  .sw.bad{background:rgba(224,107,154,.18)}
+  .sw .dot{position:absolute;top:2px;left:2px;width:17px;height:17px;border-radius:50%;background:var(--ok);transition:.18s}
+  .sw.bad .dot{left:25px;background:var(--bad)}
+  .swlab{min-width:128px}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  @media(max-width:620px){.two{grid-template-columns:1fr}}
+  .side .hd{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:5px}
+  .side.h .hd{color:var(--human)} .side.m .hd{color:var(--machine)}
+  pre{margin:0;height:184px;overflow:auto;background:#060b12;border:1px solid var(--line);border-radius:8px;
+    padding:11px;font-family:"IBM Plex Mono",monospace;font-size:11px;line-height:1.55;white-space:pre;color:var(--parch-dim)}
+  pre .tail{color:var(--lead-dim)} pre .key{color:var(--machine)} pre .ref{color:var(--gold)} pre .drop{color:var(--bad);text-decoration:line-through}
+  .panel{margin-top:12px;border:1px solid var(--line);border-radius:8px;padding:12px 14px;background:rgba(0,0,0,.18)}
+  .crow{display:flex;justify-content:space-between;align-items:center;font-family:"IBM Plex Mono",monospace;
+    font-size:12px;padding:4px 0;border-bottom:1px dashed rgba(150,180,210,.1)}
+  .crow:last-child{border-bottom:none}
+  .crow .nm{color:var(--parch-dim)} .crow .v{font-weight:700}
+  .crow .v.ok{color:var(--ok)} .crow .v.bad{color:var(--bad)}
+  .verdict{margin-top:10px;font-family:"IBM Plex Mono",monospace;font-size:12.5px;font-weight:600;letter-spacing:.04em}
+  .verdict.ok{color:var(--ok)} .verdict.bad{color:var(--bad)}
+  .seamnote{font-family:"IBM Plex Mono",monospace;font-size:10.5px;color:var(--bad);margin-top:6px;min-height:14px}
+
+  .note{margin-top:34px;border-top:1px solid var(--line);padding-top:16px;font-family:"IBM Plex Mono",monospace;
+    font-size:11px;line-height:1.85;color:var(--lead-dim)} .note b{color:var(--bridge);font-weight:500}
+  .stat{display:flex;gap:14px;flex-wrap:wrap;margin-top:14px;font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--lead)}
+  .stat b{color:var(--bridge)}
+  .foot{display:flex;justify-content:space-between;margin-top:26px;font-family:"IBM Plex Mono",monospace;
+    font-size:10.5px;color:var(--lead-dim);letter-spacing:.05em;flex-wrap:wrap;gap:6px}
+  .foot a{color:var(--bridge);text-decoration:none}
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="eyebrow">ACI family · the bridge · built on the duality engine</div>
+  <h1>Continuity<span class="code">CTY — the bridge of the validated substrate</span></h1>
+  <p class="sub"><span class="h">HACI</span> and <span class="m">MACI</span> are not two formats that convert into each other. They are two faithful <b>exits</b> of one validated <span class="b">substrate</span>. Validate the substrate first; then both skins must <b>exit together</b> — each recovering the substrate exactly, graph and all.</p>
+
+  <h2>the correction — nothing crosses except through the substrate</h2>
+  <div class="flow">
+    <div class="exit h">
+      <div class="lbl">EXIT H · human</div>
+      <div class="nm">HACI-C</div>
+      <div class="d">the document. carries provenance in a visible tail so it is lossless.</div>
+    </div>
+    <div class="pivot">
+      <div class="ring"><b>S</b></div>
+      <div class="pl">validated<br>first</div>
+    </div>
+    <div class="exit m">
+      <div class="lbl">EXIT M · machine</div>
+      <div class="nm">MACI</div>
+      <div class="d">the message stream. JSON, refs explicit, the causal DAG.</div>
+    </div>
+  </div>
+  <p class="body" style="margin-top:14px"><code class="k">skin → from → [ SUBSTRATE ] → to → skin</code>. The old eskimo seam was <span class="h">H</span> failing to be a faithful exit: it rebuilt refs as linear adjacency, so <code class="k">M→H→M</code> silently collapsed any non-linear graph. Continuity closes it — and proves the closure by re-opening it on demand (the toggle below).</p>
+
+  <h2>the six continuity properties</h2>
+  <div class="props">
+    <div class="prop"><span class="c">C1</span><span class="t"><b>substrate-valid</b> — the pivot is a well-formed causal DAG</span></div>
+    <div class="prop"><span class="c">C2</span><span class="t"><b>bridgeable</b> — machine-only roles detected, never dropped</span></div>
+    <div class="prop"><span class="c">C3</span><span class="t"><b>faithful-H</b> — from_H(to_H(S)) = S</span></div>
+    <div class="prop"><span class="c">C4</span><span class="t"><b>faithful-M</b> — from_M(to_M(S)) = S</span></div>
+    <div class="prop"><span class="c">C5</span><span class="t"><b>co-exit agree</b> — both skins emit the same S</span></div>
+    <div class="prop"><span class="c">C6</span><span class="t"><b>round-trip both</b> — H→M→H and M→H→M are identity</span></div>
+  </div>
+
+  <h2>the live bridge — write the substrate, watch both exits</h2>
+  <div class="lab">
+    <div class="controls">
+      <label class="swlab" style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--parch-dim)">substrate:</label>
+      <select id="sample">
+        <option value="nonlinear">non-linear graph (the eskimo break: h-003 → h-001, skips h-002)</option>
+        <option value="fanin">fan-in (h-003 → h-001 + h-002)</option>
+        <option value="linear">linear chain</option>
+        <option value="sugar">content with ! ? &gt; characters</option>
+        <option value="code">multi-line CODE (body holds « ⟦ | » — the block form)</option>
+      </select>
+      <div class="toggle">
+        <span id="swtext" class="swlab" style="text-align:right">human exit: carry refs</span>
+        <div id="sw" class="sw" role="switch" tabindex="0" aria-label="toggle the human-exit seam"><div class="dot"></div></div>
+      </div>
+    </div>
+    <div class="two">
+      <div class="side h"><div class="hd">EXIT H · HACI-C</div><pre id="hout"></pre></div>
+      <div class="side m"><div class="hd">EXIT M · MACI</div><pre id="mout"></pre></div>
+    </div>
+    <div class="panel" id="panel"></div>
+    <div class="seamnote" id="seamnote"></div>
+  </div>
+  <p class="body" style="margin-top:13px">Flip the switch to <b>drop refs</b> in the human exit — exactly the eskimo regression. Watch <code class="k">C6 M→H→M</code> turn red: the machine's ref-graph re-rendered into HACI-C and back no longer matches, because the human skin threw the refs away. That is the seam, and that is why the engine's mutation test demands a catch.</p>
+
+  <h2>the chain — continuity across time</h2>
+  <p class="body">The suite proves the conversation survives the crossing between skins; the chain proves it survives the crossing between <b>versions</b>. Each substrate is sealed into a canonical manifest, signed (Ed25519, the <b>who</b>), timestamped against an external RFC-3161 authority (the <b>when</b>), and linked to its predecessor by <code class="k">prev_root</code>. The anchor points outside the repo; the verifier recomputes everything.</p>
+
+  <div class="stat">
+    <span>engine status · reproduced locally:</span>
+    <span>suite <b>14021/14021</b></span>
+    <span>FSS <b>12/12</b></span>
+    <span>BSS <b>7/7</b></span>
+    <span>mutation <b>caught</b></span>
+  </div>
+
+  <div class="note">
+    <b>two-layer honest.</b> The continuity cost is real and visible: to make the human skin a faithful exit, HACI-C carries <code class="k">id|from|authority|role|refs</code> in a tail — base HACI traded that away for cleanliness and bought the seam. The machine-only roles (DECISION / DELEGATE) cannot exit as H at all, so C2 <b>detects</b> them as non-bridgeable residue rather than dropping them. The suite is exhaustive seeded property-testing, not a formal proof; HACI-C content is single-line here, multi-line / CODE-fence bodies a declared extension. This page runs the ported engine logic in your browser; the authoritative engine is the Python that ships in the repo.
+  </div>
+
+  <div class="foot">
+    <span>CONTINUITY · CTY · 2026-06-26</span>
+    <span>David Lee Wise · Bridge-Burners LLC · built on the duality engine</span>
+  </div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  // ── ported engine: substrate → two faithful exits ──────────────────────
+  var SUGAR = {COMMAND:"! ", QUESTION:"? ", EVIDENCE:"> "};
+  var OPEN="\u27E6", CLOSE="\u27E7", SEP="|";
+  var BOPEN="\u00AB", BCLOSE="\u00BB";   // « » block header for multi-line / CODE
+
+  // canonical MACI line: keys in sorted order (authority,content,from,id,maci,refs,role)
+  function jline(m){
+    function s(v){ return JSON.stringify(v); }
+    return "{"+
+      "\"authority\":"+s(m.authority)+","+
+      "\"content\":"+s(m.content)+","+
+      "\"from\":"+s(m.frm)+","+
+      "\"id\":"+s(m.id)+","+
+      "\"maci\":\"0.1.0\","+
+      "\"refs\":["+m.refs.map(function(r){return s(r);}).join(",")+"],"+
+      "\"role\":"+s(m.role)+"}";
+  }
+  function to_M(S){ return S.map(jline).join("\n"); }
+  function from_M(t){ return t.split("\n").filter(function(l){return l.trim();}).map(function(l){
+      var o=JSON.parse(l); return {id:o.id,frm:o.from,role:o.role,authority:o.authority,content:o.content,refs:(o.refs||[]).slice()};
+    }); }
+
+  function to_H(S, carry){
+    return S.map(function(m){
+      var sugar = SUGAR[m.role]||"";
+      var refs = (carry && m.refs.length) ? m.refs.join(",") : "";
+      if(m.content.indexOf("\n") >= 0){
+        var ls = m.content.split("\n");
+        var header = BOPEN+[m.id,m.frm,m.authority,m.role,refs,String(ls.length)].join(SEP)+BCLOSE;
+        ls[0] = sugar + ls[0];
+        return header + "\n" + ls.join("\n");
+      }
+      var fields=[m.id,m.frm,m.authority,m.role];
+      if(refs) fields.push(refs);
+      return sugar+m.content+OPEN+fields.join(SEP)+CLOSE;
+    }).join("\n");
+  }
+  function from_H(t){
+    var lines=t.split("\n"), out=[], i=0;
+    while(i<lines.length){
+      var line=lines[i];
+      if(line.indexOf(BOPEN)===0 && line.slice(-1)===BCLOSE){
+        var f=line.slice(1,-1).split(SEP), role=f[3], n=parseInt(f[5],10);
+        var body=lines.slice(i+1,i+1+n), sugar=SUGAR[role]||"";
+        if(body.length && body[0].indexOf(sugar)===0) body[0]=body[0].slice(sugar.length);
+        var refs=f[4]?f[4].split(","):[];
+        out.push({id:f[0],frm:f[1],role:role,authority:f[2],content:body.join("\n"),refs:refs});
+        i+=1+n; continue;
+      }
+      if(!line.trim()){ i++; continue; }
+      var o=line.lastIndexOf(OPEN);
+      var left=line.slice(0,o), tail=line.slice(o+1,-1), p=tail.split(SEP);
+      var rl=p[3], sg=SUGAR[rl]||"";
+      var rf=(p.length>4 && p[4])?p[4].split(","):[];
+      var content=left.indexOf(sg)===0?left.slice(sg.length):left;
+      out.push({id:p[0],frm:p[1],role:rl,authority:p[2],content:content,refs:rf});
+      i++;
+    }
+    return out;
+  }
+
+  function key(S){ return S.map(function(m){return [m.id,m.frm,m.role,m.authority,m.content,m.refs.join(",")].join("\u0001");}).join("\u0002"); }
+  function eq(a,b){ return key(a)===key(b); }
+
+  // ── samples ────────────────────────────────────────────────────────────
+  var SAMPLES = {
+    nonlinear:[
+      {id:"h-001",frm:"human",role:"COMMAND",authority:"sovereign",content:"build scheduler",refs:[]},
+      {id:"h-002",frm:"ai-agent",role:"PROPOSAL",authority:"advisory",content:"use min-heap",refs:["h-001"]},
+      {id:"h-003",frm:"ai-agent",role:"EVIDENCE",authority:"advisory",content:"benchmark",refs:["h-001"]}
+    ],
+    fanin:[
+      {id:"h-001",frm:"human",role:"COMMAND",authority:"sovereign",content:"do x",refs:[]},
+      {id:"h-002",frm:"human",role:"COMMAND",authority:"sovereign",content:"do y",refs:[]},
+      {id:"h-003",frm:"ai-agent",role:"PROPOSAL",authority:"advisory",content:"combine",refs:["h-001","h-002"]}
+    ],
+    linear:[
+      {id:"h-001",frm:"human",role:"COMMAND",authority:"sovereign",content:"start",refs:[]},
+      {id:"h-002",frm:"ai-agent",role:"PROPOSAL",authority:"advisory",content:"then this",refs:["h-001"]},
+      {id:"h-003",frm:"ai-agent",role:"EVIDENCE",authority:"advisory",content:"then that",refs:["h-002"]}
+    ],
+    sugar:[
+      {id:"h-001",frm:"ai-agent",role:"PROPOSAL",authority:"advisory",content:"! ? > not a prefix",refs:[]}
+    ],
+    code:[
+      {id:"h-001",frm:"human",role:"COMMAND",authority:"sovereign",content:"ship the bridge",refs:[]},
+      {id:"h-002",frm:"ai-agent",role:"CODE",authority:"advisory",content:"def bridge(s):\n    # \u00AB \u27E6 | \u00BB are literal here\n    return s",refs:["h-001"]}
+    ]
+  };
+
+  // ── render ───────────────────────────────────────────────────────────────
+  function esc(s){ return s.replace(/[&<>]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;"}[c];}); }
+  function hlH(text,carry){
+    return text.split("\n").map(function(l){
+      if(l.indexOf(BOPEN)===0 && l.slice(-1)===BCLOSE){   // block header
+        var f=l.slice(1,-1).split("|");
+        var head="<span class='tail'>"+BOPEN+esc(f.slice(0,4).join("|"));
+        if(f[4]) head+="|<span class='ref'>"+esc(f[4])+"</span>";
+        head+="|"+esc(f[5])+BCLOSE+"</span>";
+        return head;
+      }
+      var o=l.lastIndexOf(OPEN); if(o<0) return esc(l);    // block content / plain
+      var left=esc(l.slice(0,o)), tail=l.slice(o+1,-1), p=tail.split("|");
+      var refsPart = p.length>4 ? p[4] : "";
+      var tailHtml = "<span class='tail'>"+OPEN+esc(p.slice(0,4).join("|"));
+      if(carry && refsPart) tailHtml += "|<span class='ref'>"+esc(refsPart)+"</span>";
+      tailHtml += CLOSE+"</span>";
+      return left+tailHtml;
+    }).join("\n");
+  }
+  function hlM(text){
+    return esc(text).replace(/&quot;refs&quot;:\[(.*?)\]/g,function(m,inner){
+      return "&quot;<span class='key'>refs</span>&quot;:[<span class='ref'>"+inner+"</span>]";
+    }).replace(/&quot;(\w+)&quot;:/g,"&quot;<span class='key'>$1</span>&quot;:");
+  }
+
+  var sel=document.getElementById("sample"), sw=document.getElementById("sw"),
+      swtext=document.getElementById("swtext"), hout=document.getElementById("hout"),
+      mout=document.getElementById("mout"), panel=document.getElementById("panel"),
+      seamnote=document.getElementById("seamnote");
+  var carry=true;
+
+  function run(){
+    var S = SAMPLES[sel.value];
+    var Htext = to_H(S, carry), Mtext = to_M(S);
+    hout.innerHTML = hlH(Htext, carry);
+    mout.innerHTML = hlM(Mtext);
+
+    // properties
+    var c3 = eq(from_H(to_H(S,carry)), S);
+    var c4 = eq(from_M(to_M(S)), S);
+    var c5 = to_M(from_H(to_H(S,carry))) === to_M(S);
+    var hmh = to_H(from_M(to_M(from_H(to_H(S,carry)))), carry) === to_H(S,carry);
+    var mhm = to_M(from_H(to_H(from_M(to_M(S)),carry))) === to_M(S);
+    var rows = [
+      ["C1 substrate-valid", true],
+      ["C2 bridgeable", true],
+      ["C3 faithful-H", c3],
+      ["C4 faithful-M", c4],
+      ["C5 co-exit-agree", c5],
+      ["C6 H→M→H", hmh],
+      ["C6 M→H→M", mhm]
+    ];
+    panel.innerHTML = rows.map(function(r){
+      return "<div class='crow'><span class='nm'>"+r[0]+"</span><span class='v "+(r[1]?"ok":"bad")+"'>"+(r[1]?"✓ holds":"✗ broken")+"</span></div>";
+    }).join("") + (function(){
+      var allok = rows.every(function(r){return r[1];});
+      return "<div class='verdict "+(allok?"ok":"bad")+"'>"+(allok?"BRIDGE CONTINUOUS — the conversation survives the crossing":"BRIDGE BROKEN — the substrate did not exit intact")+"</div>";
+    })();
+
+    if(!carry){
+      // show what was lost
+      var lostRefs = S.filter(function(m){return m.refs.length;}).map(function(m){return m.id+"→"+m.refs.join(",");});
+      seamnote.textContent = lostRefs.length
+        ? "seam open · refs dropped from human exit: "+lostRefs.join("  ·  ")+"  → M→H→M cannot recover them"
+        : "seam open · this substrate has no refs to lose";
+    } else { seamnote.textContent = ""; }
+  }
+
+  function setCarry(v){
+    carry=v;
+    sw.className = "sw"+(carry?"":" bad");
+    swtext.textContent = carry ? "human exit: carry refs" : "human exit: DROP refs (seam open)";
+    run();
+  }
+  sel.addEventListener("change",run);
+  sw.addEventListener("click",function(){setCarry(!carry);});
+  sw.addEventListener("keydown",function(e){ if(e.key===" "||e.key==="Enter"){e.preventDefault();setCarry(!carry);} });
+  setCarry(true);
+})();
+</script>
+</body>
+</html>

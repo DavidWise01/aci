@@ -1,0 +1,155 @@
+{
+  "ok": true,
+  "strict": false,
+  "root": "/mnt/data/haci_project_validator_v2_9/examples/real_ask_edge",
+  "symbols": {
+    "memory.m": {
+      "symbol": "memory.m",
+      "alias": "m",
+      "kind": "file",
+      "file": "/mnt/data/haci_project_validator_v2_9/examples/real_ask_edge/10_memory/m.haci",
+      "scope": "memory"
+    },
+    "code.c": {
+      "symbol": "code.c",
+      "alias": "c",
+      "kind": "file",
+      "file": "/mnt/data/haci_project_validator_v2_9/examples/real_ask_edge/20_code/c.haci",
+      "scope": "code",
+      "meaning": "code",
+      "declared_at": "/mnt/data/haci_project_validator_v2_9/examples/real_ask_edge/20_code/c.haci:L1",
+      "authority": "human",
+      "commit_state": "committed"
+    }
+  },
+  "aliases": {
+    "m": [
+      "memory.m"
+    ],
+    "memory.m": [
+      "memory.m"
+    ],
+    "c": [
+      "code.c"
+    ],
+    "code.c": [
+      "code.c"
+    ]
+  },
+  "edges": [
+    {
+      "from": "memory.m",
+      "to": "code.c",
+      "file": "/mnt/data/haci_project_validator_v2_9/examples/real_ask_edge/10_memory/m.haci",
+      "line": 1,
+      "raw": "? c status >"
+    }
+  ],
+  "cycles": [],
+  "conversations": [
+    {
+      "id": "m.haci:L1:code.c",
+      "kind": "conversation",
+      "object": "code.c",
+      "files": [
+        "/mnt/data/haci_project_validator_v2_9/examples/real_ask_edge/10_memory/m.haci"
+      ],
+      "start": {
+        "file": "/mnt/data/haci_project_validator_v2_9/examples/real_ask_edge/10_memory/m.haci",
+        "line": 1,
+        "raw": "? c status >",
+        "outbound": "ask",
+        "inbound": "observe",
+        "object": "c",
+        "resolved_object": "code.c",
+        "payload": "status",
+        "owner": "human",
+        "authority": null
+      },
+      "body": [],
+      "returns": [
+        {
+          "file": "/mnt/data/haci_project_validator_v2_9/examples/real_ask_edge/10_memory/m.haci",
+          "line": 1,
+          "raw": "? c status >",
+          "outbound": "ask",
+          "inbound": "observe",
+          "object": "c",
+          "resolved_object": "code.c",
+          "payload": "status",
+          "owner": "human",
+          "authority": null
+        }
+      ],
+      "complete": true,
+      "unresolved": false,
+      "diagnostics": []
+    },
+    {
+      "id": "c.haci:L1:code.c",
+      "kind": "declaration",
+      "object": "code.c",
+      "files": [
+        "/mnt/data/haci_project_validator_v2_9/examples/real_ask_edge/20_code/c.haci"
+      ],
+      "start": {
+        "file": "/mnt/data/haci_project_validator_v2_9/examples/real_ask_edge/20_code/c.haci",
+        "line": 1,
+        "raw": "! c code >",
+        "outbound": "declare",
+        "inbound": "observe",
+        "object": "c",
+        "resolved_object": "code.c",
+        "payload": "code",
+        "owner": "human",
+        "authority": "human"
+      },
+      "body": [],
+      "returns": [
+        {
+          "file": "/mnt/data/haci_project_validator_v2_9/examples/real_ask_edge/20_code/c.haci",
+          "line": 1,
+          "raw": "! c code >",
+          "outbound": "declare",
+          "inbound": "observe",
+          "object": "c",
+          "resolved_object": "code.c",
+          "payload": "code",
+          "owner": "human",
+          "authority": "human"
+        }
+      ],
+      "complete": true,
+      "unresolved": false,
+      "diagnostics": []
+    }
+  ],
+  "errors": [],
+  "warnings": [],
+  "nodes": [
+    {
+      "file": "/mnt/data/haci_project_validator_v2_9/examples/real_ask_edge/10_memory/m.haci",
+      "line": 1,
+      "raw": "? c status >",
+      "outbound": "ask",
+      "inbound": "observe",
+      "object": "c",
+      "resolved_object": "code.c",
+      "payload": "status",
+      "owner": "human",
+      "authority": null
+    },
+    {
+      "file": "/mnt/data/haci_project_validator_v2_9/examples/real_ask_edge/20_code/c.haci",
+      "line": 1,
+      "raw": "! c code >",
+      "outbound": "declare",
+      "inbound": "observe",
+      "object": "c",
+      "resolved_object": "code.c",
+      "payload": "code",
+      "owner": "human",
+      "authority": "human"
+    }
+  ]
+}

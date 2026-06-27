@@ -1,0 +1,1 @@
+A pending declaration with suffix ? created a dependency edge as if the declaration were committed.

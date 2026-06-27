@@ -1,0 +1,80 @@
+[
+  {
+    "core": "syntax_parse_core",
+    "status": "COMPLETE",
+    "holds_in_v3_3": true,
+    "why": "code fences and basic protocol parsing hold"
+  },
+  {
+    "core": "inbound_semantics_core",
+    "status": "COMPLETE",
+    "holds_in_v3_3": true,
+    "why": "suffix ? remains open; > and ! complete"
+  },
+  {
+    "core": "commit_gating_core",
+    "status": "COMPLETE",
+    "holds_in_v3_3": true,
+    "why": "pending declarations do not mutate committed symbol authority"
+  },
+  {
+    "core": "accepted_return_core",
+    "status": "COMPLETE",
+    "holds_in_v3_3": true,
+    "why": "unique no-token accepted ! fallback works"
+  },
+  {
+    "core": "pending_parent_scope_core",
+    "status": "COMPLETE",
+    "holds_in_v3_3": true,
+    "why": "pending parent blocks child commit"
+  },
+  {
+    "core": "return_question_pairing_core",
+    "status": "COMPLETE",
+    "holds_in_v3_3": true,
+    "why": "payload-specific ? return-question pairing works"
+  },
+  {
+    "core": "graph_edge_core",
+    "status": "COMPLETE",
+    "holds_in_v3_3": true,
+    "why": "pending declarations create no dependency edges"
+  },
+  {
+    "core": "same_file_chronology_core",
+    "status": "COMPLETE",
+    "holds_in_v3_3": true,
+    "why": "same-file returns cannot pair backward"
+  },
+  {
+    "core": "multi_return_question_core",
+    "status": "COMPLETE",
+    "holds_in_v3_3": true,
+    "why": "multiple ? return-questions attach"
+  },
+  {
+    "core": "multi_evidence_return_core",
+    "status": "COMPLETE",
+    "holds_in_v3_3": true,
+    "why": "multiple > evidence/result returns attach"
+  },
+  {
+    "core": "multi_commit_return_core",
+    "status": "COMPLETE",
+    "holds_in_v3_3": true,
+    "why": "multiple positive ! commit returns attach"
+  },
+  {
+    "core": "cross_file_merge_core",
+    "status": "COMPLETE",
+    "holds_in_v3_3": true,
+    "why": "cross-file return-before-ask remains order-independent"
+  },
+  {
+    "core": "ambiguity_rejection_core",
+    "status": "COMPLETE",
+    "holds_in_v3_3": true,
+    "why": "ambiguous pairings fail closed"
+  }
+]

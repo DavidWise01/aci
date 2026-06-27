@@ -1,0 +1,5 @@
+HACI v3.2 build log
+PASS: HACI Project Validator v3.2 tests passed
+examples/clean_multi_evidence ['--strict']: exit 0 expected 0
+examples/failure_ambiguous_evidence ['--strict']: exit 1 expected 1
+PASS: prior v3.1 multi-evidence failure now preserves both > returns

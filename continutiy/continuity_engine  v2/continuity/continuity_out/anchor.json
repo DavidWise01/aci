@@ -1,0 +1,17 @@
+{
+  "prev_root": null,
+  "root": "sha256:b312e1ff6a0b65f67eeae856050f7b660cec771603f4cca9b575081aa67297fc",
+  "signature": {
+    "algorithm": "ed25519",
+    "not": "an identity unless the key is published",
+    "proves": "this key signed these exact bytes",
+    "status": "present"
+  },
+  "timestamp": {
+    "asserted_time": "Jun 26 22:57:39 2026 GMT",
+    "proves": "manifest existed by this time, per the TSA",
+    "standard": "RFC-3161",
+    "status": "present",
+    "tsa": "https://freetsa.org/tsr"
+  }
+}

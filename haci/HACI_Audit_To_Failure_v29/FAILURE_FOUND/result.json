@@ -1,0 +1,92 @@
+{
+  "ok": true,
+  "strict": true,
+  "root": "/tmp/tmpl28c07db",
+  "symbols": {
+    "memory.m": {
+      "symbol": "memory.m",
+      "alias": "m",
+      "kind": "file",
+      "file": "/tmp/tmpl28c07db/10_memory/m.haci",
+      "scope": "memory"
+    }
+  },
+  "aliases": {
+    "m": [
+      "memory.m"
+    ],
+    "memory.m": [
+      "memory.m"
+    ]
+  },
+  "edges": [],
+  "cycles": [],
+  "conversations": [
+    {
+      "id": "m.haci:L2:memory.m",
+      "kind": "conversation",
+      "object": "memory.m",
+      "files": [
+        "/tmp/tmpl28c07db/10_memory/m.haci"
+      ],
+      "start": {
+        "file": "/tmp/tmpl28c07db/10_memory/m.haci",
+        "line": 2,
+        "raw": "? m alpha question",
+        "outbound": "ask",
+        "inbound": null,
+        "object": "m",
+        "resolved_object": "memory.m",
+        "payload": "alpha question",
+        "owner": "human",
+        "authority": null
+      },
+      "body": [],
+      "returns": [
+        {
+          "file": "/tmp/tmpl28c07db/10_memory/m.haci",
+          "line": 1,
+          "raw": "m alpha answer >",
+          "outbound": null,
+          "inbound": "observe",
+          "object": "m",
+          "resolved_object": "memory.m",
+          "payload": "alpha answer",
+          "owner": "human",
+          "authority": null
+        }
+      ],
+      "complete": true,
+      "unresolved": false,
+      "diagnostics": []
+    }
+  ],
+  "errors": [],
+  "warnings": [],
+  "nodes": [
+    {
+      "file": "/tmp/tmpl28c07db/10_memory/m.haci",
+      "line": 1,
+      "raw": "m alpha answer >",
+      "outbound": null,
+      "inbound": "observe",
+      "object": "m",
+      "resolved_object": "memory.m",
+      "payload": "alpha answer",
+      "owner": "human",
+      "authority": null
+    },
+    {
+      "file": "/tmp/tmpl28c07db/10_memory/m.haci",
+      "line": 2,
+      "raw": "? m alpha question",
+      "outbound": "ask",
+      "inbound": null,
+      "object": "m",
+      "resolved_object": "memory.m",
+      "payload": "alpha question",
+      "owner": "human",
+      "authority": null
+    }
+  ]
+}

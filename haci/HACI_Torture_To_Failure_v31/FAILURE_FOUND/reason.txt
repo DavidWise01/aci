@@ -1,0 +1,1 @@
+Only one suffix > completion can attach to a conversation; multiple evidence/result returns become ambiguous or unmatched even when all belong to the same ask.

@@ -1,0 +1,16 @@
+HACI Project Validator v3.2 — Multi Evidence Return Attachment Patch
+
+No syntax changes.
+No new operators.
+No new HACI features.
+
+Patch purpose:
+v3.1 failed torture-to-failure because only one suffix > evidence/result return could attach to an open ask.
+
+Rule:
+- multiple suffix > evidence/result returns may attach to the same conversation
+- each > return still needs a positive unique conversation match
+- suffix > completes the conversation, but additional evidence/result lines are preserved
+- same-file chronology gate still applies
+- ambiguous/zero-score evidence returns still fail closed
+- suffix ! accepted-return fallback remains conservative

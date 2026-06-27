@@ -1,0 +1,5 @@
+HACI v3.3 build log
+PASS: HACI Project Validator v3.3 tests passed
+examples/clean_multi_commit ['--strict']: exit 0 expected 0
+examples/failure_ambiguous_commit ['--strict']: exit 1 expected 1
+PASS: prior v3.2 multi-commit failure now preserves both ! returns

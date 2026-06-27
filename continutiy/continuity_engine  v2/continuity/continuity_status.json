@@ -1,0 +1,24 @@
+{
+  "brutal": {
+    "bss": "7/7",
+    "bss_ok": true,
+    "false_negatives": 0,
+    "false_positives": 0,
+    "fss": "12/12",
+    "fss_ok": true,
+    "ok": true
+  },
+  "mutation": {
+    "example_fail": "curated/nonlinear-graph (the eskimo break)/C6 M->H->M",
+    "reopened_seam": "drop refs in human exit",
+    "suite_caught_it": true
+  },
+  "stable": true,
+  "suite": {
+    "count": 14021,
+    "fails": [],
+    "hash": "070ec9a42e79",
+    "ok": true,
+    "pass": 14021
+  }
+}

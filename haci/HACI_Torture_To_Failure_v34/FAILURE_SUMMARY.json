@@ -1,0 +1,10 @@
+{
+  "failure": "blocked missing-parent child still receives dependency edge",
+  "reason": "The scope gate demoted the child symbol, but graph edges created earlier still point to that blocked child.",
+  "expected": "no dependency edges to symbols whose commit_state is blocked_missing_parent",
+  "saved_to": "FAILURE_FOUND",
+  "errors": [
+    "/tmp/tmpowh1izgu/10_memory/m/parser/last.haci:MISSING_PARENT_SCOPE:memory.m->memory.m.parser.last"
+  ],
+  "warnings": []
+}

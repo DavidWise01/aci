@@ -1,0 +1,20 @@
+HACI Project Validator v2.7 — Pending Parent Scope Gate
+
+No syntax changes.
+No new operators.
+No new HACI features.
+
+Patch purpose:
+v2.6 failed audit-to-failure because a child path could commit beneath a pending/uncommitted parent in non-strict mode.
+
+Structural rule:
+If an existing parent symbol is pending or uncommitted, child symbols may not remain committed beneath it.
+
+This is a structural error even in non-strict mode.
+
+Effect:
+- committed parent -> committed child allowed
+- pending parent -> child commit blocked
+- uncommitted parent file -> child commit blocked
+- blocked child commit is moved into blocked_commits
+- child meaning/authority/committed state are removed

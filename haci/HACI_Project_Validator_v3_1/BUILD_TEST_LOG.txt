@@ -1,0 +1,5 @@
+HACI v3.1 build log
+PASS: HACI Project Validator v3.1 tests passed
+examples/clean_multi_return_questions ['--strict']: exit 0 expected 0
+examples/failure_ambiguous_question ['--strict']: exit 1 expected 1
+PASS: prior v3.0 multi-return-question failure now preserves both questions

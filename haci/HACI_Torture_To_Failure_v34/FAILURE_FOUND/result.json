@@ -1,0 +1,164 @@
+{
+  "ok": false,
+  "strict": true,
+  "root": "/tmp/tmpowh1izgu",
+  "symbols": {
+    "memory.m.parser.last": {
+      "symbol": "memory.m.parser.last",
+      "alias": "last",
+      "kind": "file",
+      "file": "/tmp/tmpowh1izgu/10_memory/m/parser/last.haci",
+      "scope": "memory.m.parser",
+      "blocked_commits": [
+        {
+          "meaning": "prior",
+          "authority": "human",
+          "declared_at": "/tmp/tmpowh1izgu/10_memory/m/parser/last.haci:L1",
+          "previous_commit_state": "committed",
+          "blocked_by": "memory.m",
+          "reason": "MISSING_PARENT_SCOPE"
+        }
+      ],
+      "commit_state": "blocked_missing_parent"
+    },
+    "runtime.runtime": {
+      "symbol": "runtime.runtime",
+      "alias": "runtime",
+      "kind": "file",
+      "file": "/tmp/tmpowh1izgu/20_runtime/runtime.haci",
+      "scope": "runtime"
+    }
+  },
+  "aliases": {
+    "last": [
+      "memory.m.parser.last"
+    ],
+    "memory.m.parser.last": [
+      "memory.m.parser.last"
+    ],
+    "runtime": [
+      "runtime.runtime"
+    ],
+    "runtime.runtime": [
+      "runtime.runtime"
+    ]
+  },
+  "edges": [
+    {
+      "from": "runtime.runtime",
+      "to": "memory.m.parser.last",
+      "file": "/tmp/tmpowh1izgu/20_runtime/runtime.haci",
+      "line": 1,
+      "raw": "? memory.m.parser.last previous result >"
+    }
+  ],
+  "cycles": [],
+  "conversations": [
+    {
+      "id": "last.haci:L1:memory.m.parser.last",
+      "kind": "declaration",
+      "object": "memory.m.parser.last",
+      "files": [
+        "/tmp/tmpowh1izgu/10_memory/m/parser/last.haci"
+      ],
+      "start": {
+        "file": "/tmp/tmpowh1izgu/10_memory/m/parser/last.haci",
+        "line": 1,
+        "raw": "! last prior >",
+        "outbound": "declare",
+        "inbound": "observe",
+        "object": "last",
+        "resolved_object": "memory.m.parser.last",
+        "payload": "prior",
+        "owner": "human",
+        "authority": "human"
+      },
+      "body": [],
+      "returns": [
+        {
+          "file": "/tmp/tmpowh1izgu/10_memory/m/parser/last.haci",
+          "line": 1,
+          "raw": "! last prior >",
+          "outbound": "declare",
+          "inbound": "observe",
+          "object": "last",
+          "resolved_object": "memory.m.parser.last",
+          "payload": "prior",
+          "owner": "human",
+          "authority": "human"
+        }
+      ],
+      "complete": true,
+      "unresolved": false,
+      "diagnostics": []
+    },
+    {
+      "id": "runtime.haci:L1:memory.m.parser.last",
+      "kind": "conversation",
+      "object": "memory.m.parser.last",
+      "files": [
+        "/tmp/tmpowh1izgu/20_runtime/runtime.haci"
+      ],
+      "start": {
+        "file": "/tmp/tmpowh1izgu/20_runtime/runtime.haci",
+        "line": 1,
+        "raw": "? memory.m.parser.last previous result >",
+        "outbound": "ask",
+        "inbound": "observe",
+        "object": "memory.m.parser.last",
+        "resolved_object": "memory.m.parser.last",
+        "payload": "previous result",
+        "owner": "human",
+        "authority": null
+      },
+      "body": [],
+      "returns": [
+        {
+          "file": "/tmp/tmpowh1izgu/20_runtime/runtime.haci",
+          "line": 1,
+          "raw": "? memory.m.parser.last previous result >",
+          "outbound": "ask",
+          "inbound": "observe",
+          "object": "memory.m.parser.last",
+          "resolved_object": "memory.m.parser.last",
+          "payload": "previous result",
+          "owner": "human",
+          "authority": null
+        }
+      ],
+      "complete": true,
+      "unresolved": false,
+      "diagnostics": []
+    }
+  ],
+  "errors": [
+    "/tmp/tmpowh1izgu/10_memory/m/parser/last.haci:MISSING_PARENT_SCOPE:memory.m->memory.m.parser.last"
+  ],
+  "warnings": [],
+  "nodes": [
+    {
+      "file": "/tmp/tmpowh1izgu/10_memory/m/parser/last.haci",
+      "line": 1,
+      "raw": "! last prior >",
+      "outbound": "declare",
+      "inbound": "observe",
+      "object": "last",
+      "resolved_object": "memory.m.parser.last",
+      "payload": "prior",
+      "owner": "human",
+      "authority": "human"
+    },
+    {
+      "file": "/tmp/tmpowh1izgu/20_runtime/runtime.haci",
+      "line": 1,
+      "raw": "? memory.m.parser.last previous result >",
+      "outbound": "ask",
+      "inbound": "observe",
+      "object": "memory.m.parser.last",
+      "resolved_object": "memory.m.parser.last",
+      "payload": "previous result",
+      "owner": "human",
+      "authority": null
+    }
+  ]
+}

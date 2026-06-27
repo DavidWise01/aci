@@ -1,0 +1,17 @@
+{
+  "failure": "multiple evidence returns for one ask rejected",
+  "reason": "Only one suffix > completion can attach to a conversation; multiple evidence/result returns become ambiguous or unmatched even when all belong to the same ask.",
+  "expected": "strict pass with both suffix > returns preserved on the ask",
+  "saved_to": "FAILURE_FOUND",
+  "errors": [
+    "/tmp/tmpxrighkw3/10_memory/m.haci:L1:OPEN_CONVERSATION:m.haci:L1:memory.m",
+    "/tmp/tmpxrighkw3/10_memory/m.haci:L1:ASK_WITHOUT_RETURN:m.haci:L1:memory.m",
+    "/tmp/tmpxrighkw3/10_memory/m.haci:L2:RETURN_WITHOUT_OPEN_REQUEST:m.haci:L2:memory.m",
+    "/tmp/tmpxrighkw3/10_memory/m.haci:L3:RETURN_WITHOUT_OPEN_REQUEST:m.haci:L3:memory.m"
+  ],
+  "warnings": [
+    "/tmp/tmpxrighkw3/10_memory/m.haci:L2:RETURN_WITHOUT_OPEN_REQUEST:m.haci:L2:memory.m",
+    "/tmp/tmpxrighkw3/10_memory/m.haci:L3:RETURN_WITHOUT_OPEN_REQUEST:m.haci:L3:memory.m",
+    "/tmp/tmpxrighkw3/10_memory/m.haci:L1:OPEN_CONVERSATION:m.haci:L1:memory.m"
+  ]
+}

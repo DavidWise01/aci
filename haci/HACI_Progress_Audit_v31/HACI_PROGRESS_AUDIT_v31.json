@@ -1,0 +1,339 @@
+{
+  "latest": "v3.1",
+  "regressions_against_fixed_layers": [],
+  "open_failures": [
+    "Multiple evidence > returns attach to one ask"
+  ],
+  "latest_status": {
+    "Inbound ? stays open": true,
+    "Pending declaration does not commit symbol authority": true,
+    "Unique accepted ! return closes ask": true,
+    "Pending parent blocks child commit": true,
+    "Payload-specific return-question pairs": true,
+    "Pending declaration creates no graph edge": true,
+    "Same-file return-before-ask rejected": true,
+    "Multiple return-questions attach to one ask": true,
+    "Multiple evidence > returns attach to one ask": false,
+    "Cross-file return-before-ask still allowed": true
+  },
+  "matrix": {
+    "Inbound ? stays open": {
+      "v2.4": true,
+      "v2.5": true,
+      "v2.6": true,
+      "v2.7": true,
+      "v2.8": true,
+      "v2.9": true,
+      "v3.0": true,
+      "v3.1": true
+    },
+    "Pending declaration does not commit symbol authority": {
+      "v2.4": false,
+      "v2.5": true,
+      "v2.6": true,
+      "v2.7": true,
+      "v2.8": true,
+      "v2.9": true,
+      "v3.0": true,
+      "v3.1": true
+    },
+    "Unique accepted ! return closes ask": {
+      "v2.4": false,
+      "v2.5": false,
+      "v2.6": true,
+      "v2.7": true,
+      "v2.8": true,
+      "v2.9": true,
+      "v3.0": true,
+      "v3.1": true
+    },
+    "Pending parent blocks child commit": {
+      "v2.4": false,
+      "v2.5": false,
+      "v2.6": false,
+      "v2.7": true,
+      "v2.8": true,
+      "v2.9": true,
+      "v3.0": true,
+      "v3.1": true
+    },
+    "Payload-specific return-question pairs": {
+      "v2.4": false,
+      "v2.5": false,
+      "v2.6": false,
+      "v2.7": false,
+      "v2.8": true,
+      "v2.9": true,
+      "v3.0": true,
+      "v3.1": true
+    },
+    "Pending declaration creates no graph edge": {
+      "v2.4": false,
+      "v2.5": false,
+      "v2.6": false,
+      "v2.7": false,
+      "v2.8": false,
+      "v2.9": true,
+      "v3.0": true,
+      "v3.1": true
+    },
+    "Same-file return-before-ask rejected": {
+      "v2.4": false,
+      "v2.5": false,
+      "v2.6": false,
+      "v2.7": false,
+      "v2.8": false,
+      "v2.9": false,
+      "v3.0": true,
+      "v3.1": true
+    },
+    "Multiple return-questions attach to one ask": {
+      "v2.4": true,
+      "v2.5": true,
+      "v2.6": true,
+      "v2.7": true,
+      "v2.8": false,
+      "v2.9": false,
+      "v3.0": false,
+      "v3.1": true
+    },
+    "Multiple evidence > returns attach to one ask": {
+      "v2.4": false,
+      "v2.5": false,
+      "v2.6": false,
+      "v2.7": false,
+      "v2.8": false,
+      "v2.9": false,
+      "v3.0": false,
+      "v3.1": false
+    },
+    "Cross-file return-before-ask still allowed": {
+      "v2.4": true,
+      "v2.5": true,
+      "v2.6": true,
+      "v2.7": true,
+      "v2.8": true,
+      "v2.9": true,
+      "v3.0": true,
+      "v3.1": true
+    }
+  },
+  "origin": {
+    "Inbound ? stays open": {
+      "introduced_as_fix": "v2.4",
+      "first_version_passing": "v2.4",
+      "latest_passes": true,
+      "historical_pattern": {
+        "v2.4": true,
+        "v2.5": true,
+        "v2.6": true,
+        "v2.7": true,
+        "v2.8": true,
+        "v2.9": true,
+        "v3.0": true,
+        "v3.1": true
+      }
+    },
+    "Pending declaration does not commit symbol authority": {
+      "introduced_as_fix": "v2.5",
+      "first_version_passing": "v2.5",
+      "latest_passes": true,
+      "historical_pattern": {
+        "v2.4": false,
+        "v2.5": true,
+        "v2.6": true,
+        "v2.7": true,
+        "v2.8": true,
+        "v2.9": true,
+        "v3.0": true,
+        "v3.1": true
+      }
+    },
+    "Unique accepted ! return closes ask": {
+      "introduced_as_fix": "v2.6",
+      "first_version_passing": "v2.6",
+      "latest_passes": true,
+      "historical_pattern": {
+        "v2.4": false,
+        "v2.5": false,
+        "v2.6": true,
+        "v2.7": true,
+        "v2.8": true,
+        "v2.9": true,
+        "v3.0": true,
+        "v3.1": true
+      }
+    },
+    "Pending parent blocks child commit": {
+      "introduced_as_fix": "v2.7",
+      "first_version_passing": "v2.7",
+      "latest_passes": true,
+      "historical_pattern": {
+        "v2.4": false,
+        "v2.5": false,
+        "v2.6": false,
+        "v2.7": true,
+        "v2.8": true,
+        "v2.9": true,
+        "v3.0": true,
+        "v3.1": true
+      }
+    },
+    "Payload-specific return-question pairs": {
+      "introduced_as_fix": "v2.8",
+      "first_version_passing": "v2.8",
+      "latest_passes": true,
+      "historical_pattern": {
+        "v2.4": false,
+        "v2.5": false,
+        "v2.6": false,
+        "v2.7": false,
+        "v2.8": true,
+        "v2.9": true,
+        "v3.0": true,
+        "v3.1": true
+      }
+    },
+    "Pending declaration creates no graph edge": {
+      "introduced_as_fix": "v2.9",
+      "first_version_passing": "v2.9",
+      "latest_passes": true,
+      "historical_pattern": {
+        "v2.4": false,
+        "v2.5": false,
+        "v2.6": false,
+        "v2.7": false,
+        "v2.8": false,
+        "v2.9": true,
+        "v3.0": true,
+        "v3.1": true
+      }
+    },
+    "Same-file return-before-ask rejected": {
+      "introduced_as_fix": "v3.0",
+      "first_version_passing": "v3.0",
+      "latest_passes": true,
+      "historical_pattern": {
+        "v2.4": false,
+        "v2.5": false,
+        "v2.6": false,
+        "v2.7": false,
+        "v2.8": false,
+        "v2.9": false,
+        "v3.0": true,
+        "v3.1": true
+      }
+    },
+    "Multiple return-questions attach to one ask": {
+      "introduced_as_fix": "v3.1",
+      "first_version_passing": "v2.4",
+      "latest_passes": true,
+      "historical_pattern": {
+        "v2.4": true,
+        "v2.5": true,
+        "v2.6": true,
+        "v2.7": true,
+        "v2.8": false,
+        "v2.9": false,
+        "v3.0": false,
+        "v3.1": true
+      }
+    },
+    "Multiple evidence > returns attach to one ask": {
+      "introduced_as_fix": "OPEN",
+      "first_version_passing": null,
+      "latest_passes": false,
+      "historical_pattern": {
+        "v2.4": false,
+        "v2.5": false,
+        "v2.6": false,
+        "v2.7": false,
+        "v2.8": false,
+        "v2.9": false,
+        "v3.0": false,
+        "v3.1": false
+      }
+    },
+    "Cross-file return-before-ask still allowed": {
+      "introduced_as_fix": "GUARD",
+      "first_version_passing": "v2.4",
+      "latest_passes": true,
+      "historical_pattern": {
+        "v2.4": true,
+        "v2.5": true,
+        "v2.6": true,
+        "v2.7": true,
+        "v2.8": true,
+        "v2.9": true,
+        "v3.0": true,
+        "v3.1": true
+      }
+    }
+  },
+  "fix_log": [
+    {
+      "version": "v2.4",
+      "fixed": "Inbound suffix ? semantics",
+      "why": "A returned question was being treated like a completed answer. That let unresolved asks/declarations look complete.",
+      "invariant": "suffix ? means returned-as-question / still open; suffix > or ! completes.",
+      "v31_status": true
+    },
+    {
+      "version": "v2.5",
+      "fixed": "Commit gating for declarations",
+      "why": "A declaration ending in ? could still mutate symbol meaning/authority even while conversation layer said unresolved.",
+      "invariant": "only declarations confirmed by > or ! commit symbol authority.",
+      "v31_status": true
+    },
+    {
+      "version": "v2.6",
+      "fixed": "Unique accepted-return fallback",
+      "why": "m accepted ! could not close a single open ask unless payload tokens overlapped.",
+      "invariant": "a single same-object ! return may close one single open ask; never guess among multiples.",
+      "v31_status": true
+    },
+    {
+      "version": "v2.7",
+      "fixed": "Pending parent scope gate",
+      "why": "A child object could commit under a pending/uncommitted parent, making the child stronger than its parent.",
+      "invariant": "children cannot commit beneath pending/uncommitted existing parents.",
+      "v31_status": true
+    },
+    {
+      "version": "v2.8",
+      "fixed": "Payload-specific return-question pairing",
+      "why": "A suffix ? clarification failed when more than one ask was open, even if payload uniquely identified the target ask.",
+      "invariant": "return-questions pair by unique positive object/payload match, but do not complete.",
+      "v31_status": true
+    },
+    {
+      "version": "v2.9",
+      "fixed": "Pending declaration graph edge gate",
+      "why": "A pending declaration no longer committed symbol authority, but still created dependency graph edges/cycles.",
+      "invariant": "pending declarations cannot mutate graph topology.",
+      "v31_status": true
+    },
+    {
+      "version": "v3.0",
+      "fixed": "Same-file chronology gate",
+      "why": "Order-independent pairing was correct across files, but inside one file it allowed a return to answer a later ask.",
+      "invariant": "same-file returns cannot pair backward; cross-file pairing stays order-independent.",
+      "v31_status": true
+    },
+    {
+      "version": "v3.1",
+      "fixed": "Multi return-question attachment",
+      "why": "Only one clarification question could attach to an ask; a second valid clarification became unmatched.",
+      "invariant": "multiple suffix ? clarifications can attach to one ask; each still needs a unique positive match.",
+      "v31_status": true
+    }
+  ],
+  "verdict": {
+    "making_progress": true,
+    "creating_new_regressions": false,
+    "current_open_gap": [
+      "Multiple evidence > returns attach to one ask"
+    ],
+    "recommended_next_patch": "v3.2 \u2014 Multi Evidence Return Attachment Patch"
+  }
+}

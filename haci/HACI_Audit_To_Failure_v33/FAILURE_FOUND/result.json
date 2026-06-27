@@ -1,0 +1,84 @@
+{
+  "ok": true,
+  "strict": true,
+  "root": "/tmp/tmp2zyvh_0f",
+  "symbols": {
+    "memory.m.parser.last": {
+      "symbol": "memory.m.parser.last",
+      "alias": "last",
+      "kind": "file",
+      "file": "/tmp/tmp2zyvh_0f/10_memory/m/parser/last.haci",
+      "scope": "memory.m.parser",
+      "meaning": "prior",
+      "declared_at": "/tmp/tmp2zyvh_0f/10_memory/m/parser/last.haci:L1",
+      "authority": "human",
+      "commit_state": "committed"
+    }
+  },
+  "aliases": {
+    "last": [
+      "memory.m.parser.last"
+    ],
+    "memory.m.parser.last": [
+      "memory.m.parser.last"
+    ]
+  },
+  "edges": [],
+  "cycles": [],
+  "conversations": [
+    {
+      "id": "last.haci:L1:memory.m.parser.last",
+      "kind": "declaration",
+      "object": "memory.m.parser.last",
+      "files": [
+        "/tmp/tmp2zyvh_0f/10_memory/m/parser/last.haci"
+      ],
+      "start": {
+        "file": "/tmp/tmp2zyvh_0f/10_memory/m/parser/last.haci",
+        "line": 1,
+        "raw": "! last prior >",
+        "outbound": "declare",
+        "inbound": "observe",
+        "object": "last",
+        "resolved_object": "memory.m.parser.last",
+        "payload": "prior",
+        "owner": "human",
+        "authority": "human"
+      },
+      "body": [],
+      "returns": [
+        {
+          "file": "/tmp/tmp2zyvh_0f/10_memory/m/parser/last.haci",
+          "line": 1,
+          "raw": "! last prior >",
+          "outbound": "declare",
+          "inbound": "observe",
+          "object": "last",
+          "resolved_object": "memory.m.parser.last",
+          "payload": "prior",
+          "owner": "human",
+          "authority": "human"
+        }
+      ],
+      "complete": true,
+      "unresolved": false,
+      "diagnostics": []
+    }
+  ],
+  "errors": [],
+  "warnings": [],
+  "nodes": [
+    {
+      "file": "/tmp/tmp2zyvh_0f/10_memory/m/parser/last.haci",
+      "line": 1,
+      "raw": "! last prior >",
+      "outbound": "declare",
+      "inbound": "observe",
+      "object": "last",
+      "resolved_object": "memory.m.parser.last",
+      "payload": "prior",
+      "owner": "human",
+      "authority": "human"
+    }
+  ]
+}

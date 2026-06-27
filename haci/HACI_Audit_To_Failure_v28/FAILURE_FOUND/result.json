@@ -1,0 +1,173 @@
+{
+  "ok": true,
+  "strict": false,
+  "root": "/tmp/tmpoj9arw48",
+  "symbols": {
+    "memory.m": {
+      "symbol": "memory.m",
+      "alias": "m",
+      "kind": "file",
+      "file": "/tmp/tmpoj9arw48/10_memory/m.haci",
+      "scope": "memory"
+    },
+    "code.c": {
+      "symbol": "code.c",
+      "alias": "c",
+      "kind": "file",
+      "file": "/tmp/tmpoj9arw48/20_code/c.haci",
+      "scope": "code",
+      "pending_declarations": [
+        {
+          "meaning": "pending",
+          "authority": "human",
+          "declared_at": "/tmp/tmpoj9arw48/10_memory/m.haci:L1",
+          "inbound": "ask",
+          "state": "pending"
+        }
+      ],
+      "meaning": "code",
+      "declared_at": "/tmp/tmpoj9arw48/20_code/c.haci:L1",
+      "authority": "human",
+      "commit_state": "committed"
+    }
+  },
+  "aliases": {
+    "m": [
+      "memory.m"
+    ],
+    "memory.m": [
+      "memory.m"
+    ],
+    "c": [
+      "code.c"
+    ],
+    "code.c": [
+      "code.c"
+    ]
+  },
+  "edges": [
+    {
+      "from": "memory.m",
+      "to": "code.c",
+      "file": "/tmp/tmpoj9arw48/10_memory/m.haci",
+      "line": 1,
+      "raw": "! c pending ?"
+    }
+  ],
+  "cycles": [],
+  "conversations": [
+    {
+      "id": "m.haci:L1:code.c",
+      "kind": "declaration",
+      "object": "code.c",
+      "files": [
+        "/tmp/tmpoj9arw48/10_memory/m.haci"
+      ],
+      "start": {
+        "file": "/tmp/tmpoj9arw48/10_memory/m.haci",
+        "line": 1,
+        "raw": "! c pending ?",
+        "outbound": "declare",
+        "inbound": "ask",
+        "object": "c",
+        "resolved_object": "code.c",
+        "payload": "pending",
+        "owner": "human",
+        "authority": "human"
+      },
+      "body": [],
+      "returns": [
+        {
+          "file": "/tmp/tmpoj9arw48/10_memory/m.haci",
+          "line": 1,
+          "raw": "! c pending ?",
+          "outbound": "declare",
+          "inbound": "ask",
+          "object": "c",
+          "resolved_object": "code.c",
+          "payload": "pending",
+          "owner": "human",
+          "authority": "human"
+        }
+      ],
+      "complete": false,
+      "unresolved": true,
+      "diagnostics": [
+        "INBOUND_QUESTION_UNRESOLVED",
+        "DECLARATION_PENDING_NOT_COMMITTED",
+        "OPEN_CONVERSATION"
+      ]
+    },
+    {
+      "id": "c.haci:L1:code.c",
+      "kind": "declaration",
+      "object": "code.c",
+      "files": [
+        "/tmp/tmpoj9arw48/20_code/c.haci"
+      ],
+      "start": {
+        "file": "/tmp/tmpoj9arw48/20_code/c.haci",
+        "line": 1,
+        "raw": "! c code >",
+        "outbound": "declare",
+        "inbound": "observe",
+        "object": "c",
+        "resolved_object": "code.c",
+        "payload": "code",
+        "owner": "human",
+        "authority": "human"
+      },
+      "body": [],
+      "returns": [
+        {
+          "file": "/tmp/tmpoj9arw48/20_code/c.haci",
+          "line": 1,
+          "raw": "! c code >",
+          "outbound": "declare",
+          "inbound": "observe",
+          "object": "c",
+          "resolved_object": "code.c",
+          "payload": "code",
+          "owner": "human",
+          "authority": "human"
+        }
+      ],
+      "complete": true,
+      "unresolved": false,
+      "diagnostics": []
+    }
+  ],
+  "errors": [],
+  "warnings": [
+    "/tmp/tmpoj9arw48/10_memory/m.haci:L1:DECLARATION_PENDING_NOT_COMMITTED:code.c",
+    "/tmp/tmpoj9arw48/10_memory/m.haci:L1:OPEN_CONVERSATION:m.haci:L1:code.c",
+    "/tmp/tmpoj9arw48/10_memory/m.haci:L1:INBOUND_QUESTION_UNRESOLVED:m.haci:L1:code.c",
+    "/tmp/tmpoj9arw48/10_memory/m.haci:L1:DECLARATION_PENDING_NOT_COMMITTED:m.haci:L1:code.c"
+  ],
+  "nodes": [
+    {
+      "file": "/tmp/tmpoj9arw48/10_memory/m.haci",
+      "line": 1,
+      "raw": "! c pending ?",
+      "outbound": "declare",
+      "inbound": "ask",
+      "object": "c",
+      "resolved_object": "code.c",
+      "payload": "pending",
+      "owner": "human",
+      "authority": "human"
+    },
+    {
+      "file": "/tmp/tmpoj9arw48/20_code/c.haci",
+      "line": 1,
+      "raw": "! c code >",
+      "outbound": "declare",
+      "inbound": "observe",
+      "object": "c",
+      "resolved_object": "code.c",
+      "payload": "code",
+      "owner": "human",
+      "authority": "human"
+    }
+  ]
+}

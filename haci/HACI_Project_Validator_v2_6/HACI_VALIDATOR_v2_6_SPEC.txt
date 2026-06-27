@@ -1,0 +1,20 @@
+HACI Project Validator v2.6 — Accepted Return Pairing Patch
+
+No syntax changes.
+No new operators.
+No new HACI features.
+
+Patch purpose:
+v2.5 failed accepted-return torture because a single same-object ! return did not close a single open ask unless payload tokens overlapped.
+
+Accepted-return rule:
+- suffix ! = accepted / acknowledged / committed back
+- if there is exactly one open same-object ask
+- and exactly one remaining same-object ! return
+- that ! return may close the ask without payload-token overlap
+
+Guardrails:
+- multiple open asks still fail closed
+- multiple remaining returns still fail closed
+- suffix > still requires unique payload relation
+- suffix ? still stays unresolved/open

@@ -1,0 +1,218 @@
+{
+  "ok": true,
+  "strict": true,
+  "root": "/mnt/data/haci_project_validator_v3_4/examples/clean_parent_chain",
+  "symbols": {
+    "memory.m": {
+      "symbol": "memory.m",
+      "alias": "m",
+      "kind": "file",
+      "file": "/mnt/data/haci_project_validator_v3_4/examples/clean_parent_chain/10_memory/m.haci",
+      "scope": "memory",
+      "meaning": "memory",
+      "declared_at": "/mnt/data/haci_project_validator_v3_4/examples/clean_parent_chain/10_memory/m.haci:L1",
+      "authority": "human",
+      "commit_state": "committed"
+    },
+    "memory.m.parser": {
+      "symbol": "memory.m.parser",
+      "alias": "parser",
+      "kind": "file",
+      "file": "/mnt/data/haci_project_validator_v3_4/examples/clean_parent_chain/10_memory/m/parser.haci",
+      "scope": "memory.m",
+      "meaning": "parser",
+      "declared_at": "/mnt/data/haci_project_validator_v3_4/examples/clean_parent_chain/10_memory/m/parser.haci:L1",
+      "authority": "human",
+      "commit_state": "committed"
+    },
+    "memory.m.parser.last": {
+      "symbol": "memory.m.parser.last",
+      "alias": "last",
+      "kind": "file",
+      "file": "/mnt/data/haci_project_validator_v3_4/examples/clean_parent_chain/10_memory/m/parser/last.haci",
+      "scope": "memory.m.parser",
+      "meaning": "prior",
+      "declared_at": "/mnt/data/haci_project_validator_v3_4/examples/clean_parent_chain/10_memory/m/parser/last.haci:L1",
+      "authority": "human",
+      "commit_state": "committed"
+    }
+  },
+  "aliases": {
+    "m": [
+      "memory.m"
+    ],
+    "memory.m": [
+      "memory.m"
+    ],
+    "parser": [
+      "memory.m.parser"
+    ],
+    "memory.m.parser": [
+      "memory.m.parser"
+    ],
+    "last": [
+      "memory.m.parser.last"
+    ],
+    "memory.m.parser.last": [
+      "memory.m.parser.last"
+    ]
+  },
+  "edges": [],
+  "cycles": [],
+  "conversations": [
+    {
+      "id": "m.haci:L1:memory.m",
+      "kind": "declaration",
+      "object": "memory.m",
+      "files": [
+        "/mnt/data/haci_project_validator_v3_4/examples/clean_parent_chain/10_memory/m.haci"
+      ],
+      "start": {
+        "file": "/mnt/data/haci_project_validator_v3_4/examples/clean_parent_chain/10_memory/m.haci",
+        "line": 1,
+        "raw": "! m memory >",
+        "outbound": "declare",
+        "inbound": "observe",
+        "object": "m",
+        "resolved_object": "memory.m",
+        "payload": "memory",
+        "owner": "human",
+        "authority": "human"
+      },
+      "body": [],
+      "returns": [
+        {
+          "file": "/mnt/data/haci_project_validator_v3_4/examples/clean_parent_chain/10_memory/m.haci",
+          "line": 1,
+          "raw": "! m memory >",
+          "outbound": "declare",
+          "inbound": "observe",
+          "object": "m",
+          "resolved_object": "memory.m",
+          "payload": "memory",
+          "owner": "human",
+          "authority": "human"
+        }
+      ],
+      "complete": true,
+      "unresolved": false,
+      "diagnostics": []
+    },
+    {
+      "id": "parser.haci:L1:memory.m.parser",
+      "kind": "declaration",
+      "object": "memory.m.parser",
+      "files": [
+        "/mnt/data/haci_project_validator_v3_4/examples/clean_parent_chain/10_memory/m/parser.haci"
+      ],
+      "start": {
+        "file": "/mnt/data/haci_project_validator_v3_4/examples/clean_parent_chain/10_memory/m/parser.haci",
+        "line": 1,
+        "raw": "! parser parser >",
+        "outbound": "declare",
+        "inbound": "observe",
+        "object": "parser",
+        "resolved_object": "memory.m.parser",
+        "payload": "parser",
+        "owner": "human",
+        "authority": "human"
+      },
+      "body": [],
+      "returns": [
+        {
+          "file": "/mnt/data/haci_project_validator_v3_4/examples/clean_parent_chain/10_memory/m/parser.haci",
+          "line": 1,
+          "raw": "! parser parser >",
+          "outbound": "declare",
+          "inbound": "observe",
+          "object": "parser",
+          "resolved_object": "memory.m.parser",
+          "payload": "parser",
+          "owner": "human",
+          "authority": "human"
+        }
+      ],
+      "complete": true,
+      "unresolved": false,
+      "diagnostics": []
+    },
+    {
+      "id": "last.haci:L1:memory.m.parser.last",
+      "kind": "declaration",
+      "object": "memory.m.parser.last",
+      "files": [
+        "/mnt/data/haci_project_validator_v3_4/examples/clean_parent_chain/10_memory/m/parser/last.haci"
+      ],
+      "start": {
+        "file": "/mnt/data/haci_project_validator_v3_4/examples/clean_parent_chain/10_memory/m/parser/last.haci",
+        "line": 1,
+        "raw": "! last prior >",
+        "outbound": "declare",
+        "inbound": "observe",
+        "object": "last",
+        "resolved_object": "memory.m.parser.last",
+        "payload": "prior",
+        "owner": "human",
+        "authority": "human"
+      },
+      "body": [],
+      "returns": [
+        {
+          "file": "/mnt/data/haci_project_validator_v3_4/examples/clean_parent_chain/10_memory/m/parser/last.haci",
+          "line": 1,
+          "raw": "! last prior >",
+          "outbound": "declare",
+          "inbound": "observe",
+          "object": "last",
+          "resolved_object": "memory.m.parser.last",
+          "payload": "prior",
+          "owner": "human",
+          "authority": "human"
+        }
+      ],
+      "complete": true,
+      "unresolved": false,
+      "diagnostics": []
+    }
+  ],
+  "errors": [],
+  "warnings": [],
+  "nodes": [
+    {
+      "file": "/mnt/data/haci_project_validator_v3_4/examples/clean_parent_chain/10_memory/m.haci",
+      "line": 1,
+      "raw": "! m memory >",
+      "outbound": "declare",
+      "inbound": "observe",
+      "object": "m",
+      "resolved_object": "memory.m",
+      "payload": "memory",
+      "owner": "human",
+      "authority": "human"
+    },
+    {
+      "file": "/mnt/data/haci_project_validator_v3_4/examples/clean_parent_chain/10_memory/m/parser.haci",
+      "line": 1,
+      "raw": "! parser parser >",
+      "outbound": "declare",
+      "inbound": "observe",
+      "object": "parser",
+      "resolved_object": "memory.m.parser",
+      "payload": "parser",
+      "owner": "human",
+      "authority": "human"
+    },
+    {
+      "file": "/mnt/data/haci_project_validator_v3_4/examples/clean_parent_chain/10_memory/m/parser/last.haci",
+      "line": 1,
+      "raw": "! last prior >",
+      "outbound": "declare",
+      "inbound": "observe",
+      "object": "last",
+      "resolved_object": "memory.m.parser.last",
+      "payload": "prior",
+      "owner": "human",
+      "authority": "human"
+    }
+  ]
+}

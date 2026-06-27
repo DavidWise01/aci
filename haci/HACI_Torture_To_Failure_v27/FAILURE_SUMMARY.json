@@ -1,0 +1,13 @@
+{
+  "failure": "payload-specific return-question not paired with matching ask",
+  "reason": "A suffix-? return-question was treated as RETURN_QUESTION_WITHOUT_UNIQUE_REQUEST because multiple asks existed, even though payload made it uniquely attachable.",
+  "expected": "strict pass with alpha question attached to alpha ask",
+  "saved_to": "FAILURE_FOUND",
+  "errors": [
+    "/tmp/tmptg4lm2xg/10_memory/m.haci:L3:OPEN_CONVERSATION:m.haci:L3:memory.m",
+    "/tmp/tmptg4lm2xg/10_memory/m.haci:L3:RETURN_QUESTION_WITHOUT_UNIQUE_REQUEST:m.haci:L3:memory.m"
+  ],
+  "warnings": [
+    "/tmp/tmptg4lm2xg/10_memory/m.haci:L3:RETURN_QUESTION_WITHOUT_UNIQUE_REQUEST:m.haci:L3:memory.m"
+  ]
+}

@@ -1,0 +1,16 @@
+HACI Project Validator v3.5 — Blocked Symbol Edge Purge
+
+No syntax changes.
+No new operators.
+No new HACI features.
+
+Patch purpose:
+v3.4 failed torture-to-failure because blocked missing-parent symbols were demoted in the symbol table, but graph edges created earlier still pointed to them.
+
+Rule:
+- no dependency edge may point to a blocked symbol
+- no dependency edge may originate from a blocked symbol
+- no dependency edge may point to an uncommitted target symbol
+- structural/source files may still create edges to valid committed targets
+- cycle detection runs after edge purge
+- structural scope errors remain reported

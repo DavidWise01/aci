@@ -1,0 +1,188 @@
+{
+  "ok": true,
+  "strict": true,
+  "root": "/mnt/data/haci_project_validator_v3_0/examples/clean_cross_file_return_before_ask",
+  "symbols": {
+    "scope.m": {
+      "symbol": "scope.m",
+      "alias": "m",
+      "kind": "file",
+      "file": "/mnt/data/haci_project_validator_v3_0/examples/clean_cross_file_return_before_ask/00_scope/m.haci",
+      "scope": "scope",
+      "meaning": "memory",
+      "declared_at": "/mnt/data/haci_project_validator_v3_0/examples/clean_cross_file_return_before_ask/00_scope/m.haci:L1",
+      "authority": "human",
+      "commit_state": "committed"
+    },
+    "returns.returns": {
+      "symbol": "returns.returns",
+      "alias": "returns",
+      "kind": "file",
+      "file": "/mnt/data/haci_project_validator_v3_0/examples/clean_cross_file_return_before_ask/10_returns/returns.haci",
+      "scope": "returns"
+    },
+    "runtime.ask": {
+      "symbol": "runtime.ask",
+      "alias": "ask",
+      "kind": "file",
+      "file": "/mnt/data/haci_project_validator_v3_0/examples/clean_cross_file_return_before_ask/20_runtime/ask.haci",
+      "scope": "runtime"
+    }
+  },
+  "aliases": {
+    "m": [
+      "scope.m"
+    ],
+    "scope.m": [
+      "scope.m"
+    ],
+    "returns": [
+      "returns.returns"
+    ],
+    "returns.returns": [
+      "returns.returns"
+    ],
+    "ask": [
+      "runtime.ask"
+    ],
+    "runtime.ask": [
+      "runtime.ask"
+    ]
+  },
+  "edges": [
+    {
+      "from": "returns.returns",
+      "to": "scope.m",
+      "file": "/mnt/data/haci_project_validator_v3_0/examples/clean_cross_file_return_before_ask/10_returns/returns.haci",
+      "line": 1,
+      "raw": "m alpha answer >"
+    },
+    {
+      "from": "runtime.ask",
+      "to": "scope.m",
+      "file": "/mnt/data/haci_project_validator_v3_0/examples/clean_cross_file_return_before_ask/20_runtime/ask.haci",
+      "line": 1,
+      "raw": "? m alpha question"
+    }
+  ],
+  "cycles": [],
+  "conversations": [
+    {
+      "id": "m.haci:L1:scope.m",
+      "kind": "declaration",
+      "object": "scope.m",
+      "files": [
+        "/mnt/data/haci_project_validator_v3_0/examples/clean_cross_file_return_before_ask/00_scope/m.haci"
+      ],
+      "start": {
+        "file": "/mnt/data/haci_project_validator_v3_0/examples/clean_cross_file_return_before_ask/00_scope/m.haci",
+        "line": 1,
+        "raw": "! m memory >",
+        "outbound": "declare",
+        "inbound": "observe",
+        "object": "m",
+        "resolved_object": "scope.m",
+        "payload": "memory",
+        "owner": "human",
+        "authority": "human"
+      },
+      "body": [],
+      "returns": [
+        {
+          "file": "/mnt/data/haci_project_validator_v3_0/examples/clean_cross_file_return_before_ask/00_scope/m.haci",
+          "line": 1,
+          "raw": "! m memory >",
+          "outbound": "declare",
+          "inbound": "observe",
+          "object": "m",
+          "resolved_object": "scope.m",
+          "payload": "memory",
+          "owner": "human",
+          "authority": "human"
+        }
+      ],
+      "complete": true,
+      "unresolved": false,
+      "diagnostics": []
+    },
+    {
+      "id": "ask.haci:L1:scope.m",
+      "kind": "conversation",
+      "object": "scope.m",
+      "files": [
+        "/mnt/data/haci_project_validator_v3_0/examples/clean_cross_file_return_before_ask/20_runtime/ask.haci",
+        "/mnt/data/haci_project_validator_v3_0/examples/clean_cross_file_return_before_ask/10_returns/returns.haci"
+      ],
+      "start": {
+        "file": "/mnt/data/haci_project_validator_v3_0/examples/clean_cross_file_return_before_ask/20_runtime/ask.haci",
+        "line": 1,
+        "raw": "? m alpha question",
+        "outbound": "ask",
+        "inbound": null,
+        "object": "m",
+        "resolved_object": "scope.m",
+        "payload": "alpha question",
+        "owner": "human",
+        "authority": null
+      },
+      "body": [],
+      "returns": [
+        {
+          "file": "/mnt/data/haci_project_validator_v3_0/examples/clean_cross_file_return_before_ask/10_returns/returns.haci",
+          "line": 1,
+          "raw": "m alpha answer >",
+          "outbound": null,
+          "inbound": "observe",
+          "object": "m",
+          "resolved_object": "scope.m",
+          "payload": "alpha answer",
+          "owner": "human",
+          "authority": null
+        }
+      ],
+      "complete": true,
+      "unresolved": false,
+      "diagnostics": []
+    }
+  ],
+  "errors": [],
+  "warnings": [],
+  "nodes": [
+    {
+      "file": "/mnt/data/haci_project_validator_v3_0/examples/clean_cross_file_return_before_ask/00_scope/m.haci",
+      "line": 1,
+      "raw": "! m memory >",
+      "outbound": "declare",
+      "inbound": "observe",
+      "object": "m",
+      "resolved_object": "scope.m",
+      "payload": "memory",
+      "owner": "human",
+      "authority": "human"
+    },
+    {
+      "file": "/mnt/data/haci_project_validator_v3_0/examples/clean_cross_file_return_before_ask/10_returns/returns.haci",
+      "line": 1,
+      "raw": "m alpha answer >",
+      "outbound": null,
+      "inbound": "observe",
+      "object": "m",
+      "resolved_object": "scope.m",
+      "payload": "alpha answer",
+      "owner": "human",
+      "authority": null
+    },
+    {
+      "file": "/mnt/data/haci_project_validator_v3_0/examples/clean_cross_file_return_before_ask/20_runtime/ask.haci",
+      "line": 1,
+      "raw": "? m alpha question",
+      "outbound": "ask",
+      "inbound": null,
+      "object": "m",
+      "resolved_object": "scope.m",
+      "payload": "alpha question",
+      "owner": "human",
+      "authority": null
+    }
+  ]
+}

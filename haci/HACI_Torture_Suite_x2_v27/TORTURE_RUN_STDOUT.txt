@@ -1,0 +1,7 @@
+{
+  "suite": "HACI Torture Suite x2 for v2.7",
+  "pass": 1148,
+  "fail": 0,
+  "result_count": 1148,
+  "results_hash": "d3967c08980c1cff9b96ea4aa9f1164c7e6bbbacf994beaff84bcd6245ef5c47"
+}

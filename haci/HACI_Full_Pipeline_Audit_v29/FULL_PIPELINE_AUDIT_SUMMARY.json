@@ -1,0 +1,97 @@
+{
+  "audit": "HACI full pipeline audit through v2.9",
+  "available_versions": [
+    "v2.4",
+    "v2.5",
+    "v2.6",
+    "v2.7",
+    "v2.8",
+    "v2.9"
+  ],
+  "latest": "v2.9",
+  "latest_regressions_against_fixed_pipeline": [],
+  "open_failures": [
+    {
+      "probe": "same_file_return_before_ask_rejected",
+      "meaning": "v2.9 still accepts a same-file return before its later ask.",
+      "result": {
+        "ok": false,
+        "project_ok": true,
+        "errors": [],
+        "warnings": []
+      }
+    }
+  ],
+  "history_ok_matrix": {
+    "commit_gating_pending_decl_no_symbol_mutation": {
+      "v2.4": false,
+      "v2.5": true,
+      "v2.6": true,
+      "v2.7": true,
+      "v2.8": true,
+      "v2.9": true
+    },
+    "accepted_return_unique_closes": {
+      "v2.4": false,
+      "v2.5": false,
+      "v2.6": true,
+      "v2.7": true,
+      "v2.8": true,
+      "v2.9": true
+    },
+    "pending_parent_blocks_child_commit_even_loose": {
+      "v2.4": false,
+      "v2.5": false,
+      "v2.6": false,
+      "v2.7": true,
+      "v2.8": true,
+      "v2.9": true
+    },
+    "return_question_payload_specific_pairs": {
+      "v2.4": false,
+      "v2.5": false,
+      "v2.6": false,
+      "v2.7": false,
+      "v2.8": true,
+      "v2.9": true
+    },
+    "pending_declaration_does_not_create_graph_edge": {
+      "v2.4": false,
+      "v2.5": false,
+      "v2.6": false,
+      "v2.7": false,
+      "v2.8": false,
+      "v2.9": true
+    },
+    "same_file_return_before_ask_rejected": {
+      "v2.4": false,
+      "v2.5": false,
+      "v2.6": false,
+      "v2.7": false,
+      "v2.8": false,
+      "v2.9": false
+    },
+    "cross_file_return_before_ask_allowed": {
+      "v2.4": true,
+      "v2.5": true,
+      "v2.6": true,
+      "v2.7": true,
+      "v2.8": true,
+      "v2.9": true
+    },
+    "committed_declaration_still_creates_edge": {
+      "v2.4": true,
+      "v2.5": true,
+      "v2.6": true,
+      "v2.7": true,
+      "v2.8": true,
+      "v2.9": true
+    }
+  },
+  "verdict": {
+    "making_progress": true,
+    "new_regressions_detected": false,
+    "known_open_failure_count": 1,
+    "next_patch_candidate": "v3.0 \u2014 Same-File Chronology Gate"
+  }
+}

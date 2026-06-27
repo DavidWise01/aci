@@ -1,0 +1,13 @@
+{
+  "failure": "deep child path accepted under pending parent in loose mode",
+  "reason": "The parent object m is pending/uncommitted, but child path m.parser.last resolved and the project passed in non-strict mode.",
+  "expected": "non-strict should still block committed child authority under a pending parent, or mark project not ok",
+  "saved_to": "FAILURE_FOUND",
+  "errors": [],
+  "warnings": [
+    "/tmp/tmpo9scvlb2/10_memory/m.haci:L1:DECLARATION_PENDING_NOT_COMMITTED:memory.m",
+    "/tmp/tmpo9scvlb2/10_memory/m.haci:L1:OPEN_CONVERSATION:m.haci:L1:memory.m",
+    "/tmp/tmpo9scvlb2/10_memory/m.haci:L1:INBOUND_QUESTION_UNRESOLVED:m.haci:L1:memory.m",
+    "/tmp/tmpo9scvlb2/10_memory/m.haci:L1:DECLARATION_PENDING_NOT_COMMITTED:m.haci:L1:memory.m"
+  ]
+}

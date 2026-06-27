@@ -1,0 +1,19 @@
+HACI Project Validator v2.9 — Pending Declaration Edge Gate
+
+No syntax changes.
+No new operators.
+No new HACI features.
+
+Patch purpose:
+v2.8 failed audit-to-failure because pending declarations could still create dependency edges.
+
+Graph rule:
+- pending declarations do not create dependency edges
+- pending declarations cannot create dependency cycles
+- committed declarations still create dependency edges
+- real asks/observes still create dependency edges
+
+This extends commit gating from:
+- symbol meaning/authority
+to:
+- graph topology

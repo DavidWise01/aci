@@ -1,0 +1,13 @@
+{
+  "failure": "pending declaration creates dependency edge",
+  "reason": "A pending declaration with suffix ? created a dependency edge as if the declaration were committed.",
+  "expected": "pending declarations should not add dependency edges",
+  "saved_to": "FAILURE_FOUND",
+  "errors": [],
+  "warnings": [
+    "/tmp/tmpoj9arw48/10_memory/m.haci:L1:DECLARATION_PENDING_NOT_COMMITTED:code.c",
+    "/tmp/tmpoj9arw48/10_memory/m.haci:L1:OPEN_CONVERSATION:m.haci:L1:code.c",
+    "/tmp/tmpoj9arw48/10_memory/m.haci:L1:INBOUND_QUESTION_UNRESOLVED:m.haci:L1:code.c",
+    "/tmp/tmpoj9arw48/10_memory/m.haci:L1:DECLARATION_PENDING_NOT_COMMITTED:m.haci:L1:code.c"
+  ]
+}

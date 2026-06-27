@@ -1,0 +1,216 @@
+{
+  "ok": false,
+  "strict": true,
+  "root": "/mnt/data/haci_project_validator_v3_1/examples/failure_ambiguous_question",
+  "symbols": {
+    "memory.m": {
+      "symbol": "memory.m",
+      "alias": "m",
+      "kind": "file",
+      "file": "/mnt/data/haci_project_validator_v3_1/examples/failure_ambiguous_question/10_memory/m.haci",
+      "scope": "memory"
+    }
+  },
+  "aliases": {
+    "m": [
+      "memory.m"
+    ],
+    "memory.m": [
+      "memory.m"
+    ]
+  },
+  "edges": [],
+  "cycles": [],
+  "conversations": [
+    {
+      "id": "m.haci:L1:memory.m",
+      "kind": "conversation",
+      "object": "memory.m",
+      "files": [
+        "/mnt/data/haci_project_validator_v3_1/examples/failure_ambiguous_question/10_memory/m.haci"
+      ],
+      "start": {
+        "file": "/mnt/data/haci_project_validator_v3_1/examples/failure_ambiguous_question/10_memory/m.haci",
+        "line": 1,
+        "raw": "? m alpha red",
+        "outbound": "ask",
+        "inbound": null,
+        "object": "m",
+        "resolved_object": "memory.m",
+        "payload": "alpha red",
+        "owner": "human",
+        "authority": null
+      },
+      "body": [],
+      "returns": [
+        {
+          "file": "/mnt/data/haci_project_validator_v3_1/examples/failure_ambiguous_question/10_memory/m.haci",
+          "line": 4,
+          "raw": "m alpha red >",
+          "outbound": null,
+          "inbound": "observe",
+          "object": "m",
+          "resolved_object": "memory.m",
+          "payload": "alpha red",
+          "owner": "human",
+          "authority": null
+        }
+      ],
+      "complete": true,
+      "unresolved": false,
+      "diagnostics": [
+        "AMBIGUOUS_RETURN_QUESTION_PAIR"
+      ]
+    },
+    {
+      "id": "m.haci:L2:memory.m",
+      "kind": "conversation",
+      "object": "memory.m",
+      "files": [
+        "/mnt/data/haci_project_validator_v3_1/examples/failure_ambiguous_question/10_memory/m.haci"
+      ],
+      "start": {
+        "file": "/mnt/data/haci_project_validator_v3_1/examples/failure_ambiguous_question/10_memory/m.haci",
+        "line": 2,
+        "raw": "? m alpha blue",
+        "outbound": "ask",
+        "inbound": null,
+        "object": "m",
+        "resolved_object": "memory.m",
+        "payload": "alpha blue",
+        "owner": "human",
+        "authority": null
+      },
+      "body": [],
+      "returns": [
+        {
+          "file": "/mnt/data/haci_project_validator_v3_1/examples/failure_ambiguous_question/10_memory/m.haci",
+          "line": 5,
+          "raw": "m alpha blue >",
+          "outbound": null,
+          "inbound": "observe",
+          "object": "m",
+          "resolved_object": "memory.m",
+          "payload": "alpha blue",
+          "owner": "human",
+          "authority": null
+        }
+      ],
+      "complete": true,
+      "unresolved": false,
+      "diagnostics": [
+        "AMBIGUOUS_RETURN_QUESTION_PAIR"
+      ]
+    },
+    {
+      "id": "m.haci:L3:memory.m",
+      "kind": "return_question",
+      "object": "memory.m",
+      "files": [
+        "/mnt/data/haci_project_validator_v3_1/examples/failure_ambiguous_question/10_memory/m.haci"
+      ],
+      "start": {
+        "file": "/mnt/data/haci_project_validator_v3_1/examples/failure_ambiguous_question/10_memory/m.haci",
+        "line": 3,
+        "raw": "m alpha clarify ?",
+        "outbound": null,
+        "inbound": "ask",
+        "object": "m",
+        "resolved_object": "memory.m",
+        "payload": "alpha clarify",
+        "owner": "human",
+        "authority": null
+      },
+      "body": [],
+      "returns": [
+        {
+          "file": "/mnt/data/haci_project_validator_v3_1/examples/failure_ambiguous_question/10_memory/m.haci",
+          "line": 3,
+          "raw": "m alpha clarify ?",
+          "outbound": null,
+          "inbound": "ask",
+          "object": "m",
+          "resolved_object": "memory.m",
+          "payload": "alpha clarify",
+          "owner": "human",
+          "authority": null
+        }
+      ],
+      "complete": false,
+      "unresolved": true,
+      "diagnostics": [
+        "AMBIGUOUS_RETURN_QUESTION_PAIR",
+        "RETURN_QUESTION_WITHOUT_UNIQUE_REQUEST"
+      ]
+    }
+  ],
+  "errors": [
+    "/mnt/data/haci_project_validator_v3_1/examples/failure_ambiguous_question/10_memory/m.haci:L3:OPEN_CONVERSATION:m.haci:L3:memory.m",
+    "/mnt/data/haci_project_validator_v3_1/examples/failure_ambiguous_question/10_memory/m.haci:L3:RETURN_QUESTION_WITHOUT_UNIQUE_REQUEST:m.haci:L3:memory.m"
+  ],
+  "warnings": [
+    "/mnt/data/haci_project_validator_v3_1/examples/failure_ambiguous_question/10_memory/m.haci:L3:RETURN_QUESTION_WITHOUT_UNIQUE_REQUEST:m.haci:L3:memory.m"
+  ],
+  "nodes": [
+    {
+      "file": "/mnt/data/haci_project_validator_v3_1/examples/failure_ambiguous_question/10_memory/m.haci",
+      "line": 1,
+      "raw": "? m alpha red",
+      "outbound": "ask",
+      "inbound": null,
+      "object": "m",
+      "resolved_object": "memory.m",
+      "payload": "alpha red",
+      "owner": "human",
+      "authority": null
+    },
+    {
+      "file": "/mnt/data/haci_project_validator_v3_1/examples/failure_ambiguous_question/10_memory/m.haci",
+      "line": 2,
+      "raw": "? m alpha blue",
+      "outbound": "ask",
+      "inbound": null,
+      "object": "m",
+      "resolved_object": "memory.m",
+      "payload": "alpha blue",
+      "owner": "human",
+      "authority": null
+    },
+    {
+      "file": "/mnt/data/haci_project_validator_v3_1/examples/failure_ambiguous_question/10_memory/m.haci",
+      "line": 3,
+      "raw": "m alpha clarify ?",
+      "outbound": null,
+      "inbound": "ask",
+      "object": "m",
+      "resolved_object": "memory.m",
+      "payload": "alpha clarify",
+      "owner": "human",
+      "authority": null
+    },
+    {
+      "file": "/mnt/data/haci_project_validator_v3_1/examples/failure_ambiguous_question/10_memory/m.haci",
+      "line": 4,
+      "raw": "m alpha red >",
+      "outbound": null,
+      "inbound": "observe",
+      "object": "m",
+      "resolved_object": "memory.m",
+      "payload": "alpha red",
+      "owner": "human",
+      "authority": null
+    },
+    {
+      "file": "/mnt/data/haci_project_validator_v3_1/examples/failure_ambiguous_question/10_memory/m.haci",
+      "line": 5,
+      "raw": "m alpha blue >",
+      "outbound": null,
+      "inbound": "observe",
+      "object": "m",
+      "resolved_object": "memory.m",
+      "payload": "alpha blue",
+      "owner": "human",
+      "authority": null
+    }
+  ]
+}

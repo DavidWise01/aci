@@ -1,0 +1,211 @@
+{
+  "ok": false,
+  "strict": true,
+  "root": "/tmp/tmptg4lm2xg",
+  "symbols": {
+    "memory.m": {
+      "symbol": "memory.m",
+      "alias": "m",
+      "kind": "file",
+      "file": "/tmp/tmptg4lm2xg/10_memory/m.haci",
+      "scope": "memory"
+    }
+  },
+  "aliases": {
+    "m": [
+      "memory.m"
+    ],
+    "memory.m": [
+      "memory.m"
+    ]
+  },
+  "edges": [],
+  "cycles": [],
+  "conversations": [
+    {
+      "id": "m.haci:L1:memory.m",
+      "kind": "conversation",
+      "object": "memory.m",
+      "files": [
+        "/tmp/tmptg4lm2xg/10_memory/m.haci"
+      ],
+      "start": {
+        "file": "/tmp/tmptg4lm2xg/10_memory/m.haci",
+        "line": 1,
+        "raw": "? m alpha problem",
+        "outbound": "ask",
+        "inbound": null,
+        "object": "m",
+        "resolved_object": "memory.m",
+        "payload": "alpha problem",
+        "owner": "human",
+        "authority": null
+      },
+      "body": [],
+      "returns": [
+        {
+          "file": "/tmp/tmptg4lm2xg/10_memory/m.haci",
+          "line": 5,
+          "raw": "m alpha answer >",
+          "outbound": null,
+          "inbound": "observe",
+          "object": "m",
+          "resolved_object": "memory.m",
+          "payload": "alpha answer",
+          "owner": "human",
+          "authority": null
+        }
+      ],
+      "complete": true,
+      "unresolved": false,
+      "diagnostics": []
+    },
+    {
+      "id": "m.haci:L2:memory.m",
+      "kind": "conversation",
+      "object": "memory.m",
+      "files": [
+        "/tmp/tmptg4lm2xg/10_memory/m.haci"
+      ],
+      "start": {
+        "file": "/tmp/tmptg4lm2xg/10_memory/m.haci",
+        "line": 2,
+        "raw": "? m beta problem",
+        "outbound": "ask",
+        "inbound": null,
+        "object": "m",
+        "resolved_object": "memory.m",
+        "payload": "beta problem",
+        "owner": "human",
+        "authority": null
+      },
+      "body": [],
+      "returns": [
+        {
+          "file": "/tmp/tmptg4lm2xg/10_memory/m.haci",
+          "line": 4,
+          "raw": "m beta answer >",
+          "outbound": null,
+          "inbound": "observe",
+          "object": "m",
+          "resolved_object": "memory.m",
+          "payload": "beta answer",
+          "owner": "human",
+          "authority": null
+        }
+      ],
+      "complete": true,
+      "unresolved": false,
+      "diagnostics": []
+    },
+    {
+      "id": "m.haci:L3:memory.m",
+      "kind": "return_question",
+      "object": "memory.m",
+      "files": [
+        "/tmp/tmptg4lm2xg/10_memory/m.haci"
+      ],
+      "start": {
+        "file": "/tmp/tmptg4lm2xg/10_memory/m.haci",
+        "line": 3,
+        "raw": "m alpha clarify ?",
+        "outbound": null,
+        "inbound": "ask",
+        "object": "m",
+        "resolved_object": "memory.m",
+        "payload": "alpha clarify",
+        "owner": "human",
+        "authority": null
+      },
+      "body": [],
+      "returns": [
+        {
+          "file": "/tmp/tmptg4lm2xg/10_memory/m.haci",
+          "line": 3,
+          "raw": "m alpha clarify ?",
+          "outbound": null,
+          "inbound": "ask",
+          "object": "m",
+          "resolved_object": "memory.m",
+          "payload": "alpha clarify",
+          "owner": "human",
+          "authority": null
+        }
+      ],
+      "complete": false,
+      "unresolved": true,
+      "diagnostics": [
+        "RETURN_QUESTION_WITHOUT_UNIQUE_REQUEST"
+      ]
+    }
+  ],
+  "errors": [
+    "/tmp/tmptg4lm2xg/10_memory/m.haci:L3:OPEN_CONVERSATION:m.haci:L3:memory.m",
+    "/tmp/tmptg4lm2xg/10_memory/m.haci:L3:RETURN_QUESTION_WITHOUT_UNIQUE_REQUEST:m.haci:L3:memory.m"
+  ],
+  "warnings": [
+    "/tmp/tmptg4lm2xg/10_memory/m.haci:L3:RETURN_QUESTION_WITHOUT_UNIQUE_REQUEST:m.haci:L3:memory.m"
+  ],
+  "nodes": [
+    {
+      "file": "/tmp/tmptg4lm2xg/10_memory/m.haci",
+      "line": 1,
+      "raw": "? m alpha problem",
+      "outbound": "ask",
+      "inbound": null,
+      "object": "m",
+      "resolved_object": "memory.m",
+      "payload": "alpha problem",
+      "owner": "human",
+      "authority": null
+    },
+    {
+      "file": "/tmp/tmptg4lm2xg/10_memory/m.haci",
+      "line": 2,
+      "raw": "? m beta problem",
+      "outbound": "ask",
+      "inbound": null,
+      "object": "m",
+      "resolved_object": "memory.m",
+      "payload": "beta problem",
+      "owner": "human",
+      "authority": null
+    },
+    {
+      "file": "/tmp/tmptg4lm2xg/10_memory/m.haci",
+      "line": 3,
+      "raw": "m alpha clarify ?",
+      "outbound": null,
+      "inbound": "ask",
+      "object": "m",
+      "resolved_object": "memory.m",
+      "payload": "alpha clarify",
+      "owner": "human",
+      "authority": null
+    },
+    {
+      "file": "/tmp/tmptg4lm2xg/10_memory/m.haci",
+      "line": 4,
+      "raw": "m beta answer >",
+      "outbound": null,
+      "inbound": "observe",
+      "object": "m",
+      "resolved_object": "memory.m",
+      "payload": "beta answer",
+      "owner": "human",
+      "authority": null
+    },
+    {
+      "file": "/tmp/tmptg4lm2xg/10_memory/m.haci",
+      "line": 5,
+      "raw": "m alpha answer >",
+      "outbound": null,
+      "inbound": "observe",
+      "object": "m",
+      "resolved_object": "memory.m",
+      "payload": "alpha answer",
+      "owner": "human",
+      "authority": null
+    }
+  ]
+}

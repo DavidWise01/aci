@@ -1,0 +1,175 @@
+{
+  "ok": false,
+  "strict": true,
+  "root": "/mnt/data/haci_project_validator_v3_3/examples/failure_ambiguous_commit",
+  "symbols": {
+    "memory.m": {
+      "symbol": "memory.m",
+      "alias": "m",
+      "kind": "file",
+      "file": "/mnt/data/haci_project_validator_v3_3/examples/failure_ambiguous_commit/10_memory/m.haci",
+      "scope": "memory"
+    }
+  },
+  "aliases": {
+    "m": [
+      "memory.m"
+    ],
+    "memory.m": [
+      "memory.m"
+    ]
+  },
+  "edges": [],
+  "cycles": [],
+  "conversations": [
+    {
+      "id": "m.haci:L1:memory.m",
+      "kind": "conversation",
+      "object": "memory.m",
+      "files": [
+        "/mnt/data/haci_project_validator_v3_3/examples/failure_ambiguous_commit/10_memory/m.haci"
+      ],
+      "start": {
+        "file": "/mnt/data/haci_project_validator_v3_3/examples/failure_ambiguous_commit/10_memory/m.haci",
+        "line": 1,
+        "raw": "? m alpha red approval",
+        "outbound": "ask",
+        "inbound": null,
+        "object": "m",
+        "resolved_object": "memory.m",
+        "payload": "alpha red approval",
+        "owner": "human",
+        "authority": null
+      },
+      "body": [],
+      "returns": [],
+      "complete": false,
+      "unresolved": true,
+      "diagnostics": [
+        "AMBIGUOUS_RETURN_PAIR",
+        "UNPAIRED_CONVERSATION",
+        "OPEN_CONVERSATION"
+      ]
+    },
+    {
+      "id": "m.haci:L2:memory.m",
+      "kind": "conversation",
+      "object": "memory.m",
+      "files": [
+        "/mnt/data/haci_project_validator_v3_3/examples/failure_ambiguous_commit/10_memory/m.haci"
+      ],
+      "start": {
+        "file": "/mnt/data/haci_project_validator_v3_3/examples/failure_ambiguous_commit/10_memory/m.haci",
+        "line": 2,
+        "raw": "? m alpha blue approval",
+        "outbound": "ask",
+        "inbound": null,
+        "object": "m",
+        "resolved_object": "memory.m",
+        "payload": "alpha blue approval",
+        "owner": "human",
+        "authority": null
+      },
+      "body": [],
+      "returns": [],
+      "complete": false,
+      "unresolved": true,
+      "diagnostics": [
+        "AMBIGUOUS_RETURN_PAIR",
+        "UNPAIRED_CONVERSATION",
+        "OPEN_CONVERSATION"
+      ]
+    },
+    {
+      "id": "m.haci:L3:memory.m",
+      "kind": "return",
+      "object": "memory.m",
+      "files": [
+        "/mnt/data/haci_project_validator_v3_3/examples/failure_ambiguous_commit/10_memory/m.haci"
+      ],
+      "start": {
+        "file": "/mnt/data/haci_project_validator_v3_3/examples/failure_ambiguous_commit/10_memory/m.haci",
+        "line": 3,
+        "raw": "m alpha approved !",
+        "outbound": null,
+        "inbound": "declare",
+        "object": "m",
+        "resolved_object": "memory.m",
+        "payload": "alpha approved",
+        "owner": "human",
+        "authority": null
+      },
+      "body": [],
+      "returns": [
+        {
+          "file": "/mnt/data/haci_project_validator_v3_3/examples/failure_ambiguous_commit/10_memory/m.haci",
+          "line": 3,
+          "raw": "m alpha approved !",
+          "outbound": null,
+          "inbound": "declare",
+          "object": "m",
+          "resolved_object": "memory.m",
+          "payload": "alpha approved",
+          "owner": "human",
+          "authority": null
+        }
+      ],
+      "complete": true,
+      "unresolved": false,
+      "diagnostics": [
+        "AMBIGUOUS_RETURN_PAIR",
+        "RETURN_WITHOUT_OPEN_REQUEST"
+      ]
+    }
+  ],
+  "errors": [
+    "/mnt/data/haci_project_validator_v3_3/examples/failure_ambiguous_commit/10_memory/m.haci:L1:OPEN_CONVERSATION:m.haci:L1:memory.m",
+    "/mnt/data/haci_project_validator_v3_3/examples/failure_ambiguous_commit/10_memory/m.haci:L1:ASK_WITHOUT_RETURN:m.haci:L1:memory.m",
+    "/mnt/data/haci_project_validator_v3_3/examples/failure_ambiguous_commit/10_memory/m.haci:L2:OPEN_CONVERSATION:m.haci:L2:memory.m",
+    "/mnt/data/haci_project_validator_v3_3/examples/failure_ambiguous_commit/10_memory/m.haci:L2:ASK_WITHOUT_RETURN:m.haci:L2:memory.m",
+    "/mnt/data/haci_project_validator_v3_3/examples/failure_ambiguous_commit/10_memory/m.haci:L3:RETURN_WITHOUT_OPEN_REQUEST:m.haci:L3:memory.m"
+  ],
+  "warnings": [
+    "/mnt/data/haci_project_validator_v3_3/examples/failure_ambiguous_commit/10_memory/m.haci:L3:RETURN_WITHOUT_OPEN_REQUEST:m.haci:L3:memory.m",
+    "/mnt/data/haci_project_validator_v3_3/examples/failure_ambiguous_commit/10_memory/m.haci:L1:OPEN_CONVERSATION:m.haci:L1:memory.m",
+    "/mnt/data/haci_project_validator_v3_3/examples/failure_ambiguous_commit/10_memory/m.haci:L2:OPEN_CONVERSATION:m.haci:L2:memory.m"
+  ],
+  "nodes": [
+    {
+      "file": "/mnt/data/haci_project_validator_v3_3/examples/failure_ambiguous_commit/10_memory/m.haci",
+      "line": 1,
+      "raw": "? m alpha red approval",
+      "outbound": "ask",
+      "inbound": null,
+      "object": "m",
+      "resolved_object": "memory.m",
+      "payload": "alpha red approval",
+      "owner": "human",
+      "authority": null
+    },
+    {
+      "file": "/mnt/data/haci_project_validator_v3_3/examples/failure_ambiguous_commit/10_memory/m.haci",
+      "line": 2,
+      "raw": "? m alpha blue approval",
+      "outbound": "ask",
+      "inbound": null,
+      "object": "m",
+      "resolved_object": "memory.m",
+      "payload": "alpha blue approval",
+      "owner": "human",
+      "authority": null
+    },
+    {
+      "file": "/mnt/data/haci_project_validator_v3_3/examples/failure_ambiguous_commit/10_memory/m.haci",
+      "line": 3,
+      "raw": "m alpha approved !",
+      "outbound": null,
+      "inbound": "declare",
+      "object": "m",
+      "resolved_object": "memory.m",
+      "payload": "alpha approved",
+      "owner": "human",
+      "authority": null
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+# CONTINUITY engine — dependencies
+cryptography>=42.0     # Ed25519 detached signature (chain: WHO)
+# System tools (PATH, not pip):
+#   openssl >= 1.1      # RFC-3161 timestamp query+verify (chain: WHEN)
+# Everything else is Python standard library.

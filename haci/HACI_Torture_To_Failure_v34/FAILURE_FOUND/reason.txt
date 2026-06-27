@@ -1,0 +1,1 @@
+The scope gate demoted the child symbol, but graph edges created earlier still point to that blocked child.

@@ -1,0 +1,116 @@
+{
+  "ok": true,
+  "strict": true,
+  "root": "/mnt/data/haci_project_validator_v3_2/examples/clean_multi_evidence",
+  "symbols": {
+    "memory.m": {
+      "symbol": "memory.m",
+      "alias": "m",
+      "kind": "file",
+      "file": "/mnt/data/haci_project_validator_v3_2/examples/clean_multi_evidence/10_memory/m.haci",
+      "scope": "memory"
+    }
+  },
+  "aliases": {
+    "m": [
+      "memory.m"
+    ],
+    "memory.m": [
+      "memory.m"
+    ]
+  },
+  "edges": [],
+  "cycles": [],
+  "conversations": [
+    {
+      "id": "m.haci:L1:memory.m",
+      "kind": "conversation",
+      "object": "memory.m",
+      "files": [
+        "/mnt/data/haci_project_validator_v3_2/examples/clean_multi_evidence/10_memory/m.haci"
+      ],
+      "start": {
+        "file": "/mnt/data/haci_project_validator_v3_2/examples/clean_multi_evidence/10_memory/m.haci",
+        "line": 1,
+        "raw": "? m alpha problem",
+        "outbound": "ask",
+        "inbound": null,
+        "object": "m",
+        "resolved_object": "memory.m",
+        "payload": "alpha problem",
+        "owner": "human",
+        "authority": null
+      },
+      "body": [],
+      "returns": [
+        {
+          "file": "/mnt/data/haci_project_validator_v3_2/examples/clean_multi_evidence/10_memory/m.haci",
+          "line": 2,
+          "raw": "m alpha evidence one >",
+          "outbound": null,
+          "inbound": "observe",
+          "object": "m",
+          "resolved_object": "memory.m",
+          "payload": "alpha evidence one",
+          "owner": "human",
+          "authority": null
+        },
+        {
+          "file": "/mnt/data/haci_project_validator_v3_2/examples/clean_multi_evidence/10_memory/m.haci",
+          "line": 3,
+          "raw": "m alpha evidence two >",
+          "outbound": null,
+          "inbound": "observe",
+          "object": "m",
+          "resolved_object": "memory.m",
+          "payload": "alpha evidence two",
+          "owner": "human",
+          "authority": null
+        }
+      ],
+      "complete": true,
+      "unresolved": false,
+      "diagnostics": []
+    }
+  ],
+  "errors": [],
+  "warnings": [],
+  "nodes": [
+    {
+      "file": "/mnt/data/haci_project_validator_v3_2/examples/clean_multi_evidence/10_memory/m.haci",
+      "line": 1,
+      "raw": "? m alpha problem",
+      "outbound": "ask",
+      "inbound": null,
+      "object": "m",
+      "resolved_object": "memory.m",
+      "payload": "alpha problem",
+      "owner": "human",
+      "authority": null
+    },
+    {
+      "file": "/mnt/data/haci_project_validator_v3_2/examples/clean_multi_evidence/10_memory/m.haci",
+      "line": 2,
+      "raw": "m alpha evidence one >",
+      "outbound": null,
+      "inbound": "observe",
+      "object": "m",
+      "resolved_object": "memory.m",
+      "payload": "alpha evidence one",
+      "owner": "human",
+      "authority": null
+    },
+    {
+      "file": "/mnt/data/haci_project_validator_v3_2/examples/clean_multi_evidence/10_memory/m.haci",
+      "line": 3,
+      "raw": "m alpha evidence two >",
+      "outbound": null,
+      "inbound": "observe",
+      "object": "m",
+      "resolved_object": "memory.m",
+      "payload": "alpha evidence two",
+      "owner": "human",
+      "authority": null
+    }
+  ]
+}

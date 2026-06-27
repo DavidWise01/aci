@@ -1,0 +1,1 @@
+A child scope committed even though its parent scopes `memory.m` and `memory.m.parser` do not exist. v2.7 blocked pending parents, but missing parents are still not gated.

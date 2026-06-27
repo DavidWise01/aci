@@ -1,0 +1,184 @@
+{
+  "ok": false,
+  "strict": true,
+  "root": "/tmp/tmpxrighkw3",
+  "symbols": {
+    "memory.m": {
+      "symbol": "memory.m",
+      "alias": "m",
+      "kind": "file",
+      "file": "/tmp/tmpxrighkw3/10_memory/m.haci",
+      "scope": "memory"
+    }
+  },
+  "aliases": {
+    "m": [
+      "memory.m"
+    ],
+    "memory.m": [
+      "memory.m"
+    ]
+  },
+  "edges": [],
+  "cycles": [],
+  "conversations": [
+    {
+      "id": "m.haci:L1:memory.m",
+      "kind": "conversation",
+      "object": "memory.m",
+      "files": [
+        "/tmp/tmpxrighkw3/10_memory/m.haci"
+      ],
+      "start": {
+        "file": "/tmp/tmpxrighkw3/10_memory/m.haci",
+        "line": 1,
+        "raw": "? m alpha problem",
+        "outbound": "ask",
+        "inbound": null,
+        "object": "m",
+        "resolved_object": "memory.m",
+        "payload": "alpha problem",
+        "owner": "human",
+        "authority": null
+      },
+      "body": [],
+      "returns": [],
+      "complete": false,
+      "unresolved": true,
+      "diagnostics": [
+        "AMBIGUOUS_RETURN_PAIR",
+        "UNPAIRED_CONVERSATION",
+        "OPEN_CONVERSATION"
+      ]
+    },
+    {
+      "id": "m.haci:L2:memory.m",
+      "kind": "return",
+      "object": "memory.m",
+      "files": [
+        "/tmp/tmpxrighkw3/10_memory/m.haci"
+      ],
+      "start": {
+        "file": "/tmp/tmpxrighkw3/10_memory/m.haci",
+        "line": 2,
+        "raw": "m alpha evidence one >",
+        "outbound": null,
+        "inbound": "observe",
+        "object": "m",
+        "resolved_object": "memory.m",
+        "payload": "alpha evidence one",
+        "owner": "human",
+        "authority": null
+      },
+      "body": [],
+      "returns": [
+        {
+          "file": "/tmp/tmpxrighkw3/10_memory/m.haci",
+          "line": 2,
+          "raw": "m alpha evidence one >",
+          "outbound": null,
+          "inbound": "observe",
+          "object": "m",
+          "resolved_object": "memory.m",
+          "payload": "alpha evidence one",
+          "owner": "human",
+          "authority": null
+        }
+      ],
+      "complete": true,
+      "unresolved": false,
+      "diagnostics": [
+        "RETURN_WITHOUT_OPEN_REQUEST"
+      ]
+    },
+    {
+      "id": "m.haci:L3:memory.m",
+      "kind": "return",
+      "object": "memory.m",
+      "files": [
+        "/tmp/tmpxrighkw3/10_memory/m.haci"
+      ],
+      "start": {
+        "file": "/tmp/tmpxrighkw3/10_memory/m.haci",
+        "line": 3,
+        "raw": "m alpha evidence two >",
+        "outbound": null,
+        "inbound": "observe",
+        "object": "m",
+        "resolved_object": "memory.m",
+        "payload": "alpha evidence two",
+        "owner": "human",
+        "authority": null
+      },
+      "body": [],
+      "returns": [
+        {
+          "file": "/tmp/tmpxrighkw3/10_memory/m.haci",
+          "line": 3,
+          "raw": "m alpha evidence two >",
+          "outbound": null,
+          "inbound": "observe",
+          "object": "m",
+          "resolved_object": "memory.m",
+          "payload": "alpha evidence two",
+          "owner": "human",
+          "authority": null
+        }
+      ],
+      "complete": true,
+      "unresolved": false,
+      "diagnostics": [
+        "RETURN_WITHOUT_OPEN_REQUEST"
+      ]
+    }
+  ],
+  "errors": [
+    "/tmp/tmpxrighkw3/10_memory/m.haci:L1:OPEN_CONVERSATION:m.haci:L1:memory.m",
+    "/tmp/tmpxrighkw3/10_memory/m.haci:L1:ASK_WITHOUT_RETURN:m.haci:L1:memory.m",
+    "/tmp/tmpxrighkw3/10_memory/m.haci:L2:RETURN_WITHOUT_OPEN_REQUEST:m.haci:L2:memory.m",
+    "/tmp/tmpxrighkw3/10_memory/m.haci:L3:RETURN_WITHOUT_OPEN_REQUEST:m.haci:L3:memory.m"
+  ],
+  "warnings": [
+    "/tmp/tmpxrighkw3/10_memory/m.haci:L2:RETURN_WITHOUT_OPEN_REQUEST:m.haci:L2:memory.m",
+    "/tmp/tmpxrighkw3/10_memory/m.haci:L3:RETURN_WITHOUT_OPEN_REQUEST:m.haci:L3:memory.m",
+    "/tmp/tmpxrighkw3/10_memory/m.haci:L1:OPEN_CONVERSATION:m.haci:L1:memory.m"
+  ],
+  "nodes": [
+    {
+      "file": "/tmp/tmpxrighkw3/10_memory/m.haci",
+      "line": 1,
+      "raw": "? m alpha problem",
+      "outbound": "ask",
+      "inbound": null,
+      "object": "m",
+      "resolved_object": "memory.m",
+      "payload": "alpha problem",
+      "owner": "human",
+      "authority": null
+    },
+    {
+      "file": "/tmp/tmpxrighkw3/10_memory/m.haci",
+      "line": 2,
+      "raw": "m alpha evidence one >",
+      "outbound": null,
+      "inbound": "observe",
+      "object": "m",
+      "resolved_object": "memory.m",
+      "payload": "alpha evidence one",
+      "owner": "human",
+      "authority": null
+    },
+    {
+      "file": "/tmp/tmpxrighkw3/10_memory/m.haci",
+      "line": 3,
+      "raw": "m alpha evidence two >",
+      "outbound": null,
+      "inbound": "observe",
+      "object": "m",
+      "resolved_object": "memory.m",
+      "payload": "alpha evidence two",
+      "owner": "human",
+      "authority": null
+    }
+  ]
+}

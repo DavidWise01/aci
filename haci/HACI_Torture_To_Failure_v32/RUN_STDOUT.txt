@@ -1,0 +1,17 @@
+{
+  "failure": "multiple commit returns for one ask rejected",
+  "reason": "Multiple suffix ! accepted/acknowledged/committed returns with positive payload relation could not attach to the same ask.",
+  "expected": "strict pass with both suffix ! returns preserved on the ask",
+  "saved_to": "FAILURE_FOUND",
+  "errors": [
+    "/tmp/tmpsxjt5i7z/10_memory/m.haci:L1:OPEN_CONVERSATION:m.haci:L1:memory.m",
+    "/tmp/tmpsxjt5i7z/10_memory/m.haci:L1:ASK_WITHOUT_RETURN:m.haci:L1:memory.m",
+    "/tmp/tmpsxjt5i7z/10_memory/m.haci:L2:RETURN_WITHOUT_OPEN_REQUEST:m.haci:L2:memory.m",
+    "/tmp/tmpsxjt5i7z/10_memory/m.haci:L3:RETURN_WITHOUT_OPEN_REQUEST:m.haci:L3:memory.m"
+  ],
+  "warnings": [
+    "/tmp/tmpsxjt5i7z/10_memory/m.haci:L2:RETURN_WITHOUT_OPEN_REQUEST:m.haci:L2:memory.m",
+    "/tmp/tmpsxjt5i7z/10_memory/m.haci:L3:RETURN_WITHOUT_OPEN_REQUEST:m.haci:L3:memory.m",
+    "/tmp/tmpsxjt5i7z/10_memory/m.haci:L1:OPEN_CONVERSATION:m.haci:L1:memory.m"
+  ]
+}
