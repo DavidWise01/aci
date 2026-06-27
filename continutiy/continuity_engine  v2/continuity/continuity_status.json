@@ -14,6 +14,45 @@
     "suite_caught_it": true
   },
   "stable": true,
+  "substrate_teeth": {
+    "baseline_ok": true,
+    "guarded": 7,
+    "non_vacuous": true,
+    "residue_detection_guarded": true,
+    "rules": [
+      {
+        "bss_when_disabled": "6/7",
+        "guarded": true,
+        "rule": "FORWARD_REF"
+      },
+      {
+        "bss_when_disabled": "6/7",
+        "guarded": true,
+        "rule": "REF_NOT_FOUND"
+      },
+      {
+        "bss_when_disabled": "6/7",
+        "guarded": true,
+        "rule": "AUTHORITY_EXCEEDED"
+      },
+      {
+        "bss_when_disabled": "6/7",
+        "guarded": true,
+        "rule": "DUPLICATE_ID"
+      },
+      {
+        "bss_when_disabled": "6/7",
+        "guarded": true,
+        "rule": "EMPTY_CONTENT"
+      },
+      {
+        "bss_when_disabled": "6/7",
+        "guarded": true,
+        "rule": "INVALID_ROLE"
+      }
+    ],
+    "total": 7
+  },
   "suite": {
     "count": 14021,
     "fails": [],
