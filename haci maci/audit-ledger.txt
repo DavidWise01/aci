@@ -1,0 +1,45 @@
+====================================================================
+ARM 1 · LIMEN
+====================================================================
+  [PASS] round-trip: 14 hostile non-blank witnesses lossless — glyph-injection, RTL, ZWJ, 10k, newline all recover
+  [PASS] witness rule: '' => ∅ non-event
+  [PASS] whitespace-only witness folds to non-event (deliberate) — emitted '∅'
+  [PASS] invalid gate/direction refused at the enum door
+
+====================================================================
+ARM 2 · HACI
+====================================================================
+   roles: ['HUMAN', 'CODE', 'AI_QUESTION', 'EVIDENCE', 'DOCUMENTATION', 'AI']
+  [FAIL] fence-immunity: marks inside ``` are CODE content — ['HUMAN', 'CODE', 'AI_QUESTION', 'EVIDENCE', 'DOCUMENTATION', 'AI']
+  [PASS] case rule on accented first char (é→AI, É→DOC) — digit/é/É -> ['AI', 'AI', 'DOCUMENTATION']
+  [PASS] O(n) scaling — 2x input => 1.96x time
+
+====================================================================
+ARM 3 · MACI — add() returns error list (soft door)
+====================================================================
+  [PASS] valid PROPOSAL: zero errors, stored
+  [PASS] V001 dup id: rejected w/ V001, not stored — errors=["V001: duplicate message ID 'm-1'"]
+  [PASS] V002 role PROPHET: rejected w/ V002, not stored — errors=["V002: invalid role 'PROPHET'"]
+  [PASS] V003 authority god: rejected w/ V003, not stored — errors=["V003: invalid authority 'god'"]
+  [PASS] V004 status maybe: rejected w/ V004, not stored — errors=["V004: invalid status 'maybe'"]
+  [PASS] V005 DECISION no refs: rejected w/ V005, not stored — errors=['V005: DECISION message must reference at least one prior message']
+  [PASS] V006 DECISION pending: rejected w/ V006, not stored — errors=["V006: DECISION must have status 'approved' or 'rejected', got 'pending'"]
+  [PASS] V007 ghost ref: rejected w/ V007, not stored — errors=["V007: ref 'm-404' does not match any existing message ID"]
+  [PASS] V008 DELEGATE no scope: rejected w/ V008, not stored — errors=['V008: DELEGATE message must specify scope in content']
+  [PASS] no violating message entered the stream — stored=1
+  [PASS] self-ref: caught (V007 — id not yet in stream) — ["V007: ref 'm-8' does not match any existing message ID"]
+
+====================================================================
+ARM 4 · DACI — 30-msg fuzz, 6 scrambles + adversarial
+====================================================================
+  [PASS] convergence: 6 scrambled orders -> 1 hash (30-msg fuzz DAG) — 1 distinct
+  [PASS] equivocation quarantined, not merged — 'EQUIVOCATION:e-1'
+  [PASS] authority refused at HARD door — 'AUTHORITY_EXCEEDED:a-1:COMMAND/advisory'
+
+====================================================================
+FINAL: 20/21 probes passed
+  FAILED: fence-immunity: marks inside ``` are CODE content
+--------------------------------------------------------------------
+  FINDING: LIMEN spec tension: §7 'lossless for ANY witness' vs §10 non-event — a witness of pure whitespace is folded to ∅. Behavior is deliberate (witness_fold) but §7 needs the asterisk.
+  FINDING: HACI unterminated fence: '! swallowed' classified ['CODE'] — spec silent; a truncated doc can swallow a human command into CODE. Attribution-availability vector, worth one spec line.
+  FINDING: MACI acyclicity: add() catches self/forward refs via V007 ordering; detect_cycles() is the standalone check for pre-built streams. Cycle-by-construction is impossible through add() — Kahn check is belt+braces. Door is SOFT (returns errors, caller must heed); DACI's door is HARD (refuses at accept). Design asymmetry worth noting in the family docs.
