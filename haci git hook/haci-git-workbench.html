@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>haci-git · the human skin</title>
+<!-- PAPER ---------------------------------------------------------------
+  haci-git workbench — a bridge language you write in Markdown and post on git.
+  Two ternary axes:  speech act { ! ? > }  ×  authority { + 0 - }.
+  This instrument does not merely illustrate: it PARSES, resolves a git
+  envelope, runs the fence-swallow probe, resolves authority trits, builds
+  and Kahn-checks the commit DAG, and seals the stream — all live, offline.
+  System fonts only (no web-font fetch). Fails loud with diagnostic cards.
+--------------------------------------------------------------------------- -->
+<style>
+  :root{
+    --bg:#1a1206; --ink:#ffedd0; --dim:#c79a5c; --line:#5a3d15;
+    --orange:#ff7a18; --orange2:#ffab4d; --hot:#ff3b1d;
+    --plus:#ff7a18; --zero:#7bd0ff; --minus:#8a6a3a;
+    --ok:#4dff9e; --panel:#241706; --panel2:#2e1d08;
+    --mono:ui-monospace,"Cascadia Code","SF Mono",Menlo,Consolas,monospace;
+    --sans:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.4}
+  header{padding:18px 20px 10px;border-bottom:3px solid var(--orange)}
+  h1{margin:0;font-size:20px;letter-spacing:.5px}
+  h1 b{color:var(--orange)}
+  .sub{color:var(--dim);font-size:12.5px;margin-top:4px;font-family:var(--mono)}
+  .wrap{display:grid;grid-template-columns:minmax(320px,1fr) minmax(360px,1.15fr);gap:14px;padding:16px 20px 40px;max-width:1280px;margin:0 auto}
+  @media(max-width:880px){.wrap{grid-template-columns:1fr}}
+  .panel{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:12px 14px}
+  .panel h2{margin:0 0 8px;font-size:12px;text-transform:uppercase;letter-spacing:1.5px;color:var(--orange2);font-family:var(--mono)}
+  textarea{width:100%;height:190px;background:#120c04;color:var(--ink);border:1px solid var(--line);
+    border-radius:6px;padding:10px;font-family:var(--mono);font-size:12.5px;resize:vertical}
+  .row{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:8px}
+  button,select{font-family:var(--mono);font-size:12px;background:var(--panel2);color:var(--ink);
+    border:1px solid var(--line);border-radius:5px;padding:6px 10px;cursor:pointer}
+  button:hover{border-color:var(--orange);color:var(--orange2)}
+  button.primary{background:var(--orange);color:#1a1206;font-weight:700;border-color:var(--orange)}
+  label{font-family:var(--mono);font-size:11.5px;color:var(--dim)}
+  canvas{width:100%;display:block;background:#120c04;border:1px solid var(--line);border-radius:6px}
+  .lines{font-family:var(--mono);font-size:12px;max-height:200px;overflow:auto;margin-top:6px}
+  .ln{display:flex;gap:8px;padding:2px 4px;border-bottom:1px solid #2a1c08;white-space:pre-wrap}
+  .tag{flex:0 0 auto;min-width:96px;font-weight:700}
+  .tag.command{color:var(--orange)} .tag.question{color:var(--zero)} .tag.evidence{color:var(--ok)}
+  .tag.CODE,.tag.SWALLOWED{color:var(--hot)} .tag.other{color:var(--dim)}
+  .ln .body{color:var(--ink);opacity:.9}
+  .card{border-radius:6px;padding:9px 11px;margin-top:8px;font-family:var(--mono);font-size:12px;border-left:4px solid}
+  .card.ok{background:#0f2417;border-color:var(--ok);color:#bfffdd}
+  .card.bad{background:#2b0d08;border-color:var(--hot);color:#ffc9bd}
+  .card.warn{background:#2a2207;border-color:#ffd24d;color:#ffe9a8}
+  table.lat{border-collapse:collapse;width:100%;font-family:var(--mono);font-size:12px;margin-top:4px}
+  table.lat th,table.lat td{border:1px solid var(--line);padding:6px 8px;text-align:center}
+  table.lat th{color:var(--orange2);font-weight:700}
+  table.lat td b{font-size:15px}
+  .trit-plus{color:var(--plus)} .trit-zero{color:var(--zero)} .trit-minus{color:var(--minus)}
+  .seal{font-family:var(--mono);font-size:12px;color:var(--orange2);margin-top:8px;word-break:break-all}
+  .legend{font-family:var(--mono);font-size:11px;color:var(--dim);margin-top:6px}
+  .k{color:var(--orange)} .diag{white-space:pre-wrap}
+</style>
+</head>
+<body>
+<header>
+  <h1><b>haci-git</b> · the human skin — write Markdown, post on git</h1>
+  <div class="sub">speech act { ! command · ? question · &gt; evidence }  ×  authority { <span class="trit-plus">+ sovereign</span> · <span class="trit-zero">0 delegated</span> · <span class="trit-minus">− advisory</span> }  ·  offline · fail-loud</div>
+</header>
+
+<div class="wrap">
+  <!-- LEFT: input + parse + probes -->
+  <div class="col">
+    <div class="panel">
+      <h2>.haci source — the human writes this</h2>
+      <textarea id="src" spellcheck="false"></textarea>
+      <div class="row">
+        <button class="primary" id="run">parse · resolve · probe</button>
+        <button id="ex1">example: orders</button>
+        <button id="ex2">inject fake ! in fence</button>
+        <button id="ex3">break the fence (swallow)</button>
+      </div>
+      <div class="row">
+        <label>each commit signed by:</label>
+        <select id="sig">
+          <option value="gov">governor key → sovereign +</option>
+          <option value="agent">agent key → delegated 0</option>
+          <option value="none" selected>unsigned → advisory −</option>
+          <option value="mix">mixed (round-robin +/0/−)</option>
+        </select>
+      </div>
+      <div id="diag"></div>
+    </div>
+
+    <div class="panel">
+      <h2>parse — role per line (fence-immunity live)</h2>
+      <div class="lines" id="lines"></div>
+      <div class="legend">marks inside a <span class="k">```</span> fence are CODE content — they cannot forge a command. An unterminated fence turns RED: the swallow vector.</div>
+    </div>
+
+    <div class="panel">
+      <h2>3×3 lattice — who said what, with what weight</h2>
+      <table class="lat" id="lat"></table>
+      <div class="seal" id="seal"></div>
+    </div>
+  </div>
+
+  <!-- RIGHT: the two mandated visuals -->
+  <div class="col">
+    <div class="panel">
+      <h2>2D — commit DAG (git supplies the envelope)</h2>
+      <canvas id="c2d" width="560" height="300"></canvas>
+      <div class="legend">node = commit (id·from). edge = parent ref. depth = topological layer. ring colour = authority trit. The DAG is git's — already acyclic &amp; content-addressed.</div>
+    </div>
+    <div class="panel">
+      <h2>3D — the conversation as stacked crossings (soft-GL, no CDN)</h2>
+      <canvas id="c3d" width="560" height="340"></canvas>
+      <div class="row">
+        <button id="spin">pause spin</button>
+        <label>drag to rotate</label>
+      </div>
+      <div class="legend">z = topological depth · the three authority trits sit at three heights (+ high, 0 mid, − low). A message rises to its parents; unwitnessed authority sinks.</div>
+    </div>
+  </div>
+</div>
+
+<script>
+"use strict";
+/* ============ fail-loud harness ============ */
+function boom(where,e){
+  const d=document.getElementById('diag');
+  d.innerHTML='<div class="card bad diag">⛔ '+where+'\n'+(e&&e.stack?e.stack:e)+'</div>';
+  throw e;
+}
+
+/* ============ faithful HACI classifier (ported + node-verified) ============ */
+function isAlpha(c){return /[a-zA-Z\u00C0-\u024F]/.test(c);}
+function isUpper(c){return c===c.toUpperCase() && c!==c.toLowerCase();}
+function classify(line){
+  const s=line.trim();
+  if(!s) return ['BLANK','',null];
+  if(s[0]==='!'){let b=s.slice(1).trim(); if(b[0]==='?')return['HUMAN_QUESTION',b.slice(1).trim(),'!?']; return['HUMAN',b,'!'];}
+  if(s[0]==='?'){let b=s.slice(1).trim(); if(b[0]==='!')return['HUMAN_QUESTION',b.slice(1).trim(),'?!'];
+    for(const c of b){if(isAlpha(c))return[isUpper(c)?'HUMAN_QUESTION':'AI_QUESTION',b,'?'];}
+    return['AI_QUESTION',b,'?'];}
+  if(s[0]==='>')return['EVIDENCE',s.slice(1).trim(),'>'];
+  if(/^(`{3,}|~{3,})/.test(s))return['CODE_FENCE',s,null];
+  if(/^#{1,6}\s/.test(s))return['HEADING',s.replace(/^#+/,'').trim(),'#'];
+  if(s.startsWith('<!--'))return['META',s,null];
+  for(const c of s){if(isAlpha(c))return[isUpper(c)?'DOCUMENTATION':'AI',s,null];}
+  return['DOCUMENTATION',s,null];
+}
+function parse(text){
+  const blocks=[],errors=[]; let inF=false,buf=[],openL=0;
+  text.split('\n').forEach((line,idx)=>{const i=idx+1;const[role,body,mark]=classify(line);
+    if(role==='CODE_FENCE'){ if(!inF){inF=true;buf=[line];openL=i;} else {buf.push(line);blocks.push({role:'CODE',content:buf.join('\n'),line:openL,mark:'```'});inF=false;buf=[];} return;}
+    if(inF){buf.push(line);return;}
+    if(role!=='BLANK')blocks.push({role,content:body,line:i,mark});});
+  if(inF){errors.push('F001: unterminated code fence opened at line '+openL+' → '+buf.length+
+    ' lines swallowed, including any \'!\' commands. Authority-availability breach — refuse to commit.');
+    blocks.push({role:'SWALLOWED',content:buf.join('\n'),line:openL,mark:null});}
+  return{blocks,errors};
+}
+
+/* ============ speech-act + authority mapping ============ */
+const SPEECH={HUMAN:'command',HUMAN_QUESTION:'question',AI_QUESTION:'question',EVIDENCE:'evidence'};
+const TRIT={1:'sovereign',0:'delegated','-1':'advisory'};
+const TCOL={1:'--plus',0:'--zero','-1':'--minus'};
+function cssv(v){return getComputedStyle(document.documentElement).getPropertyValue(v).trim();}
+
+/* ============ simulate the git envelope from the parsed stream ============
+   Each "committable" block (command/question/evidence) becomes a commit:
+   id = sha over content, from = author guess, refs = previous committable id
+   (a linear history — the common case), authority = chosen signing mode.    */
+async function sha12(s){
+  const b=new TextEncoder().encode(s);
+  const h=await crypto.subtle.digest('SHA-256',b);
+  return [...new Uint8Array(h)].slice(0,6).map(x=>x.toString(16).padStart(2,'0')).join('');
+}
+function tritFor(mode,i){
+  if(mode==='gov')return 1; if(mode==='agent')return 0; if(mode==='none')return -1;
+  return [1,0,-1][i%3];
+}
+async function buildEnvelope(blocks,mode){
+  const committable=blocks.filter(b=>SPEECH[b.role]);
+  const stream=[]; let prev=null;
+  for(let i=0;i<committable.length;i++){
+    const b=committable[i];
+    const id=await sha12(b.role+':'+b.content+':'+i);
+    const t=tritFor(mode,i);
+    stream.push({id,from:(SPEECH[b.role]==='command'?'fiddler':'agent-α'),
+      act:SPEECH[b.role],content:b.content,refs:prev?[prev]:[],trit:t,role:b.role});
+    prev=id;
+  }
+  return stream;
+}
+/* Kahn acyclicity + topological depth */
+function topo(stream){
+  const idset=new Set(stream.map(m=>m.id));
+  const indeg={},adj={},depth={};
+  stream.forEach(m=>{indeg[m.id]=0;adj[m.id]=[];});
+  stream.forEach(m=>m.refs.forEach(r=>{if(idset.has(r)){adj[r].push(m.id);indeg[m.id]++;}}));
+  let q=stream.filter(m=>indeg[m.id]===0).map(m=>m.id),done=0;
+  q.forEach(id=>depth[id]=0);
+  const order=[];
+  while(q.length){const n=q.shift();order.push(n);done++;
+    adj[n].forEach(w=>{depth[w]=Math.max(depth[w]||0,depth[n]+1); if(--indeg[w]===0)q.push(w);});}
+  return{acyclic:done===idset.size,depth};
+}
+async function seal(stream){
+  const s=stream.map(m=>m.id+':'+m.from+':'+m.trit+':'+m.refs.join(',')).join('\n');
+  return 'haci-git:'+await sha12(s);
+}
+
+/* ============ render: lines, cards, lattice ============ */
+function tagClass(role){
+  if(SPEECH[role]==='command')return'command';
+  if(SPEECH[role]==='question')return'question';
+  if(SPEECH[role]==='evidence')return'evidence';
+  if(role==='CODE'||role==='SWALLOWED')return role;
+  return'other';
+}
+function renderLines(blocks){
+  const el=document.getElementById('lines'); el.innerHTML='';
+  blocks.forEach(b=>{
+    const d=document.createElement('div'); d.className='ln';
+    const t=document.createElement('span'); t.className='tag '+tagClass(b.role);
+    t.textContent=(b.mark?b.mark+' ':'')+b.role;
+    const body=document.createElement('span'); body.className='body';
+    body.textContent=(b.role==='CODE'||b.role==='SWALLOWED')?b.content.replace(/\n/g,'⏎'):b.content;
+    d.appendChild(t); d.appendChild(body); el.appendChild(d);
+  });
+}
+function renderCards(errors,blocks){
+  const d=document.getElementById('diag');
+  if(errors.length){
+    d.innerHTML=errors.map(e=>'<div class="card bad diag">⛔ '+e+'</div>').join('');
+    const sw=blocks.find(b=>b.role==='SWALLOWED');
+    if(sw && /(^|\n)\s*!/.test('\n'+sw.content))
+      d.innerHTML+='<div class="card warn">a <b>!</b> command is inside the swallow — its human authority is lost. the pre-commit hook refuses this file.</div>';
+  }else{
+    const cmds=blocks.filter(b=>b.role==='HUMAN').length;
+    const codeFakes=blocks.filter(b=>b.role==='CODE').some(b=>/(^|\n)\s*[!?>]/.test('\n'+b.content));
+    d.innerHTML='<div class="card ok">✓ clean — no open fence. '+cmds+' human command(s) intact.'+
+      (codeFakes?' fence-immunity held: marks inside ``` stayed CODE content.':'')+'</div>';
+  }
+}
+function renderLattice(stream){
+  const acts=['command','question','evidence'];
+  const trits=[1,0,-1];
+  const cell={}; acts.forEach(a=>trits.forEach(t=>cell[a+':'+t]=0));
+  stream.forEach(m=>cell[m.act+':'+m.trit]++);
+  let html='<tr><th>act \\ auth</th>'+trits.map(t=>
+    '<th class="trit-'+(t>0?'plus':t<0?'minus':'zero')+'">'+({1:'+ sovereign',0:'0 delegated','-1':'− advisory'}[t])+'</th>').join('')+'</tr>';
+  acts.forEach(a=>{
+    html+='<tr><th>'+({command:'! command',question:'? question',evidence:'> evidence'}[a])+'</th>';
+    trits.forEach(t=>{const n=cell[a+':'+t];
+      html+='<td>'+(n?'<b class="trit-'+(t>0?'plus':t<0?'minus':'zero')+'">'+n+'</b>':'·')+'</td>';});
+    html+='</tr>';
+  });
+  document.getElementById('lat').innerHTML=html;
+}
+
+/* ============ 2D canvas: the commit DAG ============ */
+function draw2D(stream,depth){
+  const cv=document.getElementById('c2d'),x=cv.getContext('2d');
+  const W=cv.width,H=cv.height; x.clearRect(0,0,W,H);
+  x.fillStyle=cssv('--panel'); x.fillRect(0,0,W,H);
+  if(!stream.length){x.fillStyle=cssv('--dim');x.font='13px monospace';x.fillText('— no committable lines —',18,28);return;}
+  const maxD=Math.max(...stream.map(m=>depth[m.id]||0));
+  const pad=48, colW=(W-2*pad)/Math.max(maxD,1);
+  const byd={}; stream.forEach(m=>{const dd=depth[m.id]||0;(byd[dd]=byd[dd]||[]).push(m);});
+  const pos={};
+  Object.keys(byd).forEach(dd=>{const arr=byd[dd];arr.forEach((m,i)=>{
+    pos[m.id]={x:pad+dd*colW,y:H/2+(i-(arr.length-1)/2)*54};});});
+  // edges
+  x.lineWidth=2;
+  stream.forEach(m=>m.refs.forEach(r=>{if(pos[r]){
+    x.strokeStyle=cssv('--line');x.beginPath();
+    x.moveTo(pos[r].x,pos[r].y);x.lineTo(pos[m.id].x,pos[m.id].y);x.stroke();
+    // arrowhead
+    const a=Math.atan2(pos[m.id].y-pos[r].y,pos[m.id].x-pos[r].x);
+    x.fillStyle=cssv('--dim');x.beginPath();
+    const hx=pos[m.id].x-16*Math.cos(a),hy=pos[m.id].y-16*Math.sin(a);
+    x.moveTo(hx,hy);x.lineTo(hx-6*Math.cos(a-.5),hy-6*Math.sin(a-.5));
+    x.lineTo(hx-6*Math.cos(a+.5),hy-6*Math.sin(a+.5));x.fill();
+  }}));
+  // nodes
+  stream.forEach(m=>{const p=pos[m.id];
+    x.fillStyle=cssv('--panel2');x.strokeStyle=cssv(TCOL[m.trit]);x.lineWidth=3;
+    x.beginPath();x.arc(p.x,p.y,13,0,7);x.fill();x.stroke();
+    x.fillStyle=cssv(TCOL[m.trit]);x.font='bold 11px monospace';x.textAlign='center';
+    x.fillText({command:'!',question:'?',evidence:'>'}[m.act],p.x,p.y+4);
+    x.fillStyle=cssv('--ink');x.font='10px monospace';x.textAlign='center';
+    x.fillText(m.id.slice(0,6),p.x,p.y+26);
+    x.fillStyle=cssv('--dim');x.fillText(m.from,p.x,p.y-20);
+  });
+  x.textAlign='left';
+}
+
+/* ============ SGL — soft-GL engine (project/line/dot/text3), no WebGL ============ */
+const SGL={
+  ax:-0.5,ay:0.6,
+  project(p,W,H){
+    const cx=Math.cos(this.ay),sy=Math.sin(this.ay),cx2=Math.cos(this.ax),sx=Math.sin(this.ax);
+    let x=p.x*cx - p.z*sy, z=p.x*sy + p.z*cx;
+    let y=p.y*cx2 - z*sx; z=p.y*sx + z*cx2;
+    const f=340/(z+520);
+    return{X:W/2+x*f,Y:H/2 - y*f,Z:z,f};
+  },
+  dot(x,ctx,pt,r,col){ctx.fillStyle=col;ctx.beginPath();ctx.arc(pt.X,pt.Y,r*pt.f*1.3,0,7);ctx.fill();},
+  line(ctx,a,b,col,w){ctx.strokeStyle=col;ctx.lineWidth=(w||1);ctx.beginPath();ctx.moveTo(a.X,a.Y);ctx.lineTo(b.X,b.Y);ctx.stroke();},
+  text3(ctx,pt,s,col){ctx.fillStyle=col;ctx.font='bold '+Math.max(9,11*pt.f)+'px monospace';ctx.textAlign='center';ctx.fillText(s,pt.X,pt.Y-12*pt.f);}
+};
+let spin=true, STREAM=[], DEPTH={};
+function draw3D(){
+  const cv=document.getElementById('c3d'),ctx=cv.getContext('2d');
+  const W=cv.width,H=cv.height; ctx.clearRect(0,0,W,H);
+  ctx.fillStyle=cssv('--panel'); ctx.fillRect(0,0,W,H);
+  try{
+    if(!STREAM.length){ctx.fillStyle=cssv('--dim');ctx.font='13px monospace';ctx.fillText('— nothing to project —',18,28);return;}
+    const maxD=Math.max(1,...STREAM.map(m=>DEPTH[m.id]||0));
+    // authority trit -> height plane
+    const yFor={1:120,0:0,'-1':-120};
+    // ground grid (the three authority planes)
+    [120,0,-120].forEach((yy,i)=>{
+      const t=[1,0,-1][i], col=cssv(TCOL[t]);
+      for(let d=0;d<=maxD;d++){
+        const a=SGL.project({x:-180+ (d/maxD)*360, y:yy, z:-160},W,H);
+        const b=SGL.project({x:-180+ (d/maxD)*360, y:yy, z: 160},W,H);
+        ctx.globalAlpha=.12; SGL.line(ctx,a,b,col,1); ctx.globalAlpha=1;
+      }
+      const la=SGL.project({x:-180,y:yy,z:0},W,H);
+      SGL.text3(ctx,la,{1:'+ sovereign',0:'0 delegated','-1':'− advisory'}[t],col);
+    });
+    // place nodes by depth (x), trit (y), spread (z)
+    const byd={}; STREAM.forEach(m=>{const dd=DEPTH[m.id]||0;(byd[dd]=byd[dd]||[]).push(m);});
+    const P={};
+    STREAM.forEach(m=>{const dd=DEPTH[m.id]||0;const arr=byd[dd];const k=arr.indexOf(m);
+      P[m.id]={x:-180+(dd/maxD)*360, y:yFor[m.trit], z:(k-(arr.length-1)/2)*90};});
+    // edges (child rises toward parent)
+    STREAM.forEach(m=>m.refs.forEach(r=>{if(P[r]){
+      SGL.line(ctx,SGL.project(P[m.id],W,H),SGL.project(P[r],W,H),cssv('--line'),2);
+    }}));
+    // nodes, painter-sorted
+    const drawn=STREAM.map(m=>({m,pt:SGL.project(P[m.id],W,H)})).sort((a,b)=>b.pt.Z-a.pt.Z);
+    drawn.forEach(({m,pt})=>{
+      const col=cssv(TCOL[m.trit]);
+      SGL.dot(ctx,ctx,pt,5,col);
+      ctx.fillStyle=cssv('--bg');ctx.font='bold '+Math.max(9,11*pt.f)+'px monospace';ctx.textAlign='center';
+      ctx.fillText({command:'!',question:'?',evidence:'>'}[m.act],pt.X,pt.Y+4*pt.f);
+    });
+    ctx.textAlign='left';
+  }catch(e){
+    ctx.fillStyle=cssv('--hot');ctx.font='12px monospace';
+    ctx.fillText('3D fault: '+e.message,14,H/2);
+  }
+}
+/* spin + drag */
+(function(){
+  const cv=document.getElementById('c3d'); let drag=false,lx=0,ly=0;
+  cv.addEventListener('mousedown',e=>{drag=true;lx=e.offsetX;ly=e.offsetY;});
+  window.addEventListener('mouseup',()=>drag=false);
+  window.addEventListener('mousemove',e=>{if(!drag)return;
+    SGL.ay+=(e.offsetX-lx)*0.01;SGL.ax+=(e.offsetY-ly)*0.01;lx=e.offsetX;ly=e.offsetY;draw3D();});
+  document.getElementById('spin').onclick=function(){spin=!spin;this.textContent=spin?'pause spin':'resume spin';};
+  (function loop(){ if(spin){SGL.ay+=0.006; draw3D();} requestAnimationFrame(loop); })();
+})();
+
+/* ============ orchestration ============ */
+async function run(){
+  try{
+    const text=document.getElementById('src').value;
+    const mode=document.getElementById('sig').value;
+    const {blocks,errors}=parse(text);
+    renderLines(blocks); renderCards(errors,blocks);
+    const stream=await buildEnvelope(blocks,mode);
+    const {acyclic,depth}=topo(stream);
+    STREAM=stream; DEPTH=depth;
+    renderLattice(stream);
+    const sl=await seal(stream);
+    document.getElementById('seal').innerHTML=
+      '⟦ '+sl+' ⟧ · '+stream.length+' commits · DAG '+(acyclic?'<span style="color:'+cssv('--ok')+'">acyclic ✓</span>':'<span style="color:'+cssv('--hot')+'">CYCLE ✗</span>');
+    draw2D(stream,depth); draw3D();
+  }catch(e){boom('run()',e);}
+}
+
+/* ============ examples ============ */
+const EX={
+  orders:`<!-- haci v0.1 · human skin over git -->
+# order set alpha · forward-observer dispatch
+! DISPATCH forward-observer to grid 7
+the observer crosses the stile: observe -> act
+? should base check-in be per-tick or on-event
+> tick cadence measured at 3-2-1-0 descending, stable
+! CONFIRM grid 7 acquired, hold position`,
+  fake:`# an agent pasted output into a fence
+! REAL human command
+\`\`\`
+! this is agent output, NOT a command
+? nor is this a question
+> nor this evidence
+\`\`\`
+> real evidence line after the fence closes`,
+  swallow:`# a truncated paste / bad merge ate the closing fence
+! REAL command before the fence
+\`\`\`
+! CONFIRM strike package  <- swallowed, authority lost
+this whole tail is inert CODE now`
+};
+document.getElementById('ex1').onclick=()=>{document.getElementById('src').value=EX.orders;run();};
+document.getElementById('ex2').onclick=()=>{document.getElementById('src').value=EX.fake;run();};
+document.getElementById('ex3').onclick=()=>{document.getElementById('src').value=EX.swallow;run();};
+document.getElementById('run').onclick=run;
+document.getElementById('sig').onchange=run;
+
+/* boot: mirror-test — verify the engine before trusting it */
+(function boot(){
+  try{
+    const t=parse("! a\n```\n! b\n```\n> c");
+    if(t.blocks.filter(x=>x.role==='HUMAN').length!==1) throw new Error('fence-immunity self-check failed at boot');
+    const s=parse("```\n! x");
+    if(!s.errors.some(e=>e.startsWith('F001'))) throw new Error('swallow guard self-check failed at boot');
+    document.getElementById('src').value=EX.orders;
+    run();
+  }catch(e){boom('boot self-check',e);}
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+<!-- haci v0.1 · human skin over git transport -->
+# order set alpha · forward-observer dispatch
+
+! DISPATCH forward-observer to grid 7
+the observer crosses the stile: observe -> act, one tick per crossing
+? should base check-in be per-tick or on-event
+> tick cadence measured at 3-2-1-0 descending, stable across 200 samples
+! CONFIRM grid 7 acquired, hold position
+
+# the envelope is git, not this file
+This file carries only the two things git cannot: the speech act and the authority.
+git supplies id (hash), from (author), ts (time), refs (parents). sign to set authority.
