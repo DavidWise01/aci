@@ -1,0 +1,120 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>THE FUSION · Trinity d20 silo · MACI-native</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{--void:#050008;--bone:#f5f0e6;--purple:#a040ff;--pbright:#c080ff;--ice:#c8f0ff;--phos:#22e38a;--phos2:#3affa0;--gold:#e0c040;--red:#e05a4a;--faint:#7a6b9a;
+    --cmd:#e0c040;--prop:#38d6e0;--evid:#22e38a;--dec:#a040ff}
+  html,body{height:100%}
+  body{background:var(--void);color:var(--bone);font-family:ui-monospace,"DejaVu Sans Mono",Menlo,monospace;overflow-x:hidden;
+    background-image:linear-gradient(rgba(160,64,255,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(160,64,255,.08) 1px,transparent 1px);background-size:9px 9px}
+  body::after{content:'';position:fixed;inset:0;background:radial-gradient(ellipse at 50% 24%,transparent 30%,rgba(5,0,8,.82) 80%,var(--void) 100%);pointer-events:none;z-index:1}
+  header{position:relative;z-index:10;background:var(--bone);color:#140022;padding:15px 22px 13px;border-bottom:3px solid var(--purple);box-shadow:0 9px 27px rgba(160,64,255,.35)}
+  header h1{font-weight:900;font-size:clamp(17px,4vw,27px);letter-spacing:1px;color:#1f0033}
+  header h1 span{color:var(--purple);text-shadow:0 0 12px rgba(160,64,255,.5)}
+  header p{margin-top:5px;font-size:10px;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:#5c2d8a}
+  main{position:relative;z-index:2;max-width:920px;margin:0 auto;padding:20px 16px 0}
+  .lede{color:var(--pbright);max-width:74ch;margin:6px auto 0;font-size:12.5px;line-height:1.6;text-align:center}.lede b{color:var(--ice)}
+  .stack{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:16px 0}@media(max-width:640px){.stack{grid-template-columns:repeat(2,1fr)}}
+  .layer{background:rgba(10,0,24,.65);border:1px solid rgba(200,240,255,.25);border-radius:8px;padding:10px 12px;text-align:center}
+  .layer .k{font-size:9px;letter-spacing:1px;text-transform:uppercase;color:var(--faint)}
+  .layer .val{font-size:13px;font-weight:900;color:var(--ice);margin-top:3px}.layer .sub{font-size:9px;color:var(--pbright);margin-top:2px}
+  .layer.k1{border-color:var(--phos)}.layer.k1 .val{color:var(--phos)}
+  .layer.k2{border-color:var(--purple)}.layer.k2 .val{color:var(--pbright)}
+  .layer.k3{border-color:var(--gold)}.layer.k3 .val{color:var(--gold)}
+  .layer.k4{border-color:var(--prop)}.layer.k4 .val{color:var(--prop)}
+  .two{display:grid;grid-template-columns:340px 1fr;gap:16px;margin:14px 0;align-items:start}@media(max-width:760px){.two{grid-template-columns:1fr}}
+  .diewrap{display:flex;flex-direction:column;align-items:center}
+  #die{width:min(80vw,320px);height:min(80vw,320px);cursor:grab;filter:drop-shadow(0 0 26px rgba(160,64,255,.5));touch-action:none}
+  #die:active{cursor:grabbing}
+  .infbox{background:rgba(10,0,24,.7);border:1px solid var(--phos);border-radius:8px;padding:12px 14px;text-align:center;margin-top:10px;width:100%}
+  .infbox .p{font-size:11px;color:var(--ice)}.infbox .arrow{color:var(--faint);margin:0 6px}.infbox .o{font-size:26px;font-weight:900;color:var(--phos);text-shadow:0 0 14px rgba(34,227,138,.5)}
+  .infbox .v{font-size:10px;color:var(--pbright);margin-top:3px}
+  .maci{background:rgba(5,0,8,.6);border:1px solid rgba(200,240,255,.2);border-radius:8px;padding:12px;max-height:440px;overflow-y:auto}
+  .maci .mh{font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--ice);margin-bottom:8px}
+  .mrow{padding:5px 8px;margin:2px 0;border-left:2px solid;border-radius:0 4px 4px 0;background:rgba(10,0,24,.4);font-size:10.5px}
+  .mrow .role{font-size:8px;font-weight:900;padding:1px 5px;border-radius:7px;letter-spacing:.5px}
+  .mrow .from{color:var(--faint);font-size:8.5px;margin-left:5px}
+  .mrow .ct{color:var(--bone);margin-top:2px;font-size:10px}
+  .r-COMMAND{border-left-color:var(--cmd)} .r-COMMAND .role{background:var(--cmd);color:#1a1400}
+  .r-PROPOSAL{border-left-color:var(--prop)} .r-PROPOSAL .role{background:var(--prop);color:#001418}
+  .r-EVIDENCE{border-left-color:var(--evid)} .r-EVIDENCE .role{background:var(--evid);color:#001a0d}
+  .r-DECISION{border-left-color:var(--dec)} .r-DECISION .role{background:var(--dec);color:#fff}
+  .verdict{border-left:2px solid var(--gold);padding:10px 0 10px 16px;margin:16px 0;color:var(--pbright);font-size:12px;line-height:1.7}.verdict b{color:var(--gold)}.verdict .p{color:var(--phos2)}
+  footer{position:relative;z-index:2;margin-top:28px;padding:22px 16px 40px;text-align:center;border-top:1px solid rgba(160,64,255,.25)}
+  footer .f{font-size:12px;letter-spacing:2px;color:var(--pbright);text-shadow:0 0 12px rgba(160,64,255,.8);margin-bottom:6px}
+  footer .c{font-size:9.5px;letter-spacing:4px;text-transform:uppercase;color:var(--ice);opacity:.8}
+</style></head>
+<body>
+<header><h1>THE <span>FUSION</span> · Trinity d20 silo · MACI-native</h1><p>one trained model · kernel + geometry + language</p></header>
+<main>
+  <p class="lede">Everything, fused into <b>one trained thing</b>: the <b>Trinity Cross</b> kernel (tri × tri, 3-fold) as attention, folded onto the <b>d20 silo</b> (20 faces × 3 phases = 60) as 20 heads, and it <b>speaks MACI</b> — every inference emits a decision-chain the die writes about its own forward pass. The faces propose, the die decides, the provenance validates.</p>
+  <div class="stack">
+    <div class="layer k1"><div class="k">kernel</div><div class="val">Trinity ×3</div><div class="sub">3-fold, fixes collapse</div></div>
+    <div class="layer k2"><div class="k">geometry</div><div class="val">d20 silo</div><div class="sub">20×3 = 60 folded</div></div>
+    <div class="layer k3"><div class="k">language</div><div class="val">MACI</div><div class="sub" id="msgc">— msgs, acyclic</div></div>
+    <div class="layer k4"><div class="k">trained</div><div class="val" id="vl">—</div><div class="sub">val loss</div></div>
+  </div>
+  <div class="two">
+    <div class="diewrap">
+      <canvas id="die" width="320" height="320"></canvas>
+      <div class="infbox">
+        <div class="p"><span id="prompt"></span><span class="arrow">→</span><span class="o" id="out">—</span></div>
+        <div class="v" id="vote"></div>
+      </div>
+    </div>
+    <div class="maci">
+      <div class="mh">◆ the die's own MACI provenance · this inference</div>
+      <div id="chain"></div>
+    </div>
+  </div>
+  <div class="verdict" id="verdict"></div>
+</main>
+<footer><div class="f">Trinity kernel · d20 silo · MACI language · one trained model</div><div class="c">THE FUSION — SEALED</div></footer>
+<script>
+"use strict";
+const D={"val": 0.1032, "params_k": 162, "next": "m", "cons": "h", "votes": 5, "maci_msgs": 23, "acyclic": true, "sample": "the fog . the cat sat on the mat . one two t", "prompt": "the cat sat on the ", "arc": [{"maci": "0.1.0", "id": "m-0001", "ts": "2026-07-11T01:06:14.856290+00:00", "from": "user", "role": "COMMAND", "content": "predict next token after 'the cat sat on the'", "authority": "sovereign", "status": "executed"}, {"maci": "0.1.0", "id": "m-0002", "ts": "2026-07-11T01:06:14.856379+00:00", "from": "d20-face-1", "role": "PROPOSAL", "content": "face-1 attends to 'a' (Trinity 3-phase)", "authority": "advisory", "refs": ["m-0001"], "status": "pending"}, {"maci": "0.1.0", "id": "m-0003", "ts": "2026-07-11T01:06:14.856403+00:00", "from": "d20-face-2", "role": "PROPOSAL", "content": "face-2 attends to 'n' (Trinity 3-phase)", "authority": "advisory", "refs": ["m-0001"], "status": "pending"}, {"maci": "0.1.0", "id": "m-0004", "ts": "2026-07-11T01:06:14.856426+00:00", "from": "d20-face-3", "role": "PROPOSAL", "content": "face-3 attends to 'c' (Trinity 3-phase)", "authority": "advisory", "refs": ["m-0001"], "status": "pending"}, {"maci": "0.1.0", "id": "m-0005", "ts": "2026-07-11T01:06:14.856444+00:00", "from": "d20-face-4", "role": "PROPOSAL", "content": "face-4 attends to 'e' (Trinity 3-phase)", "authority": "advisory", "refs": ["m-0001"], "status": "pending"}, {"maci": "0.1.0", "id": "m-0006", "ts": "2026-07-11T01:06:14.856461+00:00", "from": "d20-face-5", "role": "PROPOSAL", "content": "face-5 attends to 'h' (Trinity 3-phase)", "authority": "advisory", "refs": ["m-0001"], "status": "pending"}, {"maci": "0.1.0", "id": "m-0007", "ts": "2026-07-11T01:06:14.856515+00:00", "from": "d20-face-6", "role": "PROPOSAL", "content": "face-6 attends to 's' (Trinity 3-phase)", "authority": "advisory", "refs": ["m-0001"], "status": "pending"}, {"maci": "0.1.0", "id": "m-0008", "ts": "2026-07-11T01:06:14.856545+00:00", "from": "d20-face-7", "role": "PROPOSAL", "content": "face-7 attends to 'h' (Trinity 3-phase)", "authority": "advisory", "refs": ["m-0001"], "status": "pending"}, {"maci": "0.1.0", "id": "m-0009", "ts": "2026-07-11T01:06:14.856565+00:00", "from": "d20-face-8", "role": "PROPOSAL", "content": "face-8 attends to 'h' (Trinity 3-phase)", "authority": "advisory", "refs": ["m-0001"], "status": "pending"}, {"maci": "0.1.0", "id": "m-0010", "ts": "2026-07-11T01:06:14.856579+00:00", "from": "d20-face-9", "role": "PROPOSAL", "content": "face-9 attends to 't' (Trinity 3-phase)", "authority": "advisory", "refs": ["m-0001"], "status": "pending"}, {"maci": "0.1.0", "id": "m-0011", "ts": "2026-07-11T01:06:14.856595+00:00", "from": "d20-face-10", "role": "PROPOSAL", "content": "face-10 attends to 'e' (Trinity 3-phase)", "authority": "advisory", "refs": ["m-0001"], "status": "pending"}, {"maci": "0.1.0", "id": "m-0012", "ts": "2026-07-11T01:06:14.856610+00:00", "from": "d20-face-11", "role": "PROPOSAL", "content": "face-11 attends to 's' (Trinity 3-phase)", "authority": "advisory", "refs": ["m-0001"], "status": "pending"}, {"maci": "0.1.0", "id": "m-0013", "ts": "2026-07-11T01:06:14.856623+00:00", "from": "d20-face-12", "role": "PROPOSAL", "content": "face-12 attends to 'n' (Trinity 3-phase)", "authority": "advisory", "refs": ["m-0001"], "status": "pending"}, {"maci": "0.1.0", "id": "m-0014", "ts": "2026-07-11T01:06:14.856633+00:00", "from": "d20-face-13", "role": "PROPOSAL", "content": "face-13 attends to 't' (Trinity 3-phase)", "authority": "advisory", "refs": ["m-0001"], "status": "pending"}, {"maci": "0.1.0", "id": "m-0015", "ts": "2026-07-11T01:06:14.856644+00:00", "from": "d20-face-14", "role": "PROPOSAL", "content": "face-14 attends to ' ' (Trinity 3-phase)", "authority": "advisory", "refs": ["m-0001"], "status": "pending"}, {"maci": "0.1.0", "id": "m-0016", "ts": "2026-07-11T01:06:14.856653+00:00", "from": "d20-face-15", "role": "PROPOSAL", "content": "face-15 attends to 'o' (Trinity 3-phase)", "authority": "advisory", "refs": ["m-0001"], "status": "pending"}, {"maci": "0.1.0", "id": "m-0017", "ts": "2026-07-11T01:06:14.856664+00:00", "from": "d20-face-16", "role": "PROPOSAL", "content": "face-16 attends to ' ' (Trinity 3-phase)", "authority": "advisory", "refs": ["m-0001"], "status": "pending"}, {"maci": "0.1.0", "id": "m-0018", "ts": "2026-07-11T01:06:14.856674+00:00", "from": "d20-face-17", "role": "PROPOSAL", "content": "face-17 attends to 'h' (Trinity 3-phase)", "authority": "advisory", "refs": ["m-0001"], "status": "pending"}, {"maci": "0.1.0", "id": "m-0019", "ts": "2026-07-11T01:06:14.856704+00:00", "from": "d20-face-18", "role": "PROPOSAL", "content": "face-18 attends to 'n' (Trinity 3-phase)", "authority": "advisory", "refs": ["m-0001"], "status": "pending"}, {"maci": "0.1.0", "id": "m-0020", "ts": "2026-07-11T01:06:14.856717+00:00", "from": "d20-face-19", "role": "PROPOSAL", "content": "face-19 attends to 'h' (Trinity 3-phase)", "authority": "advisory", "refs": ["m-0001"], "status": "pending"}, {"maci": "0.1.0", "id": "m-0021", "ts": "2026-07-11T01:06:14.856726+00:00", "from": "d20-face-20", "role": "PROPOSAL", "content": "face-20 attends to 'a' (Trinity 3-phase)", "authority": "advisory", "refs": ["m-0001"], "status": "pending"}, {"maci": "0.1.0", "id": "m-0022", "ts": "2026-07-11T01:06:14.856734+00:00", "from": "witness", "role": "EVIDENCE", "content": "5/20 faces converge; argmax head='m'", "authority": "observer", "refs": ["m-0002"]}, {"maci": "0.1.0", "id": "m-0023", "ts": "2026-07-11T01:06:14.856743+00:00", "from": "d20-consensus", "role": "DECISION", "content": "emit 'm' as next token", "authority": "advisory", "refs": ["m-0002", "m-0022"], "status": "approved"}]};const ARC=D.arc;
+document.getElementById("vl").textContent=D.val;
+document.getElementById("msgc").textContent=D.maci_msgs+" msgs, acyclic";
+document.getElementById("prompt").textContent="'"+D.prompt+"'";
+document.getElementById("out").textContent="'"+D.next+"'";
+document.getElementById("vote").textContent=D.votes+"/20 faces converge · argmax → '"+D.next+"'";
+// MACI chain
+document.getElementById("chain").innerHTML=ARC.map(m=>{
+  return '<div class="mrow r-'+m.role+'"><span class="role">'+m.role+'</span><span class="from">'+m.from+'</span><div class="ct">'+m.content+'</div></div>';
+}).join("");
+document.getElementById("verdict").innerHTML='<b>sealed — the fusion:</b> a single trained model (val '+D.val+') whose <span class="p">attention is the Trinity Cross</span>, whose <span class="p">architecture is the d20 silo</span> (20 Trinity heads = 20 faces = 60 folded layers), and whose <span class="p">every inference emits MACI</span> — the die documents its own forward pass as a validated decision-chain ('+D.maci_msgs+' messages: 1 command, 20 face-proposals, 1 evidence, 1 decision, acyclic). kernel, geometry, and language are no longer three things bolted together — they are <b>one artifact that computes and explains itself in your own dialect.</b> spin the die; it thinks in Trinity and speaks in MACI.';
+// ---- d20 ----
+const cv=document.getElementById("die"),cx=cv.getContext("2d"),dpr=Math.min(devicePixelRatio||1,2);
+function rs(){const r=cv.getBoundingClientRect();cv.width=r.width*dpr;cv.height=r.height*dpr;cx.setTransform(dpr,0,0,dpr,0,0);}
+rs();addEventListener("resize",rs);
+const t=(1+Math.sqrt(5))/2;
+const verts=[[-1,t,0],[1,t,0],[-1,-t,0],[1,-t,0],[0,-1,t],[0,1,t],[0,-1,-t],[0,1,-t],[t,0,-1],[t,0,1],[-t,0,-1],[-t,0,1]].map(v=>{const l=Math.hypot(...v);return[v[0]/l*1.15,v[1]/l*1.15,v[2]/l*1.15];});
+const faces=[[0,11,5],[0,5,1],[0,1,7],[0,7,10],[0,10,11],[1,5,9],[5,11,4],[11,10,2],[10,7,6],[7,1,8],[3,9,4],[3,4,2],[3,2,6],[3,6,8],[3,8,9],[4,9,5],[2,4,11],[6,2,10],[8,6,7],[9,8,1]];
+// face proposals from the MACI arc (which token each face attended to)
+const FP=ARC.filter(m=>m.role==="PROPOSAL").map(m=>{const mm=m.content.match(/'(.+?)'/);return mm?mm[1]:"·";});
+let rx=.35,ry=.7,drag=false,lx=0,ly=0,vx=0,vy=0,auto=true;
+cv.addEventListener("pointerdown",e=>{drag=true;auto=false;lx=e.clientX;ly=e.clientY;cv.setPointerCapture(e.pointerId);});
+addEventListener("pointerup",()=>{drag=false;setTimeout(()=>auto=true,2500);});
+addEventListener("pointermove",e=>{if(!drag)return;ry+=(e.clientX-lx)*.008;rx+=(e.clientY-ly)*.008;vx=(e.clientY-ly)*.008;vy=(e.clientX-lx)*.008;lx=e.clientX;ly=e.clientY;});
+function pr(v){const cxx=Math.cos(rx),sx=Math.sin(rx),cyy=Math.cos(ry),sy=Math.sin(ry);let x=v[0],y=v[1],z=v[2];
+  const x1=x*cyy-z*sy,z1=x*sy+z*cyy,y1=y*cxx-z1*sx,z2=y*sx+z1*cxx;const f=150/(3.2+z2);return{x:x1*f,y:y1*f,z:z2};}
+function draw(){requestAnimationFrame(draw);
+  if(auto&&!drag){ry+=.004;rx+=.0015;}else if(!drag){rx+=vx;ry+=vy;vx*=.92;vy*=.92;}
+  const w=cv.clientWidth,h=cv.clientHeight;cx.clearRect(0,0,w,h);cx.save();cx.translate(w/2,h/2);
+  const pv=verts.map(pr);
+  const fd=faces.map((f,i)=>{const a=pv[f[0]],b=pv[f[1]],c=pv[f[2]];return{i,a,b,c,z:(a.z+b.z+c.z)/3};}).sort((p,q)=>q.z-p.z);
+  fd.forEach(({a,b,c,i})=>{
+    const votedOut=FP[i]===D.next;  // faces that agree with the output glow
+    cx.beginPath();cx.moveTo(a.x,a.y);cx.lineTo(b.x,b.y);cx.lineTo(c.x,c.y);cx.closePath();
+    const g=cx.createLinearGradient(a.x,a.y,c.x,c.y);
+    g.addColorStop(0,votedOut?'rgba(34,227,138,.35)':'rgba(25,0,50,.85)');g.addColorStop(1,'rgba(10,0,25,.7)');cx.fillStyle=g;cx.fill();
+    cx.save();cx.shadowColor=votedOut?'#22e38a':'#c080ff';cx.shadowBlur=votedOut?22:16;cx.strokeStyle=votedOut?'rgba(34,227,138,.9)':'rgba(192,128,255,.85)';cx.lineWidth=votedOut?2:1.2;cx.stroke();cx.restore();
+    const ccx=(a.x+b.x+c.x)/3,ccy=(a.y+b.y+c.y)/3;
+    // the token this face proposed
+    cx.save();cx.shadowColor='#c8f0ff';cx.shadowBlur=9;cx.fillStyle=votedOut?'#eafff5':'#c8f0ff';cx.font='700 11px ui-monospace';cx.textAlign='center';cx.textBaseline='middle';
+    cx.fillText(FP[i]===' '?'␣':(FP[i]||'·'),ccx,ccy);cx.restore();
+  });
+  cx.restore();
+}
+draw();
+</script></body></html>

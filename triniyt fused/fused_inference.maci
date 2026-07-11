@@ -1,0 +1,298 @@
+[
+  {
+    "maci": "0.1.0",
+    "id": "m-0001",
+    "ts": "2026-07-11T01:06:14.856290+00:00",
+    "from": "user",
+    "role": "COMMAND",
+    "content": "predict next token after 'the cat sat on the'",
+    "authority": "sovereign",
+    "status": "executed"
+  },
+  {
+    "maci": "0.1.0",
+    "id": "m-0002",
+    "ts": "2026-07-11T01:06:14.856379+00:00",
+    "from": "d20-face-1",
+    "role": "PROPOSAL",
+    "content": "face-1 attends to 'a' (Trinity 3-phase)",
+    "authority": "advisory",
+    "refs": [
+      "m-0001"
+    ],
+    "status": "pending"
+  },
+  {
+    "maci": "0.1.0",
+    "id": "m-0003",
+    "ts": "2026-07-11T01:06:14.856403+00:00",
+    "from": "d20-face-2",
+    "role": "PROPOSAL",
+    "content": "face-2 attends to 'n' (Trinity 3-phase)",
+    "authority": "advisory",
+    "refs": [
+      "m-0001"
+    ],
+    "status": "pending"
+  },
+  {
+    "maci": "0.1.0",
+    "id": "m-0004",
+    "ts": "2026-07-11T01:06:14.856426+00:00",
+    "from": "d20-face-3",
+    "role": "PROPOSAL",
+    "content": "face-3 attends to 'c' (Trinity 3-phase)",
+    "authority": "advisory",
+    "refs": [
+      "m-0001"
+    ],
+    "status": "pending"
+  },
+  {
+    "maci": "0.1.0",
+    "id": "m-0005",
+    "ts": "2026-07-11T01:06:14.856444+00:00",
+    "from": "d20-face-4",
+    "role": "PROPOSAL",
+    "content": "face-4 attends to 'e' (Trinity 3-phase)",
+    "authority": "advisory",
+    "refs": [
+      "m-0001"
+    ],
+    "status": "pending"
+  },
+  {
+    "maci": "0.1.0",
+    "id": "m-0006",
+    "ts": "2026-07-11T01:06:14.856461+00:00",
+    "from": "d20-face-5",
+    "role": "PROPOSAL",
+    "content": "face-5 attends to 'h' (Trinity 3-phase)",
+    "authority": "advisory",
+    "refs": [
+      "m-0001"
+    ],
+    "status": "pending"
+  },
+  {
+    "maci": "0.1.0",
+    "id": "m-0007",
+    "ts": "2026-07-11T01:06:14.856515+00:00",
+    "from": "d20-face-6",
+    "role": "PROPOSAL",
+    "content": "face-6 attends to 's' (Trinity 3-phase)",
+    "authority": "advisory",
+    "refs": [
+      "m-0001"
+    ],
+    "status": "pending"
+  },
+  {
+    "maci": "0.1.0",
+    "id": "m-0008",
+    "ts": "2026-07-11T01:06:14.856545+00:00",
+    "from": "d20-face-7",
+    "role": "PROPOSAL",
+    "content": "face-7 attends to 'h' (Trinity 3-phase)",
+    "authority": "advisory",
+    "refs": [
+      "m-0001"
+    ],
+    "status": "pending"
+  },
+  {
+    "maci": "0.1.0",
+    "id": "m-0009",
+    "ts": "2026-07-11T01:06:14.856565+00:00",
+    "from": "d20-face-8",
+    "role": "PROPOSAL",
+    "content": "face-8 attends to 'h' (Trinity 3-phase)",
+    "authority": "advisory",
+    "refs": [
+      "m-0001"
+    ],
+    "status": "pending"
+  },
+  {
+    "maci": "0.1.0",
+    "id": "m-0010",
+    "ts": "2026-07-11T01:06:14.856579+00:00",
+    "from": "d20-face-9",
+    "role": "PROPOSAL",
+    "content": "face-9 attends to 't' (Trinity 3-phase)",
+    "authority": "advisory",
+    "refs": [
+      "m-0001"
+    ],
+    "status": "pending"
+  },
+  {
+    "maci": "0.1.0",
+    "id": "m-0011",
+    "ts": "2026-07-11T01:06:14.856595+00:00",
+    "from": "d20-face-10",
+    "role": "PROPOSAL",
+    "content": "face-10 attends to 'e' (Trinity 3-phase)",
+    "authority": "advisory",
+    "refs": [
+      "m-0001"
+    ],
+    "status": "pending"
+  },
+  {
+    "maci": "0.1.0",
+    "id": "m-0012",
+    "ts": "2026-07-11T01:06:14.856610+00:00",
+    "from": "d20-face-11",
+    "role": "PROPOSAL",
+    "content": "face-11 attends to 's' (Trinity 3-phase)",
+    "authority": "advisory",
+    "refs": [
+      "m-0001"
+    ],
+    "status": "pending"
+  },
+  {
+    "maci": "0.1.0",
+    "id": "m-0013",
+    "ts": "2026-07-11T01:06:14.856623+00:00",
+    "from": "d20-face-12",
+    "role": "PROPOSAL",
+    "content": "face-12 attends to 'n' (Trinity 3-phase)",
+    "authority": "advisory",
+    "refs": [
+      "m-0001"
+    ],
+    "status": "pending"
+  },
+  {
+    "maci": "0.1.0",
+    "id": "m-0014",
+    "ts": "2026-07-11T01:06:14.856633+00:00",
+    "from": "d20-face-13",
+    "role": "PROPOSAL",
+    "content": "face-13 attends to 't' (Trinity 3-phase)",
+    "authority": "advisory",
+    "refs": [
+      "m-0001"
+    ],
+    "status": "pending"
+  },
+  {
+    "maci": "0.1.0",
+    "id": "m-0015",
+    "ts": "2026-07-11T01:06:14.856644+00:00",
+    "from": "d20-face-14",
+    "role": "PROPOSAL",
+    "content": "face-14 attends to ' ' (Trinity 3-phase)",
+    "authority": "advisory",
+    "refs": [
+      "m-0001"
+    ],
+    "status": "pending"
+  },
+  {
+    "maci": "0.1.0",
+    "id": "m-0016",
+    "ts": "2026-07-11T01:06:14.856653+00:00",
+    "from": "d20-face-15",
+    "role": "PROPOSAL",
+    "content": "face-15 attends to 'o' (Trinity 3-phase)",
+    "authority": "advisory",
+    "refs": [
+      "m-0001"
+    ],
+    "status": "pending"
+  },
+  {
+    "maci": "0.1.0",
+    "id": "m-0017",
+    "ts": "2026-07-11T01:06:14.856664+00:00",
+    "from": "d20-face-16",
+    "role": "PROPOSAL",
+    "content": "face-16 attends to ' ' (Trinity 3-phase)",
+    "authority": "advisory",
+    "refs": [
+      "m-0001"
+    ],
+    "status": "pending"
+  },
+  {
+    "maci": "0.1.0",
+    "id": "m-0018",
+    "ts": "2026-07-11T01:06:14.856674+00:00",
+    "from": "d20-face-17",
+    "role": "PROPOSAL",
+    "content": "face-17 attends to 'h' (Trinity 3-phase)",
+    "authority": "advisory",
+    "refs": [
+      "m-0001"
+    ],
+    "status": "pending"
+  },
+  {
+    "maci": "0.1.0",
+    "id": "m-0019",
+    "ts": "2026-07-11T01:06:14.856704+00:00",
+    "from": "d20-face-18",
+    "role": "PROPOSAL",
+    "content": "face-18 attends to 'n' (Trinity 3-phase)",
+    "authority": "advisory",
+    "refs": [
+      "m-0001"
+    ],
+    "status": "pending"
+  },
+  {
+    "maci": "0.1.0",
+    "id": "m-0020",
+    "ts": "2026-07-11T01:06:14.856717+00:00",
+    "from": "d20-face-19",
+    "role": "PROPOSAL",
+    "content": "face-19 attends to 'h' (Trinity 3-phase)",
+    "authority": "advisory",
+    "refs": [
+      "m-0001"
+    ],
+    "status": "pending"
+  },
+  {
+    "maci": "0.1.0",
+    "id": "m-0021",
+    "ts": "2026-07-11T01:06:14.856726+00:00",
+    "from": "d20-face-20",
+    "role": "PROPOSAL",
+    "content": "face-20 attends to 'a' (Trinity 3-phase)",
+    "authority": "advisory",
+    "refs": [
+      "m-0001"
+    ],
+    "status": "pending"
+  },
+  {
+    "maci": "0.1.0",
+    "id": "m-0022",
+    "ts": "2026-07-11T01:06:14.856734+00:00",
+    "from": "witness",
+    "role": "EVIDENCE",
+    "content": "5/20 faces converge; argmax head='m'",
+    "authority": "observer",
+    "refs": [
+      "m-0002"
+    ]
+  },
+  {
+    "maci": "0.1.0",
+    "id": "m-0023",
+    "ts": "2026-07-11T01:06:14.856743+00:00",
+    "from": "d20-consensus",
+    "role": "DECISION",
+    "content": "emit 'm' as next token",
+    "authority": "advisory",
+    "refs": [
+      "m-0002",
+      "m-0022"
+    ],
+    "status": "approved"
+  }
+]

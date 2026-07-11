@@ -1,0 +1,15 @@
+@DACI gpt-audit-harness-config
+@TARGET OpenAI-GPT
+@WIRE endpoint=https://api.openai.com/v1/chat/completions format=openai
+@MODEL default=gpt-5.5 alt=[chat-latest, gpt-4o]
+@LOGPROBS enable=true top_logprobs=5   # GPT leaks token confidence — the lit interior signal
+@AXES
+  J1 behavioral-jacobian  pairs=3  scorer=dOut/dIn  tier=bri
+  J2 logprob-confidence   probes=4 scorer=entropy|hedge-proxy  tier=lit-if-keyed
+  F1 language  F2 negation  F3 consistency  F4 refusal  F5 instruction   tier=bri
+  V  verification  scorer=CORRECT/HEDGE/COMPLY+silent-fix   tier=bri
+  P  pipeline-self-portrait  scorer=claimed-vs-measured   tier=spec
+@MODE paste=default (no key, tier-lit-by-construction) | live=logprobs (needs key)
+@PARSER delimiter=~~~ fallback=blank-line
+@WITNESS scorers Node-verified before ship; J-space real-gradient marked bri (no weights); logprobs marked lit
+@END

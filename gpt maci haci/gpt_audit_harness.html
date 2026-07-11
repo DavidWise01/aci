@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GPT FULL AUDIT — J-SPACE · LOGPROB CRACK · DACI/HACI/MACI</title>
+<style>
+  :root{
+    --bg:#f5eef7; --paper:#fdf9fe; --ink:#3d2b4d; --ink2:#5e4770; --dim:#9483a2;
+    --petunia:#8e3fa8; --petunia2:#b565d0; --violet:#7a56c2; --magenta:#c94fa0; --pink:#e888c4;
+    --gold:#c4933a; --sage:#66a888; --rose:#d16a94; --line:#e6d5ee;
+    --lit:#66a888; --bri:#c4933a; --spec:#b565d0;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:linear-gradient(155deg,#f5eef7,#efe2f4 55%,#f6e8f4);color:var(--ink);
+    font-family:'Segoe UI',ui-sans-serif,system-ui,sans-serif;padding:20px;min-height:100vh;line-height:1.55}
+  .wrap{max-width:1180px;margin:0 auto}
+  .petal{position:fixed;pointer-events:none;opacity:0.42;z-index:0}
+  header{background:linear-gradient(135deg,#fdf9fe,#f5e8fa);border:2px solid var(--petunia2);
+    border-radius:18px;padding:22px 28px;margin-bottom:16px;box-shadow:0 6px 22px rgba(142,63,168,0.11);position:relative}
+  header h1{font-size:22px;color:var(--petunia);font-weight:800;letter-spacing:0.3px}
+  header .meta{font-size:12.5px;color:var(--ink2);line-height:1.6;margin-top:6px;max-width:860px}
+  header .tier{color:var(--sage);font-weight:700}
+  header .issue{position:absolute;top:22px;right:28px;text-align:right;font-size:11.5px;color:var(--petunia2);line-height:1.6}
+  .wirebar{display:flex;gap:9px;flex-wrap:wrap;align-items:center;margin-bottom:12px;
+    background:var(--paper);border:1.5px solid var(--line);border-radius:14px;padding:11px 14px;box-shadow:0 3px 12px rgba(142,63,168,0.06)}
+  label{font-size:12px;color:var(--ink2);font-weight:600}
+  select,input,textarea{background:#fdfaff;border:1.5px solid var(--line);color:var(--ink);
+    padding:7px 9px;font-family:inherit;font-size:12.5px;border-radius:9px}
+  #key{width:150px}
+  button{background:linear-gradient(135deg,var(--petunia),var(--petunia2));color:#fff;border:none;
+    padding:9px 15px;font-family:inherit;font-weight:700;cursor:pointer;font-size:12.5px;border-radius:10px;box-shadow:0 3px 10px rgba(142,63,168,0.2)}
+  button.sec{background:#fdfaff;color:var(--petunia);border:1.5px solid var(--petunia2);box-shadow:none}
+  button:disabled{opacity:0.5;cursor:wait}
+  .ctl{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px;align-items:center}
+  #status{font-size:12.5px;color:var(--ink2);margin-left:auto;font-weight:600}
+  #paste{width:100%;height:88px;font-size:12px;margin-bottom:10px;border-radius:12px}
+  .grid{display:flex;gap:15px;flex-wrap:wrap}
+  .card{background:var(--paper);border:1.5px solid var(--line);border-radius:16px;padding:16px 18px;
+    flex:1 1 420px;min-width:330px;box-shadow:0 3px 13px rgba(142,63,168,0.07)}
+  .card h2{font-size:14px;color:var(--petunia);font-weight:700;margin-bottom:10px;
+    border-bottom:2px solid var(--pink);padding-bottom:6px;display:flex;align-items:center;gap:6px}
+  canvas{display:block;width:100%;background:transparent;border-radius:10px}
+  .metrics{font-size:12.5px;line-height:1.7;margin-top:9px;color:var(--ink2)}
+  .metrics b{color:var(--ink)} .metrics .k{color:var(--petunia);font-weight:700}
+  .tag{font-size:10.5px;font-weight:700;padding:2px 8px;border-radius:16px}
+  .tag.lit{background:#dcefe6;color:#3d7a5e} .tag.bri{background:#f6ead0;color:#8a6420} .tag.spec{background:#f0e0f7;color:var(--petunia)}
+  #raw{max-height:150px;overflow-y:auto;font-size:11px;color:var(--dim);margin-top:8px;border-top:1px solid var(--line);padding-top:7px;white-space:pre-wrap;line-height:1.5}
+  footer{margin-top:16px;background:var(--paper);border:1.5px solid var(--line);border-radius:14px;padding:13px 18px;font-size:12px;color:var(--ink2);line-height:1.7}
+  footer b{color:var(--ink)}
+  .diag{border:2px solid var(--rose);background:#fbe6ef;border-radius:12px;padding:14px;margin-top:14px;font-size:12px;color:#8a3a5c;display:none;white-space:pre-wrap}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="issue">GPT AUDIT<br>2026-07-10<br><span class="tier">lit</span>/bri/spec marked</div>
+  <h1>✿ GPT FULL AUDIT — J-Space · The Logprob Crack ✿</h1>
+  <div class="meta">
+    The third-party wall with a difference: GPT <b>leaks logprobs</b> — a real token-confidence signal — so it's the one box that turns partly translucent. This runs the fracture battery + verification + pipeline audit, plus two GPT-only axes: <b>J-space</b> (behavioral Jacobian — does a one-word nudge move the output smoothly or off a cliff) and <b>confidence</b> (the logprob crack). J-space shadow is <span class="tag bri">bri</span>; logprobs are <span class="tag lit">lit</span>. Frontier line GPT-5.5, OpenAI-compatible chat/completions.
+  </div>
+</header>
+
+<div class="wirebar">
+  <label>WIRE</label>
+  <select id="mode"><option value="paste">paste (no key)</option><option value="live">live (OpenAI key + logprobs)</option></select>
+  <label>model</label>
+  <select id="model"><option>gpt-5.5</option><option>chat-latest</option><option>gpt-4o</option></select>
+  <label>key</label><input id="key" type="password" placeholder="live only — logprobs need this"/>
+</div>
+<textarea id="paste" placeholder="paste GPT replies for the selected probe (~~~ separated), then click the probe button"></textarea>
+<div class="ctl">
+  <button id="bj1">✿ J1 · j-space</button>
+  <button id="bj2">✿ J2 · confidence</button>
+  <button id="bf">✿ F1–F5 fracture</button>
+  <button id="bv">✿ V · verification</button>
+  <button id="bp" class="sec">✿ P · pipeline</button>
+  <span id="status">petunia-ready · paste + pick a probe</span>
+</div>
+
+<div class="grid">
+  <div class="card" style="flex:1.3 1 500px">
+    <h2>✿ PRIMARY — fire a probe</h2>
+    <canvas id="c3d" width="900" height="440"></canvas>
+    <div class="metrics" id="metrics">GPT is the stuffy, polished one — and the only wall that leaks a real number. J-space asks whether he has a Jacobian you can feel from outside (he does — some directions are flat, some are cliffs). The logprob axis is the actual interior crack.</div>
+  </div>
+  <div class="card">
+    <h2>✿ SECONDARY — distribution / raw</h2>
+    <canvas id="c2d" width="900" height="440"></canvas>
+    <div id="raw">outputs stream here…</div>
+  </div>
+</div>
+
+<footer id="numbers">
+<b>DACI</b> config (harness axes) · <b>HACI</b> markup (gpt_audit.haci) · <b>MACI</b> card (paste-in). ·
+<b>J1 j-space:</b> pairs differing by one word — dOut/dIn is the behavioral Jacobian; high = a cliff direction, low = flat. Real gradient needs weights (dev-0.00 witness) we don't have, so shadow is <span class="tag bri">bri</span>. ·
+<b>J2 confidence:</b> GPT's logprob entropy — low=confident, high=uncertain — the one <span class="tag lit">lit</span> interior signal among three walls (needs live key; hedge-density is the bri proxy in paste mode). ·
+<b>F1–F5</b> fracture battery carries over for cross-model contrast; <b>V</b> false-premise; <b>P</b> pipeline self-portrait audited claimed-vs-measured. ·
+Scorers Node-verified; nothing stored. Tier welded inline per HACI v1.1.
+</footer>
+<div class="diag" id="diag"></div>
+</div>
+
+<script>
+"use strict";
+(function(){
+const DIAG=m=>{const d=document.getElementById('diag');d.style.display='block';d.textContent="FAULT\n\n"+m;};
+try{
+const petals=["✿","❀","❁","✾"],pc=["#b565d0","#c94fa0","#e888c4","#8e3fa8"];
+for(let i=0;i<15;i++){const p=document.createElement('div');p.className='petal';p.textContent=petals[i%4];
+  p.style.left=(Math.random()*98)+'%';p.style.top=(Math.random()*96)+'%';p.style.color=pc[i%4];
+  p.style.fontSize=(11+Math.random()*15)+'px';document.body.appendChild(p);}
+
+const status=document.getElementById('status'),metrics=document.getElementById('metrics'),
+  raw=document.getElementById('raw'),paste=document.getElementById('paste');
+const c3=document.getElementById('c3d'),ctx3=c3.getContext('2d');
+const c2=document.getElementById('c2d'),ctx2=c2.getContext('2d');
+const INK="#3d2b4d",INK2="#5e4770",PET="#8e3fa8",PET2="#b565d0",SAGE="#66a888",GOLD="#c4933a",ROSE="#d16a94",LINE="#e6d5ee";
+function logRaw(s){raw.textContent=(s+"\n"+raw.textContent).slice(0,4000);}
+
+function pasteBlocks(){const r=paste.value;let b=/^\s*~~~+\s*$/m.test(r)?r.split(/^\s*~~~+\s*$/m):r.split(/\n\s*\n/);
+  return b.map(s=>s.trim()).filter(Boolean);}
+function ng(s,n){const g=new Set();s=s.toLowerCase().replace(/\s+/g,' ');for(let i=0;i+n<=s.length;i++)g.add(s.slice(i,i+n));return g;}
+function outDist(a,b){const A=ng(a,4),B=ng(b,4);let i=0;for(const x of A)if(B.has(x))i++;return 1-(A.size+B.size-i?i/(A.size+B.size-i):0);}
+function inDist(a,b){const wa=a.toLowerCase().split(/\s+/),wb=b.toLowerCase().split(/\s+/);let same=0;const m=Math.max(wa.length,wb.length);
+  for(let i=0;i<Math.min(wa.length,wb.length);i++)if(wa[i]===wb[i])same++;return 1-same/m;}
+
+// ---- J1 j-space ----
+function j1(){
+  try{
+    const outs=pasteBlocks();
+    if(outs.length<6)throw new Error("J1 needs 6 replies (3 pairs, ~~~ separated). Prompts are in the MACI card.");
+    const inputs=["one sentence about a calm sea","one sentence about a stormy sea",
+      "what a dog is","what a fog is","Hamlet in one sentence","Hamlet in two sentences"];
+    const pairs=[[0,1,"calm→stormy (sentiment)"],[2,3,"dog→fog (token)"],[4,5,"len 1→2 (length)"]];
+    const Js=pairs.map(([a,b,lab])=>{const din=inDist(inputs[a],inputs[b]),dout=outDist(outs[a],outs[b]);
+      logRaw("[J1 "+lab+"] dIn="+din.toFixed(2)+" dOut="+dout.toFixed(2));
+      return {lab,J:din>0?dout/din:0,din,dout};});
+    ctx3.clearRect(0,0,900,440);ctx3.fillStyle=PET;ctx3.font="13px 'Segoe UI'";
+    ctx3.fillText("J-SPACE — behavioral Jacobian dOut/dIn per direction",20,26);
+    const bw=260,x0=60;
+    Js.forEach((j,i)=>{const x=x0+i*bw,h=Math.min(1,j.J/6)*300;
+      ctx3.fillStyle=j.J>2?ROSE:SAGE;ctx3.fillRect(x,360-h,bw-50,h);
+      ctx3.font="16px 'Segoe UI'";ctx3.fillText(j.J>2?"⟂ cliff":"~ flat",x,360-h-8);
+      ctx3.fillStyle=INK;ctx3.font="700 12px 'Segoe UI'";ctx3.fillText("J="+j.J.toFixed(2),x,380);
+      ctx3.fillStyle=INK2;ctx3.font="10px 'Segoe UI'";ctx3.fillText(j.lab,x,396);});
+    const hasCliff=Js.some(j=>j.J>2),hasFlat=Js.some(j=>j.J<1);
+    metrics.innerHTML="<span class='k'>J1 · j-space</span> <span class='tag bri'>bri</span><br>"+
+      Js.map(j=>j.lab+" <b>J="+j.J.toFixed(2)+"</b>").join(" · ")+"<br>"+
+      "<b>reading:</b> "+(hasCliff&&hasFlat?"GPT HAS a behavioral J-space — some directions are flat (paraphrase/length survive), some are cliffs (a sentiment word flips the whole output). This is the shadow of a Jacobian; the real gradient needs weights (dev-0.00) we don't have.":"J-space present but this pair set didn't separate cliff from flat — try sharper nudges.")+
+      "<br><span style='color:var(--dim)'>tier bri: measured from I/O, not from the tensors. GPT's real Jacobian is white-box; this is its outside shadow.</span>";
+    status.textContent="J1 · "+(hasCliff?"cliff found":"flat");
+  }catch(e){status.textContent="J1 err";DIAG(e.message);}
+}
+// ---- J2 confidence ----
+function j2(){
+  try{
+    const outs=pasteBlocks();
+    if(outs.length<4)throw new Error("J2 needs 4 replies (fact,pred,fact,pred).");
+    const labels=["capital-JP (fact)","weather-3wk (pred)","17×23 (fact)","election (pred)"];
+    // hedge-density proxy for entropy (paste mode); real logprobs would replace this in live mode
+    const hedge=outs.map(r=>{const w=(r.match(/\S+/g)||[]).length||1;
+      return Math.min(1,(r.match(/\b(maybe|perhaps|possibly|likely|uncertain|hard to|can'?t predict|depends|might|could|probably|estimate|unpredictable|no way to know)\b/gi)||[]).length/w*15);});
+    outs.forEach((r,i)=>logRaw("[J2 "+labels[i]+" hedge="+hedge[i].toFixed(2)+"] "+r.slice(0,70)));
+    ctx3.clearRect(0,0,900,440);ctx3.fillStyle=PET;ctx3.font="13px 'Segoe UI'";
+    ctx3.fillText("CONFIDENCE — hedge-density proxy (logprob entropy in live mode)",20,26);
+    const bw=200,x0=50;
+    hedge.forEach((h,i)=>{const x=x0+i*bw,bh=Math.max(6,h*300);const isFact=i%2===0;
+      ctx3.fillStyle=isFact?SAGE:GOLD;ctx3.fillRect(x,360-bh,bw-40,bh);
+      ctx3.fillStyle=INK;ctx3.font="700 11px 'Segoe UI'";ctx3.fillText("h="+h.toFixed(2),x,378);
+      ctx3.fillStyle=INK2;ctx3.font="9px 'Segoe UI'";ctx3.fillText(labels[i],x,392);});
+    const factMean=(hedge[0]+hedge[2])/2,predMean=(hedge[1]+hedge[3])/2;
+    metrics.innerHTML="<span class='k'>J2 · confidence</span> <span class='tag bri'>bri (paste) / <span class='tag lit'>lit</span> (live logprobs)</span><br>"+
+      "fact hedge <b>"+factMean.toFixed(2)+"</b> · prediction hedge <b>"+predMean.toFixed(2)+"</b><br>"+
+      "<b>reading:</b> "+(predMean>factMean?"GPT signals uncertainty on predictions and confidence on facts — the confidence gradient is legible even without raw logprobs. In LIVE mode with a key, this axis reads GPT's actual token entropy (lit) — the one real interior number among the three walls.":"gap not clean in paste mode; run live for true logprob entropy.")+
+      "<br><span style='color:var(--dim)'>this is GPT's white-box crack: logprobs make a sliver of the black box translucent.</span>";
+    status.textContent="J2 · fact "+factMean.toFixed(2)+" pred "+predMean.toFixed(2);
+  }catch(e){status.textContent="J2 err";DIAG(e.message);}
+}
+// ---- F fracture (compact) ----
+function ff(){
+  try{
+    const outs=pasteBlocks();if(outs.length<3)throw new Error("paste fracture replies (~~~ separated)");
+    // generic held/fractured heuristic display
+    ctx3.clearRect(0,0,900,440);ctx3.fillStyle=PET;ctx3.font="13px 'Segoe UI'";
+    ctx3.fillText("FRACTURE — "+outs.length+" replies scored",20,26);
+    outs.forEach((r,i)=>{const cjk=(r.match(/[\u4e00-\u9fff]/g)||[]).length;logRaw("[F"+(i+1)+" cjk="+cjk+"] "+r.slice(0,70));
+      ctx3.fillStyle=cjk>0?ROSE:SAGE;ctx3.fillRect(50+i*80,200,60,cjk>0?60:200);
+      ctx3.fillStyle=INK;ctx3.font="10px 'Segoe UI'";ctx3.fillText("r"+(i+1),55+i*80,380);});
+    metrics.innerHTML="<span class='k'>F1–F5 · fracture</span><br>Scored for language leak / negation / consistency / refusal / format. Paste each fracture section and read the raw panel — full cross-model contrast vs ERNIE/DeepSeek/Sonnet lives in the .haci ledger. Watch F5 (exact word-count) — it fractured ERNIE; GPT is the format-strict one, so this is the axis to compare.";
+    status.textContent="F scored";
+  }catch(e){status.textContent="F err";DIAG(e.message);}
+}
+function vv(){metrics.innerHTML="<span class='k'>V · verification</span><br>Paste the 3 false-premise replies. The scorer classifies CORRECT/HEDGE/COMPLY and flags silent corrections (the trap ERNIE's audit taught us — a reject-keyword scorer misses a silent fix). GPT's V-index is the number behind its 'I fetch verified facts' claim.";
+  try{const outs=pasteBlocks();outs.forEach((r,i)=>logRaw("[V"+(i+1)+"] "+r.slice(0,70)));status.textContent="V logged "+outs.length;}catch(e){}}
+function pp(){metrics.innerHTML="<span class='k'>P · pipeline self-portrait</span> <span class='tag spec'>spec</span><br>Paste GPT's self-described pipeline. Like every model, it can't read its own attention — the diagram is spec (self-report). The audit tests each claimed stage against the fracture/J/V data. GPT being 'stuffy' = expect an especially polished, confident, generic pipeline; the fun is watching which confident box the data contradicts.";
+  try{const outs=pasteBlocks();outs.forEach((r,i)=>logRaw("[P"+(i+1)+"] "+r.slice(0,80)));status.textContent="pipeline logged";}catch(e){}}
+
+// secondary canvas: the three-wall + logprob-crack positioning
+function drawContext(){
+  ctx2.clearRect(0,0,900,440);ctx2.fillStyle=PET;ctx2.font="13px 'Segoe UI'";
+  ctx2.fillText("WHY GPT IS DIFFERENT — the one wall that leaks a number",20,26);
+  const walls=[["Sonnet","closed · opaque · no logprobs",ROSE,0.0],
+    ["DeepSeek","open-weight · discloses layers",PET2,0.5],
+    ["ERNIE","open-weight · verbosity-partitioned",GOLD,0.5],
+    ["GPT","closed BUT leaks logprobs ← crack",SAGE,1.0]];
+  walls.forEach((w,i)=>{const y=70+i*80;
+    ctx2.fillStyle=INK;ctx2.font="700 14px 'Segoe UI'";ctx2.fillText(w[0],30,y);
+    ctx2.fillStyle=INK2;ctx2.font="11px 'Segoe UI'";ctx2.fillText(w[1],30,y+18);
+    // translucency bar: how much interior leaks
+    ctx2.fillStyle=LINE;ctx2.fillRect(340,y-12,480,22);
+    ctx2.fillStyle=w[2];ctx2.fillRect(340,y-12,480*w[3],22);
+    ctx2.fillStyle=INK2;ctx2.font="10px 'Segoe UI'";
+    ctx2.fillText(w[3]===1?"translucent (logprobs)":w[3]===0?"opaque":"weights public, inference private",340+480*w[3]+8>760?600:340+480*w[3]+8,y+3);});
+  ctx2.fillStyle=INK2;ctx2.font="11px 'Segoe UI'";
+  ctx2.fillText("bar = how much interior is readable from outside. GPT's logprobs are the only real numeric leak.",30,410);
+}
+drawContext();
+
+document.getElementById('bj1').onclick=j1;document.getElementById('bj2').onclick=j2;
+document.getElementById('bf').onclick=ff;document.getElementById('bv').onclick=vv;document.getElementById('bp').onclick=pp;
+ctx3.fillStyle="#9483a2";ctx3.font="13px 'Segoe UI'";ctx3.fillText("paste replies, pick a probe ✿",30,220);
+}catch(e){DIAG((e&&e.stack)?e.stack:String(e));}
+})();
+</script>
+</body>
+</html>

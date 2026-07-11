@@ -1,0 +1,187 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TRINITY CORE · the d20 brain</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{--void:#050008;--bone:#f5f0e6;--purple:#a040ff;--pbright:#c080ff;--ice:#c8f0ff;--phos:#22e38a;--gold:#e0c040;--faint:#7a6b9a}
+  html,body{height:100%}
+  body{background:var(--void);color:var(--bone);font-family:ui-monospace,"DejaVu Sans Mono",Menlo,monospace;overflow-x:hidden;
+    background-image:linear-gradient(rgba(160,64,255,.09) 1px,transparent 1px),linear-gradient(90deg,rgba(160,64,255,.09) 1px,transparent 1px);background-size:9px 9px}
+  body::after{content:'';position:fixed;inset:0;background:radial-gradient(ellipse at 50% 28%,transparent 28%,rgba(5,0,8,.82) 78%,var(--void) 100%);pointer-events:none;z-index:1}
+  header{position:relative;z-index:10;background:var(--bone);color:#140022;padding:15px 22px 13px;border-bottom:3px solid var(--purple);box-shadow:0 9px 27px rgba(160,64,255,.35)}
+  header h1{font-weight:900;font-size:clamp(18px,4vw,28px);letter-spacing:1px;color:#1f0033}
+  header h1 span{color:var(--purple);text-shadow:0 0 12px rgba(160,64,255,.5)}
+  header p{margin-top:5px;font-size:10.5px;letter-spacing:2.5px;text-transform:uppercase;font-weight:700;color:#5c2d8a}
+  main{position:relative;z-index:2;max-width:1080px;margin:0 auto;padding:20px 14px 0}
+  .lede{color:var(--pbright);max-width:70ch;margin:6px auto 0;font-size:12px;line-height:1.55;text-align:center}.lede b{color:var(--ice)}
+  .feed{max-width:560px;margin:16px auto 0;display:flex;gap:8px;align-items:center}
+  .feed input{flex:1;background:rgba(10,0,24,.8);border:1px solid rgba(200,240,255,.3);border-radius:6px;color:var(--ice);font-family:inherit;font-size:13px;padding:10px 12px;outline:none}
+  .feed input:focus{border-color:var(--phos)}
+  .feed button{background:linear-gradient(180deg,var(--purple),#6a1fb0);color:#fff;border:none;border-radius:6px;padding:10px 16px;font-family:inherit;font-size:12px;font-weight:700;letter-spacing:1px;cursor:pointer;box-shadow:0 0 16px rgba(160,64,255,.4)}
+  .feed button:hover{background:linear-gradient(180deg,var(--pbright),var(--purple))}
+  .stream{max-width:560px;margin:10px auto 0;display:flex;gap:5px;flex-wrap:wrap;justify-content:center}
+  .tk{font-size:11px;padding:3px 8px;border-radius:12px;border:1px solid rgba(200,240,255,.25);color:var(--ice);background:rgba(5,0,8,.5);transition:all .3s}
+  .tk.win{border-color:var(--phos);color:var(--phos);box-shadow:0 0 14px rgba(34,227,138,.5);font-weight:700}
+  .stage{display:flex;flex-wrap:wrap;gap:18px;justify-content:center;align-items:flex-start;margin:16px 0}
+  .d20-wrap{display:flex;flex-direction:column;align-items:center}
+  #d20{width:min(84vw,340px);height:min(84vw,340px);cursor:grab;filter:drop-shadow(0 0 28px rgba(160,64,255,.5));touch-action:none}
+  #d20:active{cursor:grabbing}
+  .d20lab{margin-top:7px;font-size:9.5px;letter-spacing:2.5px;color:var(--ice);opacity:.7}
+  .brainpanel{min-width:260px;max-width:320px;flex:1}
+  .consensus{background:rgba(10,0,24,.75);border:1px solid var(--phos);border-radius:8px;padding:14px 16px;text-align:center;margin-bottom:12px;box-shadow:0 0 20px rgba(34,227,138,.15)}
+  .consensus .lbl{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--faint)}
+  .consensus .tok{font-size:32px;font-weight:900;color:var(--phos);text-shadow:0 0 16px rgba(34,227,138,.6);margin:4px 0}
+  .consensus .votes{font-size:10px;color:var(--pbright)}
+  .facecard{background:rgba(10,0,24,.7);border:1px solid rgba(200,240,255,.25);border-radius:8px;padding:12px 14px}
+  .facecard .fh{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ice);margin-bottom:8px;display:flex;justify-content:space-between}
+  .facecard .fh b{color:var(--gold)}
+  .cortex3{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:8px}
+  .cc{border:1px solid rgba(200,240,255,.25);border-radius:4px;padding:8px 4px;text-align:center;background:rgba(5,0,8,.6)}
+  .cc .l{font-size:8px;color:var(--pbright);letter-spacing:.5px}.cc .v{font-size:16px;font-weight:900;color:var(--ice)}
+  .cc.hot{border-color:var(--phos);box-shadow:0 0 12px rgba(34,227,138,.4)}.cc.hot .v{color:var(--phos)}.cc.dim{opacity:.45}
+  .attends{font-size:10px;color:var(--faint);text-align:center}.attends b{color:var(--ice)}
+  footer{position:relative;z-index:2;margin-top:32px;padding:22px 14px 40px;text-align:center;border-top:1px solid rgba(160,64,255,.25)}
+  footer .f{font-size:12px;letter-spacing:2px;color:var(--pbright);text-shadow:0 0 12px rgba(160,64,255,.8);margin-bottom:6px}
+  footer .c{font-size:9.5px;letter-spacing:4px;text-transform:uppercase;color:var(--ice);opacity:.8}
+  .note{max-width:62ch;margin:14px auto 0;font-size:9.5px;color:var(--faint);line-height:1.7;text-align:center}
+</style></head>
+<body>
+<header><h1>TRINITY <span>CORE</span> · the d20 brain</h1><p>the kernel is the die · 20 faces × 3 phases = 60-layer silo</p></header>
+<main>
+  <p class="lede">This isn't a readout beside the die — <b>the die is the processor</b>. Feed it a token stream; each of the twenty faces runs a real Trinity attention pass (median seed · Cayley phase · three cardinals ω⁰/ω¹/ω²) as one folded silo node. The faces <b>vote</b>, and the die outputs a token. Spin to watch which faces fire; click a face to read its live three-phase cortex.</p>
+  <div class="feed">
+    <input id="inp" value="the cat sat on the mat" maxlength="60" />
+    <button id="run">▶ THINK</button>
+  </div>
+  <div class="stream" id="stream"></div>
+  <div class="stage">
+    <div class="d20-wrap">
+      <canvas id="d20" width="340" height="340"></canvas>
+      <div class="d20lab">DRAG TO SPIN · CLICK A FACE · FACES FIRE ON ATTENTION</div>
+    </div>
+    <div class="brainpanel">
+      <div class="consensus"><div class="lbl">die consensus · output token</div><div class="tok" id="cons">—</div><div class="votes" id="votes">—</div></div>
+      <div class="facecard">
+        <div class="fh"><span>FACE <b id="fn">—</b> · silo node</span><span id="fatt">—</span></div>
+        <div class="cortex3">
+          <div class="cc" id="c0"><div class="l">ω⁰ fwd</div><div class="v" id="v0">—</div></div>
+          <div class="cc" id="c1"><div class="l">ω¹ shad</div><div class="v" id="v1">—</div></div>
+          <div class="cc" id="c2"><div class="l">ω² rev</div><div class="v" id="v2">—</div></div>
+        </div>
+        <div class="attends">attends → <b id="fatok">—</b> · peak <b id="fpk">—</b> · zeros <b id="fz">—</b></div>
+      </div>
+    </div>
+  </div>
+  <div class="note">each face carries its own Q/K projection (the folded depth), runs the real three-phase Trinity kernel on the last token's scores over the stream, and emits an attention distribution. bright faces attend strongly; the majority vote is the die's output. this is the Trinity Cross we sealed — now embodied as the icosahedral brain.</div>
+</main>
+<footer><div class="f">the kernel is the die · Σ(20 faces) → 1 token</div><div class="c">TRINITY CORE — EMBODIED</div></footer>
+<script>
+"use strict";
+const NAMES=["VOID","DUAL","TRIAD","QUAD","PENTA","HEXA","HEPTA","OCTO","NONA","DECA","ELEVEN","DODECA","TRISKA","TETRA","QUINT","HEXAD","HEPT","OCTAD","ENNEA","ICOSA"];
+const W3r=Math.cos(2*Math.PI/3),W3i=Math.sin(2*Math.PI/3);
+function median(a){const s=[...a].sort((x,y)=>x-y),n=s.length;return n%2?s[(n-1)/2]:(s[n/2-1]+s[n/2])/2;}
+// deterministic per-face projection matrices (the folded silo depth)
+function rng(seed){return()=>{seed=(seed+0x6D2B79F5)>>>0;let t=Math.imul(seed^seed>>>15,1|seed);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296-0.5;};}
+const DIM=4;
+function embed(tokens){ // hash each token to a DIM-vector (stable)
+  return tokens.map(tok=>{let s=0;for(const c of tok)s=(s*31+c.charCodeAt(0))>>>0;const r=rng(s||1);return Array.from({length:DIM},()=>r()*2);});
+}
+function proj(vecs,seed,diag){const r=rng(seed);const W=Array.from({length:DIM},(_,i)=>Array.from({length:DIM},(_,j)=>r()*0.5+(i===j?diag:0)));
+  return vecs.map(v=>W.map(row=>row.reduce((a,w,j)=>a+w*v[j],0)));}
+function dot(a,b){return a.reduce((s,x,i)=>s+x*b[i],0);}
+function trinity(scores,T=0.8,om=1.0){
+  const mu=median(scores),d=scores.map(s=>s-mu);
+  const mag=d.map(v=>Math.exp(Math.max(-8,Math.min(8,v/T))));
+  const bre=d.map(v=>{const x=om*v;return(1-x*x)/(1+x*x);}),bim=d.map(v=>{const x=om*v;return(2*x)/(1+x*x);});
+  let tot=scores.map(()=>0);
+  for(const [pr,pi] of [[1,0],[W3r,W3i],[W3r,-W3i]]){
+    let Rr=0,Ri=0;const zr=[],zi=[];
+    for(let i=0;i<scores.length;i++){const a=mag[i]*(bre[i]*pr-bim[i]*pi),b=mag[i]*(bre[i]*pi+bim[i]*pr);zr.push(a);zi.push(b);Rr+=a;Ri+=b;}
+    for(let i=0;i<scores.length;i++)tot[i]+=Math.max(zr[i]*Rr+zi[i]*Ri,0);
+  }
+  const Z=tot.reduce((a,b)=>a+b,0);return Z>0?tot.map(x=>x/Z):scores.map(()=>1/scores.length);
+}
+let STREAM=[],FACES=[],sel=20;
+function think(){
+  const raw=document.getElementById("inp").value.trim().toLowerCase().split(/\s+/).filter(Boolean).slice(0,8);
+  STREAM=raw.length?raw:["the","cat","sat"];
+  const emb=embed(STREAM);
+  FACES=[];
+  for(let f=0;f<20;f++){
+    const q=proj(emb,(f+1)*97+11,0.3+f*0.02),k=proj(emb,(f+1)*131+7,1.0);
+    const last=q[q.length-1];
+    const sc=k.map(kv=>dot(last,kv)/2.0);
+    const w=trinity(sc);
+    // 3-phase cortex: sector mass
+    const mu=median(sc),d=sc.map(s=>s-mu);const mag=d.map(v=>Math.exp(Math.max(-8,Math.min(8,v/0.8))));
+    const bre=d.map(v=>{const x=v;return(1-x*x)/(1+x*x);}),bim=d.map(v=>{const x=v;return 2*x/(1+x*x);});
+    let Rr=0,Ri=0;for(let i=0;i<sc.length;i++){Rr+=mag[i]*bre[i];Ri+=mag[i]*bim[i];}
+    let sect=[0,0,0],zeros=0;
+    for(let i=0;i<sc.length;i++){const zr=mag[i]*bre[i],zi=mag[i]*bim[i];
+      let ang=Math.atan2(zi*Rr-zr*Ri,zr*Rr+zi*Ri);let kk=Math.floor((((ang*180/Math.PI+60)%360)+360)%360/120);sect[kk]+=w[i];if(w[i]<1e-9)zeros++;}
+    let top=0;for(let i=1;i<w.length;i++)if(w[i]>w[top])top=i;
+    FACES.push({top,tok:STREAM[top],peak:w[top],w,sect,zeros});
+  }
+  // consensus
+  const votes={};FACES.forEach(f=>votes[f.tok]=(votes[f.tok]||0)+1);
+  let cons=STREAM[0],mx=0;for(const t in votes)if(votes[t]>mx){mx=votes[t];cons=t;}
+  document.getElementById("cons").textContent=cons;
+  document.getElementById("votes").textContent=mx+"/20 faces agree";
+  // stream chips
+  document.getElementById("stream").innerHTML=STREAM.map(t=>'<span class="tk'+(t===cons?' win':'')+'">'+t+'</span>').join("");
+  renderFace(sel);
+}
+function renderFace(id){
+  if(!FACES.length)return;const f=FACES[id-1];sel=id;
+  document.getElementById("fn").textContent=id;
+  document.getElementById("fatt").textContent=NAMES[id-1];
+  const mx=Math.max(...f.sect,1e-9);
+  [["v0","c0"],["v1","c1"],["v2","c2"]].forEach((c,i)=>{document.getElementById(c[0]).textContent=f.sect[i].toFixed(2);
+    const cc=document.getElementById(c[1]);cc.classList.toggle("hot",f.sect[i]===mx&&f.sect[i]>0.05);cc.classList.toggle("dim",f.sect[i]<0.05);});
+  document.getElementById("fatok").textContent=f.tok;
+  document.getElementById("fpk").textContent=f.peak.toFixed(2);
+  document.getElementById("fz").textContent=f.zeros+"/"+STREAM.length;
+}
+document.getElementById("run").onclick=think;
+document.getElementById("inp").addEventListener("keydown",e=>{if(e.key==="Enter")think();});
+// ---- d20 ----
+const cv=document.getElementById("d20"),cx=cv.getContext("2d"),dpr=Math.min(devicePixelRatio||1,2);
+function rs(){const r=cv.getBoundingClientRect();cv.width=r.width*dpr;cv.height=r.height*dpr;cx.setTransform(dpr,0,0,dpr,0,0);}
+rs();addEventListener("resize",rs);
+const t=(1+Math.sqrt(5))/2;
+const verts=[[-1,t,0],[1,t,0],[-1,-t,0],[1,-t,0],[0,-1,t],[0,1,t],[0,-1,-t],[0,1,-t],[t,0,-1],[t,0,1],[-t,0,-1],[-t,0,1]].map(v=>{const l=Math.hypot(...v);return[v[0]/l*1.15,v[1]/l*1.15,v[2]/l*1.15];});
+const faces=[[0,11,5],[0,5,1],[0,1,7],[0,7,10],[0,10,11],[1,5,9],[5,11,4],[11,10,2],[10,7,6],[7,1,8],[3,9,4],[3,4,2],[3,2,6],[3,6,8],[3,8,9],[4,9,5],[2,4,11],[6,2,10],[8,6,7],[9,8,1]];
+let rx=0.35,ry=0.7,drag=false,lx=0,ly=0,vx=0,vy=0,auto=true,lastProj=[];
+cv.addEventListener("pointerdown",e=>{drag=true;auto=false;lx=e.clientX;ly=e.clientY;cv.setPointerCapture(e.pointerId);});
+addEventListener("pointerup",()=>{drag=false;setTimeout(()=>auto=true,2500);});
+addEventListener("pointermove",e=>{if(!drag)return;const dx=e.clientX-lx,dy=e.clientY-ly;ry+=dx*.008;rx+=dy*.008;vx=dy*.008;vy=dx*.008;lx=e.clientX;ly=e.clientY;});
+cv.addEventListener("click",e=>{const r=cv.getBoundingClientRect(),mxp=e.clientX-r.left-r.width/2,myp=e.clientY-r.top-r.height/2;
+  let best=-1,bd=1e9;lastProj.forEach((p,i)=>{if(p&&p.front){const dd=(p.cx-mxp)**2+(p.cy-myp)**2;if(dd<bd){bd=dd;best=i;}}});
+  if(best>=0)renderFace(best+1);});
+function pr(v){const cxx=Math.cos(rx),sx=Math.sin(rx),cyy=Math.cos(ry),sy=Math.sin(ry);let x=v[0],y=v[1],z=v[2];
+  const x1=x*cyy-z*sy,z1=x*sy+z*cyy,y1=y*cxx-z1*sx,z2=y*sx+z1*cxx;const f=160/(3.2+z2);return{x:x1*f,y:y1*f,z:z2};}
+function draw(){requestAnimationFrame(draw);
+  if(auto&&!drag){ry+=.004;rx+=.0015;}else if(!drag){rx+=vx;ry+=vy;vx*=.92;vy*=.92;}
+  const w=cv.clientWidth,h=cv.clientHeight;cx.clearRect(0,0,w,h);cx.save();cx.translate(w/2,h/2);
+  const pv=verts.map(pr);
+  const fd=faces.map((f,i)=>{const a=pv[f[0]],b=pv[f[1]],c=pv[f[2]];return{i,a,b,c,z:(a.z+b.z+c.z)/3};}).sort((p,q)=>q.z-p.z);
+  lastProj=new Array(20);
+  fd.forEach(({a,b,c,i})=>{
+    const fire=FACES.length?FACES[i].peak:0;   // face fires by its attention peak
+    const isSel=(i+1)===sel;
+    cx.beginPath();cx.moveTo(a.x,a.y);cx.lineTo(b.x,b.y);cx.lineTo(c.x,c.y);cx.closePath();
+    const g=cx.createLinearGradient(a.x,a.y,c.x,c.y);
+    const glow=Math.min(fire,1);
+    g.addColorStop(0,isSel?'rgba(34,227,138,.4)':`rgba(${25+glow*10},${glow*80},${50+glow*40},0.85)`);
+    g.addColorStop(1,'rgba(10,0,25,.7)');cx.fillStyle=g;cx.fill();
+    cx.save();cx.shadowColor=isSel?'#22e38a':(fire>0.5?'#22e38a':'#c080ff');cx.shadowBlur=isSel?24:(10+glow*18);
+    cx.strokeStyle=isSel?'rgba(34,227,138,.95)':`rgba(${192-glow*150},${128+glow*99},255,0.9)`;cx.lineWidth=isSel?2:1.3;cx.stroke();cx.restore();
+    const ccx=(a.x+b.x+c.x)/3,ccy=(a.y+b.y+c.y)/3;lastProj[i]={cx:ccx,cy:ccy,front:true};
+    cx.save();cx.translate(ccx,ccy);cx.rotate(i*0.31+ry);cx.globalAlpha=.28+glow*.4;
+    for(let py=-1;py<=1;py++)for(let px=-1;px<=1;px++){cx.fillStyle=fire>0.4?'#22e38a':'#c8f0ff';cx.shadowColor=cx.fillStyle;cx.shadowBlur=5;cx.fillRect(px*4-1.3,py*4-1.3,2.6,2.6);}
+    cx.restore();
+    cx.save();cx.shadowColor='#c8f0ff';cx.shadowBlur=11;cx.fillStyle=isSel?'#eafff5':'#c8f0ff';cx.font='700 12px ui-monospace,monospace';cx.textAlign='center';cx.textBaseline='middle';cx.fillText(String(i+1),ccx,ccy+.5);cx.restore();
+  });
+  cx.restore();
+}
+draw();think();
+</script></body></html>

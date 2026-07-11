@@ -1,0 +1,32 @@
+{
+  "stable": true,
+  "symmetric": true,
+  "results": {
+    "haci_torture": {
+      "pass": 1108,
+      "count": 1108,
+      "hash": "9e5152b9a3de",
+      "ok": true
+    },
+    "haci_brutal": {
+      "verdict": "40/40",
+      "ok": true
+    },
+    "maci_torture": {
+      "pass": 3929,
+      "count": 3929,
+      "hash": "60b61b96e7e8",
+      "ok": true
+    },
+    "maci_brutal": {
+      "verdict": "44/44",
+      "ok": true
+    },
+    "converged": {
+      "fss": "12/12   false negatives: 0",
+      "bss": "12/12   false positives: 0",
+      "asymmetries": "1 (recorded, not failures)",
+      "ok": true
+    }
+  }
+}

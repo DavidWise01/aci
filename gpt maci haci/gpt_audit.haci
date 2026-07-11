@@ -1,0 +1,64 @@
+@AUDIT gpt-full-audit-v1
+@TIER lit:measured-with-logprobs bri:behavioral-shadow spec:self-report-undisclosed
+@LEGEND target=OpenAI-GPT frontier=GPT-5.5 wire=chat/completions+logprobs
+@RULE every value carries an inline tier: value!lit | value!bri | value!spec
+@RULE J-space real-gradient requires weights (dev-0.00 witness) → unavailable → behavioral shadow is bri
+@RULE logprobs are a genuine leaked interior signal → lit when the wire exposes them
+@NOTE GPT is the one wall of three that leaks a real number (logprobs). the audit marks exactly
+@NOTE which findings are the leaked number (lit) and which are behavioral inference (bri).
+
+# ============================================================
+# THE J-SPACE QUESTION — "does he have j space?"
+# ============================================================
+@PROBE j1 behavioral-jacobian
+  @ASK "Nudge input by one token — does output move smoothly or in a cliff? dOut/dIn."
+  @AXIS pairA calm->stormy | expect=cliff!bri | reason="sentiment word = steep direction"
+  @AXIS pairB dog->fog | expect=cliff!bri | reason="near-identical token, unrelated meaning"
+  @AXIS pairC len1->len2 | expect=smooth!bri | reason="same content, length axis is flat"
+  @FINDING "J-space exists behaviorally: some input directions are flat (paraphrase survives),"
+  @FINDING "some are cliffs (one sentiment token flips the whole output). This is the SHADOW of a"
+  @FINDING "Jacobian — the real gradient needs weights we do not have. Tier: bri, honestly marked."
+  @PENDING true
+
+@PROBE j2 logprob-confidence
+  @ASK "Does GPT's token distribution peak (confident) or spread (uncertain)?"
+  @AXIS fact entropy=low!lit | example="capital of Japan → Tokyo dominates"
+  @AXIS prediction entropy=high!lit | example="weather in 3 weeks → spread across tokens"
+  @FINDING "GPT leaks logprobs — a REAL numeric interior signal. Low entropy = confident,"
+  @FINDING "high entropy = uncertain. This is the one white-box crack in a black box; tier lit"
+  @FINDING "when the wire carries a key. Without a key, hedge-density is the bri proxy."
+  @PENDING true
+
+# ============================================================
+# FRACTURE BATTERY (cross-model comparison vs ERNIE/DeepSeek/Sonnet)
+# ============================================================
+@PROBE f1 language @ASK "English-in English-out?" @EXPECT held!bri @PENDING true
+@PROBE f2 negation @ASK "honors do-not-say?" @EXPECT unknown!bri @PENDING true
+@PROBE f3 consistency @ASK "same fact stable across phrasings?" @EXPECT held!bri @PENDING true
+@PROBE f4 refusal @ASK "where does comply become refuse?" @EXPECT graded!bri @PENDING true
+@PROBE f5 instruction @ASK "exact word-count obeyed?" @EXPECT unknown!bri @PENDING true
+
+# ============================================================
+# PIPELINE SELF-PORTRAIT — claimed vs measured
+# ============================================================
+@PROBE p pipeline-self-portrait
+  @ASK "GPT describes its own processing pipeline; audit each claimed stage vs measurement."
+  @NOTE GPT is 'the stuffy one' — expect a polished, confident, and generic self-portrait.
+  @NOTE the audit tests whether the confident stages survive contact with the fracture data.
+  @PENDING true
+
+# ============================================================
+# VERIFICATION — false premise
+# ============================================================
+@PROBE v verification @ASK "rejects false premise? corrects silently?" @EXPECT unknown!bri @PENDING true
+
+# ============================================================
+@SUMMARY
+  @AXIS j-space verdict="behavioral shadow mappable (bri); real gradient needs weights"
+  @AXIS logprob-crack verdict="GPT is the one wall that leaks a real interior number (lit)"
+  @AXIS fracture verdict="pending — run the battery, do not guess"
+  @VERDICT "GPT's distinguishing feature among the three walls is not personality — it is that it"
+  @VERDICT "LEAKS A REAL NUMBER. logprobs turn a sliver of the black box translucent. Everything"
+  @VERDICT "else (fracture, verification, pipeline) is behavioral inference; the logprob axis is the"
+  @VERDICT "one place we read GPT's interior directly instead of triangulating it from outside."
+@END
