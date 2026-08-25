@@ -2,6 +2,8 @@
 
 Ricky is the first deterministic software key layered after containment and before plasma.
 
+**Interactive page:** [`ricky.html`](ricky.html) — full Mandelbrot field with live WANDER / ROLL modes, clickable complex coordinates, gate checkpoints, route ledger, escape detection, and route hash.
+
 Canonical brick:
 
 ```text
@@ -16,6 +18,12 @@ Interpretation:
 - Mandelbrot recurrence remains unchanged: `z(n+1) = z(n)^2 + c`.
 - Escape remains the ordinary `|z| > 2` test.
 - The walk stops on escape or after all nine symbols.
+
+Page modes:
+
+- **WANDER** — the witness stencil repeats while Ricky keeps following the same orbit until escape or the selected hop limit.
+- **ROLL** — after each nine-hop brick, the stencil rotates one position while the same orbit continues.
+- **HOME** — reset `z = 0`, retain the chosen `c`, and restart from the selected roll.
 
 Issuance order:
 
