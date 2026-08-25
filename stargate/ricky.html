@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="theme-color" content="#05070b" />
+<title>RICKY · Who Rolled / Who Wandered</title>
+<style>
+:root{
+  --bg:#05070b; --panel:#0a0f17dd; --line:#253144; --ink:#eef5ff; --muted:#8fa1b8;
+  --cyan:#5ee7ff; --gold:#ffd166; --green:#7fffb2; --red:#ff6b7a; --violet:#b79cff;
+  --mono:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono",monospace;
+  --sans:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+}
+*{box-sizing:border-box} html,body{margin:0;min-height:100%;background:var(--bg);color:var(--ink)}
+body{font-family:var(--sans);overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;background:
+  radial-gradient(circle at 25% 10%,rgba(94,231,255,.11),transparent 32%),
+  radial-gradient(circle at 75% 0%,rgba(183,156,255,.10),transparent 30%),
+  linear-gradient(180deg,transparent,#05070b 70%);z-index:-1}
+a{color:inherit}.shell{max-width:1500px;margin:0 auto;padding:24px}
+.topbar{display:flex;align-items:center;gap:16px;border-bottom:1px solid var(--line);padding:4px 0 18px;position:sticky;top:0;background:#05070be8;backdrop-filter:blur(14px);z-index:5}
+.brand{font:700 13px var(--mono);letter-spacing:.18em;color:var(--cyan)}
+.topbar .spacer{flex:1}.seal{font:11px var(--mono);color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:48vw}
+.hero{padding:60px 0 28px;display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:end}
+.kicker{font:12px var(--mono);letter-spacing:.22em;color:var(--gold);text-transform:uppercase}
+h1{margin:10px 0 12px;font-size:clamp(46px,8vw,112px);line-height:.86;letter-spacing:-.055em}
+h1 span{display:block;color:var(--cyan);font-size:.48em;letter-spacing:.04em;margin-top:12px}
+.lede{max-width:760px;color:#b8c7da;font-size:18px;line-height:1.65;margin:0}
+.brickCard{border:1px solid var(--line);border-radius:22px;padding:24px;background:linear-gradient(180deg,#0d1420e8,#080c13e8);box-shadow:0 28px 80px #0008}
+.brickLabel{font:11px var(--mono);color:var(--muted);letter-spacing:.18em}.brick{display:flex;gap:10px;justify-content:center;align-items:center;padding:26px 8px 16px}
+.cell{width:48px;height:58px;border:1px solid #2c3b50;border-radius:12px;display:grid;place-items:center;font:700 28px var(--mono);background:#0b111b;transition:.2s transform,.2s border-color,.2s box-shadow,.2s color}
+.cell.gate{color:var(--gold);border-color:#6a5930}.cell.active{transform:translateY(-7px);border-color:var(--cyan);box-shadow:0 0 0 1px #5ee7ff44,0 0 26px #5ee7ff33;color:var(--cyan)}
+.cell.hit{box-shadow:0 0 0 1px #ffd16655,0 0 28px #ffd16644}.brickMeta{display:flex;justify-content:space-between;gap:12px;font:11px var(--mono);color:var(--muted);padding-top:10px}
+.grid{display:grid;grid-template-columns:minmax(0,1.65fr) minmax(320px,.75fr);gap:18px}
+.stage{position:relative;border:1px solid var(--line);border-radius:22px;overflow:hidden;background:#020305;min-height:640px;box-shadow:0 30px 100px #0008}
+canvas{display:block;width:100%;height:100%;min-height:640px}.hud{position:absolute;left:16px;top:16px;display:flex;flex-wrap:wrap;gap:8px;pointer-events:none}
+.badge{font:11px var(--mono);padding:8px 10px;border-radius:999px;border:1px solid #2a394d;background:#07101add;color:#a9bad0}.badge strong{color:var(--ink)}
+.badge.live{border-color:#285b48;color:var(--green)}.badge.escape{border-color:#713541;color:var(--red)}
+.rickyDot{position:absolute;width:18px;height:18px;border:2px solid var(--cyan);border-radius:50%;box-shadow:0 0 22px var(--cyan);transform:translate(-50%,-50%);pointer-events:none;opacity:0}
+.side{display:flex;flex-direction:column;gap:18px}.panel{border:1px solid var(--line);border-radius:18px;background:var(--panel);padding:18px}
+.panel h2{font:700 12px var(--mono);letter-spacing:.16em;color:var(--muted);margin:0 0 16px;text-transform:uppercase}
+.modeRow{display:grid;grid-template-columns:1fr 1fr;gap:8px}.mode{border:1px solid #2b3a4e;background:#0a111c;color:var(--ink);padding:12px;border-radius:12px;font:700 12px var(--mono);cursor:pointer}.mode.on{border-color:var(--cyan);color:var(--cyan);box-shadow:inset 0 0 22px #5ee7ff12}
+.controls{display:grid;grid-template-columns:1fr 1fr;gap:10px}.field{display:flex;flex-direction:column;gap:6px}.field.full{grid-column:1/-1}.field label{font:10px var(--mono);color:var(--muted);letter-spacing:.1em}.field input{width:100%;background:#050a12;border:1px solid #2a384b;color:var(--ink);border-radius:10px;padding:11px 12px;font:12px var(--mono);outline:none}.field input:focus{border-color:var(--cyan)}
+.actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}.btn{border:1px solid #2b3a4e;background:#0c1521;color:var(--ink);padding:12px;border-radius:11px;font:700 12px var(--mono);cursor:pointer}.btn.primary{background:var(--cyan);border-color:var(--cyan);color:#001219}.btn.gold{border-color:#6a5930;color:var(--gold)}.btn.danger{border-color:#633440;color:#ff9aa5}
+.readout{display:grid;gap:9px;font:11px var(--mono)}.row{display:grid;grid-template-columns:110px minmax(0,1fr);gap:10px;padding-bottom:8px;border-bottom:1px solid #182230}.row:last-child{border-bottom:0}.key{color:var(--muted)}.value{overflow-wrap:anywhere}.ok{color:var(--green)}.warn{color:var(--gold)}.bad{color:var(--red)}
+.log{height:210px;overflow:auto;font:11px/1.65 var(--mono);background:#05090f;border-radius:12px;padding:12px;border:1px solid #1d2938}.log div{color:#9fb0c5}.log .gateLine{color:var(--gold)}.log .escapeLine{color:var(--red)}.log .homeLine{color:var(--green)}
+.story{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;padding:28px 0 70px}.story article{border-top:1px solid var(--line);padding-top:18px}.story h3{font-size:18px;margin:0 0 9px}.story p{margin:0;color:var(--muted);line-height:1.65}.mono{font-family:var(--mono);color:var(--cyan)}
+footer{border-top:1px solid var(--line);padding:24px 0 40px;color:var(--muted);font:11px var(--mono);display:flex;gap:14px;flex-wrap:wrap;justify-content:space-between}
+@media(max-width:980px){.hero,.grid{grid-template-columns:1fr}.stage,canvas{min-height:560px}.story{grid-template-columns:1fr}.seal{max-width:55vw}}
+@media(max-width:620px){.shell{padding:14px}.topbar{position:static}.hero{padding-top:34px}.brick{gap:5px}.cell{width:31px;height:43px;border-radius:8px;font-size:20px}.controls{grid-template-columns:1fr}.field.full{grid-column:auto}.actions{grid-template-columns:1fr}.stage,canvas{min-height:480px}.row{grid-template-columns:90px 1fr}}
+</style>
+</head>
+<body>
+<div class="shell">
+  <div class="topbar">
+    <div class="brand">ACI / STARGATE / BRICK-0</div><div class="spacer"></div>
+    <div class="seal" id="sealTop">CONTAINMENT · VERIFIED · local-page-sim</div>
+  </div>
+
+  <section class="hero">
+    <div>
+      <div class="kicker">The Mandelbrot Wanderer</div>
+      <h1>RICKY<span>WHO ROLLED / WHO WANDERED</span></h1>
+      <p class="lede">Ricky does not change the Mandelbrot rule. He lives inside it. Every step is still <span class="mono">z ← z² + c</span>. The brick only tells us where to witness the path. A dot is a wander. A bar is a gate. Rolling rotates the brick. Wandering keeps walking.</p>
+    </div>
+    <div class="brickCard">
+      <div class="brickLabel">CANONICAL BRICK · NINE POSITIONS</div>
+      <div class="brick" id="brick"></div>
+      <div class="brickMeta"><span id="brickText">{. . | | . . | . .}</span><span id="rollText">ROLL 0</span></div>
+    </div>
+  </section>
+
+  <main class="grid">
+    <section class="stage" id="stage">
+      <canvas id="fractal"></canvas>
+      <div class="rickyDot" id="rickyDot"></div>
+      <div class="hud">
+        <span class="badge live" id="stateBadge">CONTAINED</span>
+        <span class="badge"><strong id="modeBadge">WANDER</strong></span>
+        <span class="badge">HOP <strong id="hopBadge">0</strong></span>
+        <span class="badge">ROLL <strong id="rollBadge">0</strong></span>
+        <span class="badge">GATES <strong id="gateBadge">0</strong></span>
+      </div>
+    </section>
+
+    <aside class="side">
+      <section class="panel">
+        <h2>Ricky's choice</h2>
+        <div class="modeRow">
+          <button class="mode on" id="wanderMode">WANDER</button>
+          <button class="mode" id="rollMode">ROLL</button>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>Coordinate / wheel</h2>
+        <div class="controls">
+          <div class="field"><label>C · REAL</label><input id="cre" type="number" step="0.001" value="-0.750" /></div>
+          <div class="field"><label>C · IMAG</label><input id="cim" type="number" step="0.001" value="0.100" /></div>
+          <div class="field"><label>ROLL</label><input id="roll" type="number" step="1" value="0" /></div>
+          <div class="field"><label>WANDER LIMIT</label><input id="limit" type="number" min="1" max="729" step="1" value="81" /></div>
+        </div>
+        <div class="actions">
+          <button class="btn primary" id="go">LET RICKY GO</button>
+          <button class="btn gold" id="step">ONE STEP</button>
+          <button class="btn" id="home">HOME</button>
+          <button class="btn danger" id="stop">STOP</button>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>Witness readout</h2>
+        <div class="readout">
+          <div class="row"><div class="key">STATUS</div><div class="value ok" id="status">CONTAINED / READY</div></div>
+          <div class="row"><div class="key">z</div><div class="value" id="zRead">0 + 0i</div></div>
+          <div class="row"><div class="key">|z|</div><div class="value" id="magRead">0</div></div>
+          <div class="row"><div class="key">CHECKPOINTS</div><div class="value" id="checkRead">—</div></div>
+          <div class="row"><div class="key">ROUTE HASH</div><div class="value" id="hashRead">—</div></div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>Route ledger</h2>
+        <div class="log" id="log"></div>
+      </section>
+    </aside>
+  </main>
+
+  <section class="story">
+    <article><h3>Ricky wandered.</h3><p>In Wander mode the nine-symbol brick repeats as a witness stencil while the orbit continues. Ricky is free to keep walking until the orbit escapes or the selected hop limit is reached.</p></article>
+    <article><h3>Ricky rolled.</h3><p>In Roll mode Ricky completes one brick, rotates the stencil one position, then keeps the same Mandelbrot orbit. The math stays fixed; the gate positions move around him.</p></article>
+    <article><h3>Ricky came home.</h3><p>A full nine-roll wheel returns the brick to its original phase. If the orbit escapes first, the page marks ESCAPE instead of inventing a homecoming.</p></article>
+  </section>
+
+  <footer><span>RICKY · {. . | | . . | . .} · z ← z² + c</span><span>containment → witness → key → plasma</span></footer>
+</div>
+<script>
+(() => {
+  const BASE = ['.','.','|','|','.','.','|','.','.'];
+  const el = id => document.getElementById(id);
+  const canvas = el('fractal'), ctx = canvas.getContext('2d', {alpha:false});
+  const stage = el('stage'), dot = el('rickyDot'), brick = el('brick'), log = el('log');
+  let mode='wander', running=false, timer=null, hop=0, gates=[], roll=0, z={re:0,im:0}, path=[], escaped=false;
+  let c={re:-.75,im:.1};
+
+  function normRoll(n){ return ((Math.trunc(n)%9)+9)%9; }
+  function rolledPattern(n){ const s=normRoll(n); return s===0 ? [...BASE] : [...BASE.slice(9-s),...BASE.slice(0,9-s)]; }
+  function fmt(n){ if(!Number.isFinite(n)) return String(n); const a=Math.abs(n); return (a>=1000 || (a>0&&a<1e-5)) ? n.toExponential(5) : n.toFixed(8).replace(/0+$/,'').replace(/\.$/,''); }
+  function zText(){ return `${fmt(z.re)} ${z.im<0?'-':'+'} ${fmt(Math.abs(z.im))}i`; }
+  function mulsq(v){ return {re:v.re*v.re-v.im*v.im+c.re, im:2*v.re*v.im+c.im}; }
+  function mag(v){ return Math.hypot(v.re,v.im); }
+
+  function drawBrick(){
+    const p=rolledPattern(roll); brick.innerHTML='';
+    p.forEach((s,i)=>{ const d=document.createElement('div'); d.className='cell '+(s==='|'?'gate':''); if((hop-1)%9===i && hop>0)d.classList.add('active'); if(gates.includes(hop) && (hop-1)%9===i)d.classList.add('hit'); d.textContent=s; brick.appendChild(d); });
+    el('brickText').textContent='{'+p.join(' ')+'}'; el('rollText').textContent='ROLL '+normRoll(roll); el('rollBadge').textContent=normRoll(roll);
+  }
+
+  function resize(){ const r=stage.getBoundingClientRect(), dpr=Math.min(devicePixelRatio||1,2); canvas.width=Math.max(1,Math.floor(r.width*dpr)); canvas.height=Math.max(1,Math.floor(r.height*dpr)); ctx.setTransform(dpr,0,0,dpr,0,0); render(); }
+  function complexToScreen(v,w,h){ const sx=w/3.4, sy=h/2.6; return {x:w/2+(v.re+.25)*sx, y:h/2-v.im*sy}; }
+  function screenToComplex(x,y,w,h){ const sx=w/3.4, sy=h/2.6; return {re:(x-w/2)/sx-.25, im:(h/2-y)/sy}; }
+
+  function renderFractal(w,h){
+    const img=ctx.createImageData(Math.max(1,Math.floor(w)),Math.max(1,Math.floor(h))); const data=img.data;
+    const maxIter=42;
+    for(let y=0;y<h;y++) for(let x=0;x<w;x++){
+      const q=screenToComplex(x,y,w,h); let zr=0,zi=0,it=0;
+      while(it<maxIter && zr*zr+zi*zi<=4){ const nr=zr*zr-zi*zi+q.re; zi=2*zr*zi+q.im; zr=nr; it++; }
+      const i=(y*w+x)*4; const inside=it===maxIter; const t=inside?0:it/maxIter;
+      data[i]=inside?2:Math.floor(8+28*t); data[i+1]=inside?5:Math.floor(12+95*t); data[i+2]=inside?10:Math.floor(20+140*t); data[i+3]=255;
+    }
+    ctx.putImageData(img,0,0);
+  }
+
+  function render(){
+    const r=stage.getBoundingClientRect(), w=Math.max(1,Math.floor(r.width)), h=Math.max(1,Math.floor(r.height));
+    ctx.save(); ctx.setTransform(1,0,0,1,0,0); renderFractal(w,h); ctx.restore();
+    if(path.length){
+      ctx.beginPath(); path.forEach((p,i)=>{ const s=complexToScreen(p,w,h); i?ctx.lineTo(s.x,s.y):ctx.moveTo(s.x,s.y); });
+      ctx.strokeStyle='#5ee7ff'; ctx.lineWidth=1.7; ctx.shadowColor='#5ee7ff'; ctx.shadowBlur=9; ctx.stroke(); ctx.shadowBlur=0;
+      path.forEach((p,i)=>{ if(p.gate){ const s=complexToScreen(p,w,h); ctx.beginPath();ctx.arc(s.x,s.y,5,0,Math.PI*2);ctx.strokeStyle='#ffd166';ctx.lineWidth=2;ctx.stroke(); } });
+      const last=complexToScreen(path[path.length-1],w,h); dot.style.left=last.x+'px'; dot.style.top=last.y+'px'; dot.style.opacity='1';
+    } else dot.style.opacity='0';
+    const cs=complexToScreen(c,w,h); ctx.beginPath();ctx.arc(cs.x,cs.y,4,0,Math.PI*2);ctx.fillStyle='#b79cff';ctx.fill();
+  }
+
+  async function routeHash(){
+    const payload=JSON.stringify({name:'Ricky',pattern:BASE,mode,roll:normRoll(roll),c:[c.re,c.im],route:path.map(p=>[p.hop,p.symbol,p.re,p.im,p.gate,p.escaped])});
+    if(window.crypto?.subtle){ const b=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(payload)); return [...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join(''); }
+    let h=2166136261; for(let i=0;i<payload.length;i++){h^=payload.charCodeAt(i);h=Math.imul(h,16777619)} return ('local-'+(h>>>0).toString(16).padStart(8,'0'));
+  }
+
+  async function updateReadout(){
+    el('hopBadge').textContent=hop; el('gateBadge').textContent=gates.length; el('zRead').textContent=zText(); el('magRead').textContent=fmt(mag(z)); el('checkRead').textContent=gates.length?gates.join(', '):'—';
+    el('hashRead').textContent=path.length?(await routeHash()).slice(0,24)+'…':'—';
+    drawBrick(); render();
+  }
+
+  function ledger(text,cls=''){ const d=document.createElement('div');d.className=cls;d.textContent=text;log.appendChild(d);log.scrollTop=log.scrollHeight; }
+  function setStatus(text,kind='ok'){ el('status').className='value '+kind;el('status').textContent=text;el('stateBadge').textContent=text.split(' / ')[0];el('stateBadge').className='badge '+(kind==='bad'?'escape':'live'); }
+  function loadInputs(){ c={re:Number(el('cre').value),im:Number(el('cim').value)}; roll=normRoll(Number(el('roll').value)); if(!Number.isFinite(c.re)||!Number.isFinite(c.im)) throw new Error('invalid c'); }
+
+  function reset(clearLog=true){ stop(); loadInputs(); z={re:0,im:0}; hop=0;gates=[];path=[];escaped=false;if(clearLog)log.innerHTML='';setStatus('CONTAINED / READY');ledger(`HOME · c=${c.re}${c.im<0?'':'+'}${c.im}i · roll=${roll}`,'homeLine');updateReadout(); }
+  function currentSymbol(){ const p=rolledPattern(roll); return p[(hop)%9]; }
+  function stepOnce(){
+    if(escaped)return false;
+    const symbol=currentSymbol(); z=mulsq(z); hop++; const gate=symbol==='|'; const out=mag(z)>2; path.push({hop,symbol,re:z.re,im:z.im,gate,escaped:out});
+    if(gate){gates.push(hop);ledger(`${String(hop).padStart(3,'0')} | GATE · z=${zText()}`,'gateLine');} else ledger(`${String(hop).padStart(3,'0')} . wander · z=${zText()}`);
+    if(out){escaped=true;setStatus('ESCAPE / |z| > 2','bad');ledger(`ESCAPE at hop ${hop} · |z|=${fmt(mag(z))}`,'escapeLine');stop();}
+    else if(mode==='roll' && hop%9===0){ roll=normRoll(roll+1); el('roll').value=roll; ledger(`↻ ROLL · brick complete → phase ${roll}`,'homeLine'); if(roll===0)ledger('HOME · brick returned to canonical phase','homeLine'); }
+    updateReadout(); return !out;
+  }
+  function go(){ if(running)return; if(hop===0){loadInputs();drawBrick()} running=true;setStatus(mode==='wander'?'WANDERING / LIVE':'ROLLING / LIVE'); const lim=Math.max(1,Math.min(729,Number(el('limit').value)||81)); timer=setInterval(()=>{ if(!stepOnce()||hop>=lim){stop(); if(!escaped)setStatus(mode==='wander'?'WANDER COMPLETE / LIMIT':'ROLL COMPLETE / LIMIT');}},90); }
+  function stop(){running=false;if(timer){clearInterval(timer);timer=null}}
+  function setMode(next){mode=next;el('wanderMode').classList.toggle('on',mode==='wander');el('rollMode').classList.toggle('on',mode==='roll');el('modeBadge').textContent=mode.toUpperCase();stop();setStatus('CONTAINED / READY');ledger(`MODE → ${mode.toUpperCase()}`,'homeLine');}
+
+  el('wanderMode').onclick=()=>setMode('wander'); el('rollMode').onclick=()=>setMode('roll'); el('go').onclick=go; el('step').onclick=()=>{stop();if(hop===0)loadInputs();stepOnce()}; el('stop').onclick=()=>{stop();setStatus('CONTAINED / PAUSED','warn')}; el('home').onclick=()=>reset();
+  ['cre','cim','roll'].forEach(id=>el(id).addEventListener('change',()=>reset(false)));
+  stage.addEventListener('click',e=>{const r=stage.getBoundingClientRect();const q=screenToComplex(e.clientX-r.left,e.clientY-r.top,r.width,r.height);el('cre').value=q.re.toFixed(6);el('cim').value=q.im.toFixed(6);reset();});
+  new ResizeObserver(resize).observe(stage); reset();
+})();
+</script>
+</body>
+</html>
